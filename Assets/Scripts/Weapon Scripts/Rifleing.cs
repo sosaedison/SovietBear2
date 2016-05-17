@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pistol : MonoBehaviour {
-	public bool active = false;
+public class Rifleing : Weapon {
 	// Use this for initialization
 	void Start () {
 	
@@ -11,5 +10,9 @@ public class Pistol : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+	void Shoot ()
+	{
+		Debug.Log("Rifle shot");
 	}
 }

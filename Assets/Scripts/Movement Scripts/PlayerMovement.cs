@@ -19,7 +19,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update ()
 	{
-		jetpackDuration -= Time.deltaTime;
+		if (canJump == false)
+		{
+			jetpackDuration -= Time.deltaTime;
+		}
 	}
 
 	// Update is called once per frame
@@ -32,7 +35,7 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			rigbod.AddForce(new Vector2(0f, jumpPower));
 		}
-		else if(canJump == false && Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical")>0 && jetpackDuration >= 0)
+		else if(canJump == false && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical")>0 && jetpackDuration >= 0)
 		{
 			rigbod.AddForce(new Vector2(0f, jetpackPower));
 			Debug.Log("Jetpacking");
