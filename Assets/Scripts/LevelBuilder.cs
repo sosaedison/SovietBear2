@@ -11,7 +11,7 @@ public class LevelBuilder : MonoBehaviour {
     int tilesSinceDeadEnd = 0;
     int tilesGenerated = 0;
 
-    bool CheckCompatibility(int direction, GameObject tile)
+    bool CheckCompatibility(GameObject tile1, int direction, GameObject tile2)
     {
         int oppositeDirection = direction - 2;
         if (oppositeDirection < 0)
@@ -19,10 +19,11 @@ public class LevelBuilder : MonoBehaviour {
             oppositeDirection += 4;
         }
 
-        return !tile.GetComponent<LevelTile>().adjacentTiles[oppositeDirection].CompareTag("Blocker");
+        return tile1.GetComponent<LevelTile>().adjacentTiles[direction].CompareTag(tile2.GetComponent<LevelTile>().adjacentTiles[oppositeDirection].tag);
+
     }
 
-    void GenerateAdjacentTiles(GameObject tile, Vector2 tileCoordinates)
+    void GenerateAdjacentTiles(GameObject tile)
     {
         GameObject[] tilesToGenerate = tile.GetComponent<LevelTile>().adjacentTiles;
 
@@ -30,7 +31,7 @@ public class LevelBuilder : MonoBehaviour {
         {
             if (tilesToGenerate[i].CompareTag("Placeholder"))
             {
-                Vector2 newCoordinates = tileCoordinates;
+                Vector2 newCoordinates = tile.GetComponent<LevelTile>().coordinates;
                 switch (i)
                 {
                     case 0:
@@ -50,13 +51,40 @@ public class LevelBuilder : MonoBehaviour {
                         break;
                 }
                 bool tileGenerated = false;
+                GameObject potentialTile = null;
+                GameObject[] testingTiles = { map[(int)newCoordinates.x - 1][(int)newCoordinates.y],
+                                              map[(int)newCoordinates.x][(int)newCoordinates.y + 1],
+                                              map[(int)newCoordinates.x + 1][(int)newCoordinates.y],
+                                              map[(int)newCoordinates.x][(int)newCoordinates.y - 1] };
                 while (!tileGenerated)
                 {
                     int index = Random.Range(0, tiles.Length);
-                    GameObject potentialTile = tiles[index];
+                    potentialTile = tiles[index];
+                    tileGenerated = true;
                     //check compatiblity
 
+                    int minY = potentialTile.GetComponent<LevelTile>().minY;
+                    int maxY = potentialTile.GetComponent<LevelTile>().maxY;
+
+                    tileGenerated = newCoordinates.y >= minY && minY >= 0;
+                    tileGenerated = newCoordinates.y <= maxY && maxY >= 0; 
+                    
+                    for (int j = 0; i <= testingTiles.Length; i++)
+                    {
+                        if (testingTiles[j] != null)
+                        {
+                            tileGenerated = CheckCompatibility(potentialTile, j, testingTiles[j]);
+                            if (tileGenerated)
+                            {
+                                potentialTile.GetComponent<LevelTile>().adjacentTiles[j] = testingTiles[j];
+                            }
+                        }
+                    }
+
                 }
+                potentialTile.GetComponent<LevelTile>().coordinates = newCoordinates;
+                tile.GetComponent<LevelTile>().adjacentTiles[i] = potentialTile;
+                map[(int)newCoordinates.x][(int)newCoordinates.y] = potentialTile;
             }
         }
     }
