@@ -68,7 +68,13 @@ public class LevelBuilder : MonoBehaviour {
 
                     tileGenerated = newCoordinates.y >= minY && minY >= 0;
                     tileGenerated = newCoordinates.y <= maxY && maxY >= 0; 
-                    
+
+                    if (potentialTile.GetComponent<LevelTile>().isDeadEnd)
+                    {
+                        tileGenerated = tilesSinceDeadEnd > 5;
+                    }
+
+                    if (!tileGenerated) continue;
                     for (int j = 0; i <= testingTiles.Length; i++)
                     {
                         if (testingTiles[j] != null)
@@ -85,6 +91,15 @@ public class LevelBuilder : MonoBehaviour {
                 potentialTile.GetComponent<LevelTile>().coordinates = newCoordinates;
                 tile.GetComponent<LevelTile>().adjacentTiles[i] = potentialTile;
                 map[(int)newCoordinates.x][(int)newCoordinates.y] = potentialTile;
+                tilesGenerated++;
+                if (potentialTile.GetComponent<LevelTile>().isDeadEnd)
+                {
+                    tilesSinceDeadEnd = 0;
+                }
+                else
+                {
+                    tilesSinceDeadEnd++;
+                }
             }
         }
     }
