@@ -21,7 +21,7 @@ public class ButtonHandler : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             selectedButton += 1;
-            if (selectedButton >= buttons.GetLength(0))
+            if (selectedButton >= buttons.Length)
             {
                 selectedButton = 0;
             }
@@ -32,7 +32,7 @@ public class ButtonHandler : MonoBehaviour {
             selectedButton -= 1;
             if (selectedButton < 0)
             {
-                selectedButton = buttons.GetLength(0) - 1;
+                selectedButton = buttons.Length - 1;
             }
             EventSystem.current.SetSelectedGameObject(buttons[selectedButton]);
         }
