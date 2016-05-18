@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AssultRifle : MonoBehaviour {
-	public bool active = false;
+public class Flamethrowing : Weapon {
+
 	// Use this for initialization
 	void Start () {
 	
@@ -11,5 +11,9 @@ public class AssultRifle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+	void Shoot ()
+	{
+		Debug.Log("Flames thrown");
 	}
 }
