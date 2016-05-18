@@ -7,6 +7,7 @@ public class LevelTile : MonoBehaviour {
     public int minY = -1; //negative for no min/max
     public int maxY = -1;
     public bool isDeadEnd = false;
+    public bool isBossRoom = false;
     public Vector2 coordinates = Vector2.zero;
 
 	// Use this for initialization
