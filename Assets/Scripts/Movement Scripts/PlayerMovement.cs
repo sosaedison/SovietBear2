@@ -28,18 +28,6 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-<<<<<<< HEAD
-		xMovement = (Input.GetAxis("Horizontal"));
-		rigbod.velocity = new Vector2(xMovement*xVelocityFactor, rigbod.velocity.y);
-
-		if (canJump == true && Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical")>0)
-		{
-			rigbod.AddForce(new Vector2(0f, jumpPower));
-		}
-		else if(canJump == false && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical")>0 && jetpackDuration >= 0)
-		{
-			rigbod.AddForce(new Vector2(0f, jetpackPower));
-=======
 		xMovement = (Input.GetAxis ("Horizontal"));
 		rigbod.velocity = new Vector2 (xMovement * xVelocityFactor, rigbod.velocity.y);
 
@@ -48,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
 		} else if (canJump == false && Input.GetButton ("Vertical") && Input.GetAxisRaw ("Vertical") > 0 && jetpackDuration >= 0) {
 			rigbod.AddForce (new Vector2 (0f, jetpackPower));
 			Debug.Log ("Jetpacking");
->>>>>>> movement
 		}
 	}
 

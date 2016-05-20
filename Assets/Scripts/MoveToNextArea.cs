@@ -14,15 +14,10 @@ public class MoveToNextArea : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-<<<<<<< HEAD
-		//endPos = camHere.transform.position;
-		//playerCol = GameObject.Find ("player").GetComponent<BoxCollider2D> ();
-=======
 		camHere = GameObject.FindWithTag ("CamHere"); 
 		player = GameObject.Find ("player"); 
 		endPos = camHere.transform.position;
 		playerCol = GameObject.Find ("player").GetComponent<BoxCollider2D> ();
->>>>>>> movement
 		Physics2D.IgnoreCollision (comeBack, playerCol, true);
 	}
 
@@ -35,13 +30,9 @@ public class MoveToNextArea : MonoBehaviour
 	{
 		if (other.gameObject.name == "player") {
 			player.GetComponent<PlayerMovement> ().enabled = false;
-<<<<<<< HEAD
-			//camera.transform.position = Vector2.Lerp (endPos, currentPos, 0.1F * Time.deltaTime);
-=======
 		}
 		if (Vector2.Distance (player.transform.position, camHere.transform.position) <= 53) {
 			camera.transform.position = Vector2.Lerp (endPos, currentPos, 0.1F * Time.deltaTime);
->>>>>>> movement
 		}
 
 			
