@@ -14,21 +14,21 @@ public class MoveToNextArea : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		endPos = camHere.transform.position;
-		playerCol = GameObject.Find ("player").GetComponent<BoxCollider2D> ();
+		//endPos = camHere.transform.position;
+		//playerCol = GameObject.Find ("player").GetComponent<BoxCollider2D> ();
 		Physics2D.IgnoreCollision (comeBack, playerCol, true);
 	}
 
 	void FixedUpdate ()
 	{
-		currentPos = player.transform.position;
+		//currentPos = player.transform.position;
 	}
 	// Update is called once per frame
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		if (other.gameObject.name == "player") {
 			player.GetComponent<PlayerMovement> ().enabled = false;
-			camera.transform.position = Vector2.Lerp (endPos, currentPos, 0.1F * Time.deltaTime);
+			//camera.transform.position = Vector2.Lerp (endPos, currentPos, 0.1F * Time.deltaTime);
 		}
 
 			

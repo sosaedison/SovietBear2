@@ -9,6 +9,7 @@ public class LevelBuilder : MonoBehaviour {
     List<GameObject> potentialBossRooms;
 
     public GameObject[] tiles; //Array of all tiles that can be generated (prefabs)
+    public GameObject starterTile;
 
     int tilesSinceDeadEnd = 0;
     int tilesGenerated = 0;
@@ -21,8 +22,11 @@ public class LevelBuilder : MonoBehaviour {
         {
             oppositeDirection += 4;
         }
+        string tile1tag = tile1.GetComponent<LevelTile>().adjacentTiles[direction].tag;
+        string tile2tag = tile2.GetComponent<LevelTile>().adjacentTiles[oppositeDirection].tag;
 
-        return tile1.GetComponent<LevelTile>().adjacentTiles[direction].CompareTag(tile2.GetComponent<LevelTile>().adjacentTiles[oppositeDirection].tag);
+        return tile1tag == tile2tag;
+        //return tile1.GetComponent<LevelTile>().adjacentTiles[direction].CompareTag(tile2.GetComponent<LevelTile>().adjacentTiles[oppositeDirection].tag);
 
     }
 
@@ -62,31 +66,49 @@ public class LevelBuilder : MonoBehaviour {
                                               map[(int)newCoords.x, (int)newCoords.y - 1] };
                 while (!tileGenerated)
                 {
-                    int index = Random.Range(0, tiles.Length);
-                    potentialTile = tiles[index];
+                    int index = Random.Range(0, tiles.Length - 1);
+                    float newX = (newCoords.x - 25f) * 99.79f;
+                    float newY = (newCoords.y - 25f) * 49.75f;
+                    potentialTile = (GameObject)Instantiate(tiles[index], new Vector3(newX, newY, 0.3f), Quaternion.Euler(270,0,0));
+
                     tileGenerated = true;
                     
                     //check compatiblity
                     int minY = potentialTile.GetComponent<LevelTile>().minY;
                     int maxY = potentialTile.GetComponent<LevelTile>().maxY;
 
-                    tileGenerated = newCoords.y >= minY && minY >= 0;
-                    tileGenerated = newCoords.y <= maxY && maxY >= 0; 
+                    if (minY >= 0)
+                    {
+                        if (newCoords.y < minY) tileGenerated = false;
+                    }
+
+                    if (maxY >= 0)
+                    {
+                        if (newCoords.y > maxY) tileGenerated = false;
+                    }
 
                     if (potentialTile.GetComponent<LevelTile>().isDeadEnd && !deadEndMode)
                     {
-                        tileGenerated = tilesSinceDeadEnd > 5; //attempt to prevent short levels
+                        if (tilesSinceDeadEnd <= 5) tileGenerated = false; //attempt to prevent short levels
                     }
 
-                    if (!tileGenerated) continue; //save some time
-                    for (int j = 0; j <= testingTiles.Length; j++)
+                    if (!tileGenerated)
+                    {
+                        Destroy(potentialTile);
+                        continue;
+                    } //save some time
+                    for (int j = 0; j < testingTiles.Length; j++)
                     {
                         if (testingTiles[j] != null)
                         {
-                            tileGenerated = CheckCompatibility(potentialTile, j, testingTiles[j]);
+                            if (!CheckCompatibility(potentialTile, j, testingTiles[j])) tileGenerated = false;
                             if (tileGenerated)
                             {
                                 potentialTile.GetComponent<LevelTile>().adjacentTiles[j] = testingTiles[j];
+                            }
+                            else
+                            {
+                                break;
                             }
                         }
                     }
@@ -95,12 +117,26 @@ public class LevelBuilder : MonoBehaviour {
                         GameObject[] connectedTiles = potentialTile.GetComponent<LevelTile>().adjacentTiles;
                         for (int k = 0; k < connectedTiles.Length; k++)
                         {
-                            tileGenerated = !connectedTiles[k].CompareTag("Placeholder");
+                            if (connectedTiles[k].CompareTag("Placeholder")) tileGenerated = false;
                         }
                     }
+
+                    if (!tileGenerated) Destroy(potentialTile);
                 }
                 potentialTile.GetComponent<LevelTile>().coordinates = newCoords;
-                tile.GetComponent<LevelTile>().adjacentTiles[i] = potentialTile;
+                for (int l = 0; l < testingTiles.Length; l++)
+                {
+                    if (testingTiles[l] != null)
+                    {
+                        int oppositeDirection = l - 2;
+                        if (oppositeDirection < 0)
+                        {
+                            oppositeDirection += 4;
+                        }
+                        testingTiles[l].GetComponent<LevelTile>().adjacentTiles[oppositeDirection] = potentialTile;
+                    }
+                    
+                }
                 map[(int)newCoords.x, (int)newCoords.y] = potentialTile;
                 tilesGenerated++;
                 if (potentialTile.GetComponent<LevelTile>().isDeadEnd) //don't bother generating around dead ends
@@ -143,5 +179,35 @@ public class LevelBuilder : MonoBehaviour {
         int bossRoom = Random.Range(0, potentialBossRooms.Count);
         potentialBossRooms[bossRoom].GetComponent<LevelTile>().isBossRoom = true;
         return map;
+    }
+
+    void printMap(GameObject[,] map)
+    {
+        for (int i = 0; i < map.GetLength(1); i++)
+        {
+            string row = "";
+            for (int j = 0; j < map.GetLength(0); j++)
+            {
+                if (map[j, i] == null)
+                {
+                    row += "  -  ";
+                }
+                else
+                {
+                    row += j.ToString();
+                    row += ".";
+                    row += map[j, i].name;
+                    row += " ";
+                }
+
+            }
+            Debug.Log(row);
+        }
+    }
+
+    void Start()
+    {
+        GameObject[,] newLevel = GenerateNewLevel(starterTile);
+        //printMap(newLevel);
     }
 }
