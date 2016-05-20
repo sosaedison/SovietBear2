@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour {
 		else if(canJump == false && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical")>0 && jetpackDuration >= 0)
 		{
 			rigbod.AddForce(new Vector2(0f, jetpackPower));
-			Debug.Log("Jetpacking");
 		}
 	}
 

@@ -16,8 +16,16 @@ public class Weapon : MonoBehaviour {
 		{
 			Invoke("Shoot", 0);
 		}
+		else if(Input.GetButton("Fire1") && equipped == true)
+		{
+			Invoke("AutoShoot", 0);
+		}
 	}
 	void Shoot ()
+	{
+		
+	}
+	void AutoShoot()
 	{
 		
 	}

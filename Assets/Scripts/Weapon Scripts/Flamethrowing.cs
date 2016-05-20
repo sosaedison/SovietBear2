@@ -3,7 +3,9 @@ using System.Collections;
 
 public class Flamethrowing : Weapon {
 
-	// Use this for initialization
+	public GameObject prefab;
+	public int ammo = 1200;
+	public int flameFireCooldown = 0;
 	void Start () {
 	
 	}
@@ -12,8 +14,22 @@ public class Flamethrowing : Weapon {
 	void Update () {
 	
 	}
-	void Shoot ()
+	void AutoShoot ()
 	{
-		Debug.Log("Flames thrown");
+		if (ammo > 0)
+		{
+			//++flameFireCooldown;
+			// Cooldown timer needs to be larger for faster bullets
+			//if (flameFireCooldown == 5)
+			//{
+				Instantiate(prefab, new Vector2(transform.position.x + 1.1f, transform.position.y -.2f), Quaternion.identity);
+				ammo = ammo - 1;
+				Instantiate(prefab, new Vector2(transform.position.x + .75f, transform.position.y), Quaternion.identity);
+				ammo = ammo - 1;
+				Instantiate(prefab, new Vector2(transform.position.x + 1.1f, transform.position.y + .2f), Quaternion.identity);
+				ammo = ammo - 1;
+				flameFireCooldown = 0;
+			//}
+		}
 	}
 }
