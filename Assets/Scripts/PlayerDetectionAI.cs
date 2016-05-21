@@ -32,12 +32,18 @@ public class PlayerDetectionAI : MonoBehaviour {
                 playerVisible = true;
                 noticedPlayer = playerInCone;
                 //Debug.Log("Player Visible!");
+                lastSeenTime = Time.time;
             }
             else
             {
                 playerVisible = false;
-                lastSeenTime = Time.time;
+                
             }
+
+        }
+        if (Time.time - lastSeenTime > 15)
+        {
+            noticedPlayer = null;
         }
     }
 
