@@ -8,7 +8,6 @@ public class Pistoling : Weapon {
 	float CoolDown = .35f;
 	void Start () 
 	{
-	
 	}
 	
 	// Update is called once per frame
@@ -16,13 +15,15 @@ public class Pistoling : Weapon {
 	{
 	
 	}
-	void Shoot (Vector2 direction)
+	override public void Shoot (Vector2 direction)
 	{
 		if (ammo > 0 && CanShoot == true)
 		{
-            GameObject bullet = (GameObject) Instantiate(Bullet, new Vector2(transform.position.x + 1.0f, transform.position.y), Quaternion.identity);
-            bullet.GetComponent<BulletMotion>().direction = direction;
-            bullet.GetComponent<BulletMotion>().Activate();
+            GameObject bullet = (GameObject) Instantiate(Bullet, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
+			bulletMotion.direction = direction;
+			bulletMotion.speed = 500f;
+			bulletMotion.Activate();
             ammo--;
 			CanShoot = false;
 			Invoke("Reset", CoolDown);

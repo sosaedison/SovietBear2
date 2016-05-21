@@ -17,13 +17,15 @@ public class Rifleing : Weapon {
 	void Update () {
 	
 	}
-	void AutoShoot (Vector2 direction)
+	override public void AutoShoot (Vector2 direction)
 	{
 		if (ammo > 0 && CanShoot == true)
 		{
-			GameObject bullet = (GameObject) Instantiate(prefab, new Vector2(transform.position.x + 1.0f, transform.position.y), Quaternion.identity);
-            bullet.GetComponent<BulletMotion>().direction = direction;
-            bullet.GetComponent<BulletMotion>().Activate();
+			GameObject bullet = (GameObject) Instantiate(prefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
+			bulletMotion.direction = direction;
+			bulletMotion.speed = 500f;
+			bulletMotion.Activate();
             ammo--;
 			firing = true;
 			CanShoot = false;
@@ -34,16 +36,20 @@ public class Rifleing : Weapon {
 			++burstFireCooldown;
 			if (burstFireCooldown == 10)
 			{
-                GameObject bullet = (GameObject)Instantiate(prefab, new Vector3(transform.position.x + 1.0f, transform.position.y), Quaternion.identity);
-                bullet.GetComponent<BulletMotion>().direction = direction;
-                bullet.GetComponent<BulletMotion>().Activate();
+                GameObject bullet = (GameObject)Instantiate(prefab, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
+				BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
+				bulletMotion.direction = direction;
+				bulletMotion.speed = 500f;
+				bulletMotion.Activate();
                 ammo--;
 			}
 			else if (burstFireCooldown == 19)
 			{
-                GameObject bullet = (GameObject)Instantiate(prefab, new Vector3(transform.position.x + 1.0f, transform.position.y), Quaternion.identity);
-                bullet.GetComponent<BulletMotion>().direction = direction;
-                bullet.GetComponent<BulletMotion>().Activate();
+                GameObject bullet = (GameObject)Instantiate(prefab, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
+				BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
+				bulletMotion.direction = direction;
+				bulletMotion.speed = 500f;
+				bulletMotion.Activate();
                 ammo--;
 			}
 			else if (burstFireCooldown == 21)

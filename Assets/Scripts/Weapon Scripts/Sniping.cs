@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Sniping : Weapon {
 
-	public GameObject Bullet;
+	public GameObject prefab;
 	public int ammo = 10;
 	bool CanShoot = true;
 	float CoolDown = 1.2f;
@@ -15,13 +15,16 @@ public class Sniping : Weapon {
 	void Update () {
 	
 	}
-	void Shoot (Vector2 direction)
+	override public void Shoot (Vector2 direction)
 	{
 		if(ammo > 0 && CanShoot == true)
 		{
-			GameObject bullet = (GameObject) Instantiate(Bullet, new Vector2(transform.position.x + 1.0f, transform.position.y), Quaternion.identity);
-            bullet.GetComponent<BulletMotion>().direction = direction;
-            bullet.GetComponent<BulletMotion>().Activate();
+			GameObject bullet = (GameObject) Instantiate(prefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
+			bulletMotion.direction = direction;
+			bulletMotion.speed = 900f;
+			bulletMotion.canCollat = true;
+			bulletMotion.Activate();
             ammo--;
 			CanShoot = false;
 			Invoke("Reset", CoolDown);
