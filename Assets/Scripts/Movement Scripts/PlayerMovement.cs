@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
 	Rigidbody2D rigbod;
 	public bool canJump = true;
 	int jumpPower = 800;
-	int jetpackPower = 8;
-	float jetpackDuration = 3;
+	int jetpackPower = 16;
+	float jetpackDuration = 9;
 	Transform YRotation;
 
 	// Use this for initialization
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	//Enables Jumping
-	/*void OnTriggerEnter2D (Collider2D other)
+	void OnCollisionEnter2D (Collision2D other)
 	{
 		if (other.gameObject.layer == 8) {
 			canJump = true;
@@ -62,10 +62,10 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-	void OnTriggerExit2D (Collider2D other)
+	void OnCollisionExit2D (Collision2D other)
 	{
 		if (other.gameObject.layer == 8) {
 			canJump = false;
 		}
-	}*/
+	}
 }

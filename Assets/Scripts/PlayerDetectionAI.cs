@@ -26,6 +26,7 @@ public class PlayerDetectionAI : MonoBehaviour {
             Vector2 enemyPosition = transform.position;
             Vector2 rayDirection = playerPosition - enemyPosition;
             RaycastHit2D hit = Physics2D.Raycast(enemyPosition, rayDirection);
+            Debug.DrawRay(enemyPosition, rayDirection);
             if (hit.collider != null && hit.collider.gameObject == playerInCone)
             {
                 playerVisible = true;
@@ -35,6 +36,7 @@ public class PlayerDetectionAI : MonoBehaviour {
             else
             {
                 playerVisible = false;
+                lastSeenTime = Time.time;
             }
         }
     }
@@ -54,7 +56,6 @@ public class PlayerDetectionAI : MonoBehaviour {
         {
             playerInCone = null;
             playerVisible = false;
-            lastSeenTime = Time.time;
             //Debug.Log("Left Cone!");
         }
     }
