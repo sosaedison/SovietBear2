@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
 	int jumpPower = 300;
 	int jetpackPower = 8;
 	float jetpackDuration = 3;
+	Transform YRotation;
+
 
 	// Use this for initialization
 	void Start () 
@@ -30,6 +32,14 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		xMovement = (Input.GetAxis("Horizontal"));
 		rigbod.velocity = new Vector2(xMovement*xVelocityFactor, rigbod.velocity.y);
+		if (Input.GetAxisRaw("Horizontal")>0f)
+		{
+			transform.rotation = Quaternion.Euler(0,0,0);
+		}
+		else if (Input.GetAxisRaw("Horizontal")<0f)
+		{
+			transform.rotation = Quaternion.Euler(0,180,0);
+		}
 
 		if (canJump == true && Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical")>0)
 		{

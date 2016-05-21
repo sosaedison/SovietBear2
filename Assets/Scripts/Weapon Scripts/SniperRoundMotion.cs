@@ -15,15 +15,20 @@ public class SniperRoundMotion : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-
+		if (Collat == 3)
+		{
+			Destroy(gameObject);
+		}
 	}
+
 	void OnCollisionEnter2D (Collision2D collision)
 	{
-		if(collision.gameObject.tag == "Nazi")
+		if(collision.gameObject.tag == "Nazi" && Collat <= 3)
 		{
 			++Collat;
+			Destroy(collision.gameObject);
 		}
-		else if (Collat >= 3 || collision.gameObject.tag != "Nazi")
+		if (collision.gameObject.tag != "Nazi")
 		{
 			Destroy(gameObject);
 		}

@@ -18,6 +18,10 @@ public class BulletMotion : MonoBehaviour
 	}
 	void OnCollisionEnter2D (Collision2D collision)
 	{
+		if (collision.gameObject.tag == "Nazi")
+		{
+			Destroy(collision.gameObject);
+		}
 		Destroy(gameObject);
 	}
 

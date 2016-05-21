@@ -18,18 +18,18 @@ public class Flamethrowing : Weapon {
 	{
 		if (ammo > 0)
 		{
-			//++flameFireCooldown;
+			++flameFireCooldown;
 			// Cooldown timer needs to be larger for faster bullets
-			//if (flameFireCooldown == 5)
-			//{
-				Instantiate(prefab, new Vector2(transform.position.x + 1.1f, transform.position.y -.2f), Quaternion.identity);
+			if (flameFireCooldown == 5)
+			{
+				Instantiate(prefab, new Vector2(transform.position.x + 1.1f, transform.position.y -.3f), Quaternion.identity);
 				ammo = ammo - 1;
 				Instantiate(prefab, new Vector2(transform.position.x + .75f, transform.position.y), Quaternion.identity);
 				ammo = ammo - 1;
-				Instantiate(prefab, new Vector2(transform.position.x + 1.1f, transform.position.y + .2f), Quaternion.identity);
+				Instantiate(prefab, new Vector2(transform.position.x + 1.1f, transform.position.y + .3f), Quaternion.identity);
 				ammo = ammo - 1;
 				flameFireCooldown = 0;
-			//}
+			}
 		}
 	}
 }
