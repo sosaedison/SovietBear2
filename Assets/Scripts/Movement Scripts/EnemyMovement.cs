@@ -39,7 +39,7 @@ public class EnemyMovement : MonoBehaviour {
     }
     void DropDown()
     {
-
+        GetComponent<PhaseThroughFloor>().DropDown();
     }
 	
 	// Update is called once per frame
@@ -52,11 +52,11 @@ public class EnemyMovement : MonoBehaviour {
                 Vector2 direction = transform.position - playerDetectionAI.noticedPlayer.transform.position;
                 GetComponentInChildren<Weapon>().Shoot(direction);
                 GetComponentInChildren<Weapon>().AutoShoot(direction);
-                if (playerDetectionAI.noticedPlayer.transform.position.y > transform.position.y + 3)
+                if (playerDetectionAI.noticedPlayer.transform.position.y > transform.position.y + 20)
                 {
                     Jump();
                 }
-                else if (playerDetectionAI.noticedPlayer.transform.position.y < transform.position.y - 3)
+                else if (playerDetectionAI.noticedPlayer.transform.position.y < transform.position.y - 20)
                 {
                     DropDown();
                 }
@@ -82,7 +82,6 @@ public class EnemyMovement : MonoBehaviour {
         if (other.gameObject.layer == 8)
         {
             canJump = true;
-            rigbod.velocity = new Vector2(0, 0);
         }
     }
     void OnCollisionExit2D(Collision2D other)

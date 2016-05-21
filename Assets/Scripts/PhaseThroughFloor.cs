@@ -3,38 +3,47 @@ using System.Collections;
 
 public class PhaseThroughFloor : MonoBehaviour
 {
-	private Collider2D floorCollider;
-	public bool isOn = false;
+    private Collider2D floorCollider;
+    public Collider2D collider;
+    private Rigidbody2D rigbod;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
+    {
+        rigbod = GetComponent<Rigidbody2D>();
+    }
+
+    public void DropDown()
+    {
+        if (floorCollider != null)
+        {
+            Physics2D.IgnoreCollision(floorCollider, collider, true);
+        }
+
+    }
+
+	void OnTriggerEnter2D (Collider2D other)
 	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		if (floorCollider != null) {
-			if (Input.GetKey ("s")) {
-				floorCollider.enabled = false;
-			} else {
-				floorCollider.enabled = true;
-			}
-		}
-     
+        if (other.gameObject.CompareTag("PhaseGround"))
+        {
+            Debug.Log("enter");
+            floorCollider = other.gameObject.GetComponents<Collider2D>()[0];
+            if (rigbod.velocity.y > 0)
+            {
+                Physics2D.IgnoreCollision(floorCollider, collider, true);
+
+            }
+        }
 	}
 
-	void OnCollisionEnter2D (Collision2D coll)
-	{
-		if (coll.gameObject.CompareTag ("PhaseGround")) {
-			floorCollider = coll.gameObject.GetComponent<Collider2D> ();
-			isOn = true;
-		}
-		if (floorCollider.enabled == true) {
-			Debug.Log ("I'm so turned on!");
-		}
-
-	}
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.GetComponents<Collider2D>()[0] == floorCollider)
+        {
+            Debug.Log("exit");
+            Physics2D.IgnoreCollision(floorCollider, collider, false);
+            floorCollider = null;
+        }
+    }
    
 }
