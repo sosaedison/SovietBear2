@@ -6,29 +6,41 @@ public class Weapon : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-	
+		
 	}
 	
 	// Update is called once per frame
+	void Update()
+	{
+		
+	}
 	void FixedUpdate () 
 	{
         if (transform.root.CompareTag("Player"))
         {
-            if (Input.GetButtonDown("Fire1") && equipped == true)
+			if (Input.GetButtonDown("Fire1") && equipped == true && transform.root.transform.rotation.eulerAngles.y == 0)
             {
-                Invoke("Shoot", 0);
+				this.Shoot(Vector2.right);
             }
-            else if (Input.GetButton("Fire1") && equipped == true)
+			else if (Input.GetButtonDown("Fire1") && equipped == true && transform.root.transform.rotation.eulerAngles.y != 0)
+			{
+				this.Shoot(Vector2.left);
+			}
+			else if (Input.GetButton("Fire1") && equipped == true && transform.root.rotation.y == 0)
             {
-                Invoke("AutoShoot", 0);
+				this.AutoShoot(Vector2.right);
             }
+			else if (Input.GetButton("Fire1") && equipped == true && transform.root.transform.rotation.y != 0)
+			{
+				this.AutoShoot(Vector2.left);
+			}
         }
 	}
-	public void Shoot (Vector2 direction)
+	virtual public void Shoot (Vector2 direction)
 	{
 		//override in subclasses
 	}
-	public void AutoShoot(Vector2 direction)
+	virtual public void AutoShoot (Vector2 direction)
 	{
         //override in subclasses
     }

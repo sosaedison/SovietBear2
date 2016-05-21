@@ -8,10 +8,11 @@ public class PlayerMovement : MonoBehaviour
 	float xMovement = 0.0f;
 	Rigidbody2D rigbod;
 	public bool canJump = true;
-	int jumpPower = 800;
-	int jetpackPower = 16;
+	public int jumpPower = 800;
+	public int jetpackPower = 16;
 	float jetpackDuration = 9;
 	Transform YRotation;
+	bool LookingRight = true;
 
 	// Use this for initialization
 	void Start ()
@@ -34,10 +35,12 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetAxisRaw("Horizontal")>0f)
 		{
 			transform.rotation = Quaternion.Euler(0,0,0);
+			LookingRight = true;
 		}
 		else if (Input.GetAxisRaw("Horizontal")<0f)
 		{
 			transform.rotation = Quaternion.Euler(0,180,0);
+			LookingRight = false;
 		}
 
 		if (canJump == true && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical")>0)
@@ -56,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	//Enables Jumping
-	void OnCollisionEnter2D (Collision2D other)
+	void OnCollisionStay2D (Collision2D other)
 	{
 		if (other.gameObject.layer == 8) {
 			canJump = true;

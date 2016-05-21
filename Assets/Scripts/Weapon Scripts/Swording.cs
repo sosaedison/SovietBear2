@@ -17,7 +17,7 @@ public class Swording : Weapon {
 	{
 
 	}
-	void Shoot (Vector2 direction)
+	override public void Shoot (Vector2 direction)
 	{
 		if (CanSwing == true)
 		{
