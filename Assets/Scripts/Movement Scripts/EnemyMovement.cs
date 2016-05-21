@@ -90,5 +90,5 @@ public class EnemyMovement : MonoBehaviour {
         {
             canJump = false;
         }
-    }
+    } 
 }

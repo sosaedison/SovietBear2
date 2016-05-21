@@ -24,11 +24,18 @@ public class MoveToNextArea : MonoBehaviour
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		MoveCamera moveCamera = camera.GetComponent<MoveCamera> ();
-		moveCamera.endPos = this.GetComponentInParent<LevelTile> ().adjacentTiles [direction].transform.position;
+        GameObject adjacentTile = this.GetComponentInParent<LevelTile>().adjacentTiles[direction];
+
+        moveCamera.endPos = adjacentTile.transform.position;
 		moveCamera.startPos = camera.transform.position;
 		moveCamera.startTime = Time.time;
-			
-	}
+        if (!adjacentTile.GetComponent<LevelTile>().enemiesSpawned)
+        {
+            adjacentTile.GetComponent<LevelTile>().SpawnEnemies();
+        }
+
+
+    }
 
 
 }

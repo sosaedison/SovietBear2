@@ -10,13 +10,17 @@ public class LevelTile : MonoBehaviour {
     public bool isBossRoom = false;
     public Vector2 coordinates = Vector2.zero;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public GameObject[] enemySpawners;
+    public bool enemiesSpawned;
+
+    public void SpawnEnemies()
+    {
+        foreach (GameObject spawner in enemySpawners)
+        {
+            spawner.GetComponent<EnemySpawner>().SpawnRandomEnemy();
+            Destroy(spawner);
+        }
+        enemiesSpawned = true;
+        Debug.Log("Spawned");
+    }
 }
