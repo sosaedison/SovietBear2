@@ -5,39 +5,36 @@ public class Swording : Weapon {
 
 	public GameObject sword;
 	public bool CanSwing = true;
-	public float swingCooldown = .6f;
-	HingeJoint2D hinge;
-	JointMotor2D motor;
-	float MSpeed = 180f;
-	bool Swinging = false;
+	Animation SwordSwing;
 	// Use this for initialization
 	void Start () 
 	{
-		motor.motorSpeed = 0;
-		hinge = GetComponent<HingeJoint2D>();
+		SwordSwing = GetComponent<Animation>();
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-		
+
 	}
 	void Shoot ()
 	{
 		if (CanSwing == true)
 		{
-			motor.motorSpeed = MSpeed;
-			Invoke("Backswing",.5f);
+			CanSwing = false;
+			SwordSwing.Play();
+			Invoke("Reset",.6f);
 		}
 	}
-	void Reset()
+	void OnCollisionEnter2D(Collision2D other)
 	{
-		motor.motorSpeed = 0;
-		CanSwing = true;
+		if (other.gameObject.tag == "Nazi" && CanSwing == false)
+		{
+			Destroy(other.gameObject);
+		}
 	}
-	void Backswing ()
+	void Reset ()
 	{
-		motor.motorSpeed = -2*MSpeed;
-		Invoke("Reset",.25f);
+		CanSwing = true;
 	}
 }

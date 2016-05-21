@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
 	public bool canJump = true;
 	int jumpPower = 800;
 	int jetpackPower = 8;
-	float jetpackDuration = 100;
+	float jetpackDuration = 3;
+	Transform YRotation;
 
 	// Use this for initialization
 	void Start ()
@@ -28,14 +29,24 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-		xMovement = (Input.GetAxis ("Horizontal"));
-		rigbod.velocity = new Vector2 (xMovement * xVelocityFactor, rigbod.velocity.y);
+		xMovement = (Input.GetAxis("Horizontal"));
+		rigbod.velocity = new Vector2(xMovement*xVelocityFactor, rigbod.velocity.y);
+		if (Input.GetAxisRaw("Horizontal")>0f)
+		{
+			transform.rotation = Quaternion.Euler(0,0,0);
+		}
+		else if (Input.GetAxisRaw("Horizontal")<0f)
+		{
+			transform.rotation = Quaternion.Euler(0,180,0);
+		}
 
-		if (canJump == true && Input.GetButtonDown ("Vertical") && Input.GetAxisRaw ("Vertical") > 0) {
-			rigbod.AddForce (new Vector2 (0f, jumpPower));
-		} else if (canJump == false && Input.GetButton ("Vertical") && Input.GetAxisRaw ("Vertical") > 0 && jetpackDuration >= 0) {
-			rigbod.AddForce (new Vector2 (0f, jetpackPower));
-			Debug.Log ("Jetpacking");
+		if (canJump == true && Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical")>0)
+		{
+			rigbod.AddForce(new Vector2(0f, jumpPower));
+		}
+		else if(canJump == false && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical")>0 && jetpackDuration >= 0)
+		{
+			rigbod.AddForce(new Vector2(0f, jetpackPower));
 		}
 	}
 
