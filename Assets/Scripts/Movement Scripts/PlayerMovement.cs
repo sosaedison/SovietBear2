@@ -48,6 +48,11 @@ public class PlayerMovement : MonoBehaviour
 		{
 			rigbod.AddForce(new Vector2(0f, jetpackPower));
 		}
+
+        if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") < 0)
+        {
+            GetComponent<PhaseThroughFloor>().DropDown();
+        }
 	}
 
 	//Enables Jumping
