@@ -14,7 +14,7 @@ public class Flamethrowing : Weapon {
 	void Update () {
 	
 	}
-	void AutoShoot ()
+	void AutoShoot (Vector2 direction)
 	{
 		if (ammo > 0)
 		{

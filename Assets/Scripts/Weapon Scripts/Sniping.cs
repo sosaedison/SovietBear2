@@ -15,12 +15,14 @@ public class Sniping : Weapon {
 	void Update () {
 	
 	}
-	void Shoot ()
+	void Shoot (Vector2 direction)
 	{
 		if(ammo > 0 && CanShoot == true)
 		{
-			Instantiate(Bullet, new Vector2(transform.position.x + 1.0f, transform.position.y), Quaternion.identity);
-			ammo = ammo - 1;
+			GameObject bullet = (GameObject) Instantiate(Bullet, new Vector2(transform.position.x + 1.0f, transform.position.y), Quaternion.identity);
+            bullet.GetComponent<BulletMotion>().direction = direction;
+            bullet.GetComponent<BulletMotion>().Activate();
+            ammo--;
 			CanShoot = false;
 			Invoke("Reset", CoolDown);
 		}

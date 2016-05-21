@@ -22,7 +22,7 @@ public class Swording : Weapon {
 	{
 		
 	}
-	void Shoot ()
+	void Shoot (Vector2 direction)
 	{
 		if (CanSwing == true)
 		{
