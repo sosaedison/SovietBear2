@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 			transform.rotation = Quaternion.Euler(0,180,0);
 		}
 
-		if (canJump == true && Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical")>0)
+		if (canJump == true && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical")>0)
 		{
 			rigbod.AddForce(new Vector2(0f, jumpPower));
 		}
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 			rigbod.AddForce(new Vector2(0f, jetpackPower));
 		}
 
-        if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") < 0)
+        if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0)
         {
             GetComponent<PhaseThroughFloor>().DropDown();
         }
@@ -60,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (other.gameObject.layer == 8) {
 			canJump = true;
-			rigbod.velocity = new Vector2 (0, 0);
 			if (jetpackDuration <= 3) {
 				jetpackDuration = 3;
 			}

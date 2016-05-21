@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour {
     Rigidbody2D rigbod;
     public float movementSpeed = 5.0f;
     public bool canJump = false;
-    public float jumpPower = 800;
+    public float jumpPower = 100;
 
     // Use this for initialization
     void Start () {
