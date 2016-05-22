@@ -59,5 +59,13 @@ public class Management : MonoBehaviour {
 			weapons[4].GetComponent<SpriteRenderer>().enabled = true;
 			WeaponSlot = 4;
 		}
+		else if (Input.GetKeyDown(KeyCode.Alpha6))
+		{
+			weapons[WeaponSlot].GetComponent<Weapon>().equipped = false;
+			weapons[WeaponSlot].GetComponent<SpriteRenderer>().enabled = false;
+			weapons[5].GetComponent<Weapon>().equipped = true;
+			weapons[5].GetComponent<SpriteRenderer>().enabled = true;
+			WeaponSlot = 5;
+		}
 	}
 }
