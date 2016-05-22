@@ -22,7 +22,7 @@ public class Flamethrowing : Weapon {
 			// Cooldown timer needs to be larger for faster bullets
 			if (flameFireCooldown == 7)
 			{
-                Vector2 flameOffset = new Vector2(5.2f, 0.55f);
+                Vector2 flameOffset = new Vector2(2.8f, 0.55f);
                 Vector2 lowerOffset = new Vector2(1.1f, -0.25f);
                 Vector2 middleOffset = new Vector2(0.75f, 0f);
                 Vector2 upperOffset = new Vector2(1.1f, 0.25f);
@@ -34,9 +34,9 @@ public class Flamethrowing : Weapon {
                     upperOffset.x *= -1.0f;
                 }
                 
-                GameObject lowerFlame = (GameObject) Instantiate(prefab, (Vector2) transform.root.position + flameOffset + lowerOffset, Quaternion.identity);
-                GameObject middleFlame = (GameObject) Instantiate(prefab, (Vector2) transform.root.position + flameOffset + middleOffset, Quaternion.identity);
-                GameObject upperFlame = (GameObject) Instantiate(prefab, (Vector2) transform.root.position + flameOffset+ upperOffset, Quaternion.identity);
+                GameObject lowerFlame = (GameObject) Instantiate(prefab, (Vector2) transform.position + flameOffset + lowerOffset, Quaternion.identity);
+                GameObject middleFlame = (GameObject) Instantiate(prefab, (Vector2) transform.position + flameOffset + middleOffset, Quaternion.identity);
+                GameObject upperFlame = (GameObject) Instantiate(prefab, (Vector2) transform.position + flameOffset+ upperOffset, Quaternion.identity);
                 lowerFlame.GetComponent<FlameScript>().direction = direction;
                 middleFlame.GetComponent<FlameScript>().direction = direction;
                 upperFlame.GetComponent<FlameScript>().direction = direction;

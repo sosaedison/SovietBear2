@@ -15,14 +15,24 @@ public class AnimateSprite : MonoBehaviour {
     public int staticIndex = 0;
     public bool animating = false;
 
-    private int frameCount = 0;
-    private int frameIndex = 0;
+    [System.NonSerialized]
+    public int frameCount = 0;
+    [System.NonSerialized]
+    public int frameIndex = 0;
 
 
 	// Use this for initialization
 	void Start () {
         spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer
         spriteRenderer.sprite = staticSprites[staticIndex]; // set the sprite to baseSprite
+    }
+
+    void updateChildren(Sprite newSprite)
+    {
+        foreach(MatchParentAnimation child in GetComponentsInChildren<MatchParentAnimation>())
+        {
+            child.NewSprite(newSprite);
+        }
     }
 	
 	// Update is called once per frame
@@ -37,7 +47,9 @@ public class AnimateSprite : MonoBehaviour {
                 {
                     frameIndex = 0;
                 }
-                spriteRenderer.sprite = animatedSprites[animationIndex].sprites[frameIndex];
+                Sprite newSprite = animatedSprites[animationIndex].sprites[frameIndex];
+                spriteRenderer.sprite = newSprite;
+                updateChildren(newSprite);
                 frameCount = 0;
             }
         }
@@ -46,6 +58,7 @@ public class AnimateSprite : MonoBehaviour {
             frameCount = 0;
             animationIndex = 0;
             spriteRenderer.sprite = staticSprites[staticIndex];
+            updateChildren(staticSprites[staticIndex]);
         }
 	}
 }

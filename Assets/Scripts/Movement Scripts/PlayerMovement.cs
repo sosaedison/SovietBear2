@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 	public int jetpackPower = 16;
 	float jetpackDuration = 9;
 	Transform YRotation;
+    public GameObject handAnchor;
 
 	// Use this for initialization
 	void Start ()
@@ -36,10 +37,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
             if (canJump == true)//on ground
             {
-                foreach (AnimateSprite sprite in GetComponentsInChildren<AnimateSprite>())
-                {
-                    sprite.animating = true;
-                }
+                GetComponent<AnimateSprite>().animating = true;
             }
         }
         else if (Input.GetAxisRaw("Horizontal") < 0f)
@@ -47,20 +45,15 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
             if (canJump == true)//on ground
             {
-                foreach (AnimateSprite sprite in GetComponentsInChildren<AnimateSprite>())
-                {
-                    sprite.animating = true;
-                }
+
+                GetComponent<AnimateSprite>().animating = true;
             }
         }
         else if (Input.GetAxisRaw("Horizontal") == 0f)
         {
             if (canJump == true)//on ground
             {
-                foreach (AnimateSprite sprite in GetComponentsInChildren<AnimateSprite>())
-                {
-                    sprite.animating = false;
-                }
+                GetComponent<AnimateSprite>().animating = false;
             }
         }
 
@@ -85,10 +78,9 @@ public class PlayerMovement : MonoBehaviour
 		if (other.gameObject.layer == 8) {
 			canJump = true;
             GetComponent<AnimateSprite>().staticIndex = 0;
-            foreach (AnimateSprite sprite in GetComponentsInChildren<AnimateSprite>())
-            {
-                sprite.staticIndex = 0;
-            }
+            Vector3 newPos = handAnchor.transform.localPosition;
+            newPos.y = -0.264f;
+            handAnchor.transform.localPosition = newPos; 
             if (jetpackDuration <= 3) {
 				jetpackDuration = 3;
 			}
@@ -99,11 +91,11 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (other.gameObject.layer == 8) {
 			canJump = false;
-            foreach (AnimateSprite sprite in GetComponentsInChildren<AnimateSprite>())
-            {
-                sprite.animating = false;
-                sprite.staticIndex = 1;
-            }
+            GetComponent<AnimateSprite>().animating = false;
+            GetComponent<AnimateSprite>().staticIndex = 1;
+            Vector3 newPos = handAnchor.transform.localPosition;
+            newPos.y = 0f;
+            handAnchor.transform.localPosition = newPos;
         }
 	}
 }

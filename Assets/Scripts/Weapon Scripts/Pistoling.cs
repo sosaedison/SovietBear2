@@ -19,12 +19,12 @@ public class Pistoling : Weapon {
 	{
 		if (ammo > 0 && CanShoot == true)
 		{
-            Vector2 bulletOffset = new Vector2(2.8f, 0.3f);
+            Vector2 bulletOffset = new Vector2(0.84f, 0.34f);
             if (direction.x < 0)
             {
                 bulletOffset.x *= -1.0f;
             }
-            GameObject bullet = (GameObject) Instantiate(Bullet, (Vector2) transform.root.position + bulletOffset, Quaternion.identity);
+            GameObject bullet = (GameObject) Instantiate(Bullet, (Vector2) transform.position + bulletOffset, Quaternion.identity);
 			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
 			bulletMotion.direction = direction;
 			bulletMotion.speed = 500f;
