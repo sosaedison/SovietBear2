@@ -8,7 +8,7 @@ public class Rifleing : Weapon {
 	public int burstFireCooldown = 0;
 	public bool firing = false;
 	bool CanShoot = true;
-	float CoolDown = .6f;
+	float CoolDown = 1.2f;
 	void Start () {
 	
 	}
