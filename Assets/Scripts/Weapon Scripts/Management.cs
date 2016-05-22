@@ -40,7 +40,7 @@ public class Management : MonoBehaviour {
 			weapons[WeaponSlot].GetComponent<Weapon>().equipped = false;
 			weapons[WeaponSlot].GetComponent<SpriteRenderer>().enabled = false;
 			weapons[2].GetComponent<Weapon>().equipped = true;
-			weapons[2].GetComponent<SpriteRenderer>().enabled = false;
+			weapons[2].GetComponent<SpriteRenderer>().enabled = true;
 			WeaponSlot = 2;
 		}
 		else if (Input.GetKeyDown(KeyCode.Alpha4))
@@ -48,7 +48,7 @@ public class Management : MonoBehaviour {
 			weapons[WeaponSlot].GetComponent<Weapon>().equipped = false;
 			weapons[WeaponSlot].GetComponent<SpriteRenderer>().enabled = false;
 			weapons[3].GetComponent<Weapon>().equipped = true;
-			weapons[3].GetComponent<SpriteRenderer>().enabled = false;
+			weapons[3].GetComponent<SpriteRenderer>().enabled = true;
 			WeaponSlot = 3;
 		}
 		else if (Input.GetKeyDown(KeyCode.Alpha5))
@@ -56,7 +56,7 @@ public class Management : MonoBehaviour {
 			weapons[WeaponSlot].GetComponent<Weapon>().equipped = false;
 			weapons[WeaponSlot].GetComponent<SpriteRenderer>().enabled = false;
 			weapons[4].GetComponent<Weapon>().equipped = true;
-			weapons[4].GetComponent<SpriteRenderer>().enabled = false;
+			weapons[4].GetComponent<SpriteRenderer>().enabled = true;
 			WeaponSlot = 4;
 		}
 	}

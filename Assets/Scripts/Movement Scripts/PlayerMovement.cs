@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
 	public int jetpackPower = 16;
 	float jetpackDuration = 9;
 	Transform YRotation;
-	bool LookingRight = true;
 
 	// Use this for initialization
 	void Start ()
@@ -32,16 +31,38 @@ public class PlayerMovement : MonoBehaviour
 	{
 		xMovement = (Input.GetAxis("Horizontal"));
 		rigbod.velocity = new Vector2(xMovement*xVelocityFactor, rigbod.velocity.y);
-		if (Input.GetAxisRaw("Horizontal")>0f)
-		{
-			transform.rotation = Quaternion.Euler(0,0,0);
-			LookingRight = true;
-		}
-		else if (Input.GetAxisRaw("Horizontal")<0f)
-		{
-			transform.rotation = Quaternion.Euler(0,180,0);
-			LookingRight = false;
-		}
+        if (Input.GetAxisRaw("Horizontal") > 0f)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (canJump == true)//on ground
+            {
+                foreach (AnimateSprite sprite in GetComponentsInChildren<AnimateSprite>())
+                {
+                    sprite.animating = true;
+                }
+            }
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0f)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            if (canJump == true)//on ground
+            {
+                foreach (AnimateSprite sprite in GetComponentsInChildren<AnimateSprite>())
+                {
+                    sprite.animating = true;
+                }
+            }
+        }
+        else if (Input.GetAxisRaw("Horizontal") == 0f)
+        {
+            if (canJump == true)//on ground
+            {
+                foreach (AnimateSprite sprite in GetComponentsInChildren<AnimateSprite>())
+                {
+                    sprite.animating = false;
+                }
+            }
+        }
 
 		if (canJump == true && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical")>0)
 		{
@@ -63,7 +84,12 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (other.gameObject.layer == 8) {
 			canJump = true;
-			if (jetpackDuration <= 3) {
+            GetComponent<AnimateSprite>().staticIndex = 0;
+            foreach (AnimateSprite sprite in GetComponentsInChildren<AnimateSprite>())
+            {
+                sprite.staticIndex = 0;
+            }
+            if (jetpackDuration <= 3) {
 				jetpackDuration = 3;
 			}
 		}
@@ -73,6 +99,11 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (other.gameObject.layer == 8) {
 			canJump = false;
-		}
+            foreach (AnimateSprite sprite in GetComponentsInChildren<AnimateSprite>())
+            {
+                sprite.animating = false;
+                sprite.staticIndex = 1;
+            }
+        }
 	}
 }

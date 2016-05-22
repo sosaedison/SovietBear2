@@ -21,7 +21,12 @@ public class Rifleing : Weapon {
 	{
 		if (ammo > 0 && CanShoot == true)
 		{
-			GameObject bullet = (GameObject) Instantiate(prefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            Vector2 bulletOffset = new Vector2(5f, 0.75f);
+            if (direction.x < 0)
+            {
+                bulletOffset.x *= -1.0f;
+            }
+            GameObject bullet = (GameObject) Instantiate(prefab, (Vector2)transform.root.position + bulletOffset, Quaternion.identity);
 			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
 			bulletMotion.direction = direction;
 			bulletMotion.speed = 500f;
@@ -34,18 +39,14 @@ public class Rifleing : Weapon {
 		{
 			//The intervals for firing need to be shorter is the bullet is moving faster
 			++burstFireCooldown;
-			if (burstFireCooldown == 10)
+			if (burstFireCooldown == 10 || burstFireCooldown == 19)
 			{
-                GameObject bullet = (GameObject)Instantiate(prefab, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
-				BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
-				bulletMotion.direction = direction;
-				bulletMotion.speed = 500f;
-				bulletMotion.Activate();
-                ammo--;
-			}
-			else if (burstFireCooldown == 19)
-			{
-                GameObject bullet = (GameObject)Instantiate(prefab, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
+                Vector2 bulletOffset = new Vector2(5f, 0.75f);
+                if (direction.x < 0)
+                {
+                    bulletOffset.x *= -1.0f;
+                }
+                GameObject bullet = (GameObject)Instantiate(prefab, (Vector2)transform.root.position + bulletOffset, Quaternion.identity);
 				BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
 				bulletMotion.direction = direction;
 				bulletMotion.speed = 500f;
