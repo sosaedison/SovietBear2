@@ -24,6 +24,7 @@ public class BulletMotion : MonoBehaviour
 		Vector2 force = new Vector2(Mathf.Cos(angle / 180 * Mathf.PI) * speed, Mathf.Sin(angle / 180 * Mathf.PI) * speed);
 
         rigbody.AddForce(force);
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 	
 	// Update is called once per frame

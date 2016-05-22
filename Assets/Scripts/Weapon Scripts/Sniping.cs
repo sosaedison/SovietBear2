@@ -19,7 +19,12 @@ public class Sniping : Weapon {
 	{
 		if(ammo > 0 && CanShoot == true)
 		{
-			GameObject bullet = (GameObject) Instantiate(prefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            Vector2 bulletOffset = new Vector2(3.55f, 0.97f);
+            if (direction.x < 0)
+            {
+                bulletOffset.x *= -1.0f;
+            }
+            GameObject bullet = (GameObject) Instantiate(prefab, (Vector2)transform.position + bulletOffset, Quaternion.identity);
 			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
 			bulletMotion.direction = direction;
 			bulletMotion.speed = 900f;

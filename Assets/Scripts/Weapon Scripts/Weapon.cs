@@ -26,11 +26,11 @@ public class Weapon : MonoBehaviour {
 			{
 				this.Shoot(Vector2.left);
 			}
-			else if (Input.GetButton("Fire1") && equipped == true && transform.root.rotation.y == 0)
+			else if (Input.GetButton("Fire1") && equipped == true && transform.root.rotation.eulerAngles.y == 0)
             {
 				this.AutoShoot(Vector2.right);
             }
-			else if (Input.GetButton("Fire1") && equipped == true && transform.root.transform.rotation.y != 0)
+			else if (Input.GetButton("Fire1") && equipped == true && transform.root.transform.rotation.eulerAngles.y != 0)
 			{
 				this.AutoShoot(Vector2.left);
 			}
