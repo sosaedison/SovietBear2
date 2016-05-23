@@ -4,20 +4,17 @@ using System.Collections;
 public class Pistoling : Weapon {
 	public GameObject Bullet;
 	public int ammo = 100;
-	bool CanShoot = true;
-	float CoolDown = .35f;
+	public float coolDown = .35f;
+    float nextShotTime = 0f;
 	void Start () 
 	{
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
+
 	override public void Shoot (Vector2 direction)
 	{
-		if (ammo > 0 && CanShoot == true)
+        if (ammo > 0 && Time.time >= nextShotTime)
 		{
             Vector2 bulletOffset = new Vector2(0.84f, 0.34f);
             if (direction.x < 0)
@@ -27,15 +24,10 @@ public class Pistoling : Weapon {
             GameObject bullet = (GameObject) Instantiate(Bullet, (Vector2) transform.position + bulletOffset, Quaternion.identity);
 			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
 			bulletMotion.direction = direction;
-			bulletMotion.speed = 500f;
+			bulletMotion.speed = 30;
 			bulletMotion.Activate();
             ammo--;
-			CanShoot = false;
-			Invoke("Reset", CoolDown);
+            nextShotTime = Time.time + coolDown;
 		}
-	}
-	void Reset()
-	{
-		CanShoot = true;
 	}
 }

@@ -21,11 +21,17 @@ public class EnemyMovement : MonoBehaviour {
         rigbod.velocity = new Vector2(speed, rigbod.velocity.y);
         if (speed < 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            GetComponent<AnimateSprite>().animating = true;
         }
         else if (speed > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            GetComponent<AnimateSprite>().animating = true;
+        }
+        else
+        {
+            GetComponent<AnimateSprite>().animating = false;
         }
     }
 
@@ -34,6 +40,7 @@ public class EnemyMovement : MonoBehaviour {
         if (canJump == true)
         {
             rigbod.AddForce(new Vector2(0f, jumpPower));
+
         }
         
     }
@@ -49,7 +56,7 @@ public class EnemyMovement : MonoBehaviour {
             //chase player
             if (playerDetectionAI.playerVisible)
             {
-                Vector2 direction = transform.position - playerDetectionAI.noticedPlayer.transform.position;
+                Vector2 direction = playerDetectionAI.noticedPlayer.transform.position - transform.position;
                 GetComponentInChildren<Weapon>().Shoot(direction);
                 GetComponentInChildren<Weapon>().AutoShoot(direction);
                 if (playerDetectionAI.noticedPlayer.transform.position.y > transform.position.y + 20)
@@ -63,11 +70,15 @@ public class EnemyMovement : MonoBehaviour {
             }
             if (playerDetectionAI.noticedPlayer.transform.position.x < transform.position.x - 3)
             {
-                Walk(-movementSpeed);
+                //Walk(-movementSpeed);
             }
             else if (playerDetectionAI.noticedPlayer.transform.position.x > transform.position.x + 3)
             {
                 Walk(movementSpeed);
+            }
+            else
+            {
+                Walk(0.0f);
             }
             
         }
@@ -89,6 +100,7 @@ public class EnemyMovement : MonoBehaviour {
         if (other.gameObject.layer == 8)
         {
             canJump = false;
+            GetComponent<AnimateSprite>().animating = false;
         }
     } 
 }

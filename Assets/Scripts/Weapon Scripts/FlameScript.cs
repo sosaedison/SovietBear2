@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FlameScript : MonoBehaviour {
 
-    public float bulletSpeed = 400f;
+    public float bulletSpeed;
     public int flameLife = 0;
     public Vector2 direction;
     private int speedFactor = 1;
@@ -35,9 +35,14 @@ public class FlameScript : MonoBehaviour {
 		spriteRendererName.color = new Color(1f, 1f, 1f, objectAlpha);
     }
 
-    /*void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        print("destroying bullet");
+        Health health = collision.gameObject.GetComponent<Health>();
+        if (health != null)
+        {
+            health.current -= 1;
+        }
         Destroy(gameObject);
-    }*/
+
+    }
 }

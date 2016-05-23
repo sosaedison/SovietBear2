@@ -27,7 +27,7 @@ public class Sniping : Weapon {
             GameObject bullet = (GameObject) Instantiate(prefab, (Vector2)transform.position + bulletOffset, Quaternion.identity);
 			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
 			bulletMotion.direction = direction;
-			bulletMotion.speed = 900f;
+			bulletMotion.speed = 54f;
 			bulletMotion.canCollat = true;
 			bulletMotion.Activate();
             ammo--;

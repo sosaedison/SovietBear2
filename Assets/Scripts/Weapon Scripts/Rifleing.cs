@@ -29,7 +29,7 @@ public class Rifleing : Weapon {
             GameObject bullet = (GameObject) Instantiate(prefab, (Vector2)transform.position + bulletOffset, Quaternion.identity);
 			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
 			bulletMotion.direction = direction;
-			bulletMotion.speed = 500f;
+			bulletMotion.speed = 30f;
 			bulletMotion.Activate();
             ammo--;
 			firing = true;
@@ -49,7 +49,7 @@ public class Rifleing : Weapon {
                 GameObject bullet = (GameObject)Instantiate(prefab, (Vector2)transform.position + bulletOffset, Quaternion.identity);
 				BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
 				bulletMotion.direction = direction;
-				bulletMotion.speed = 500f;
+				bulletMotion.speed = 30f;
 				bulletMotion.Activate();
                 ammo--;
 			}

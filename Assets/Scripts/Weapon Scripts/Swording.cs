@@ -17,6 +17,7 @@ public class Swording : Weapon {
 	{
 
 	}
+
 	override public void Shoot (Vector2 direction)
 	{
 		if (CanSwing == true)
@@ -26,13 +27,16 @@ public class Swording : Weapon {
 			Invoke("Reset",.6f);
 		}
 	}
-	void OnCollisionEnter2D(Collision2D other)
+
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "Nazi" && CanSwing == false)
+        Health health = other.gameObject.GetComponent<Health>();
+		if (health != null && CanSwing == false)
 		{
-			Destroy(other.gameObject);
+            health.current -= 12;
 		}
 	}
+
 	void Reset ()
 	{
 		CanSwing = true;

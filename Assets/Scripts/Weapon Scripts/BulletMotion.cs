@@ -7,7 +7,7 @@ public class BulletMotion : MonoBehaviour
     public Vector2 direction;
 	public float speed;
 	public bool canCollat = false;
-	private int collat;
+	private int collat = 3;
 	// Use this for initialization
 	void Start () 
 	{
@@ -21,41 +21,29 @@ public class BulletMotion : MonoBehaviour
 			rigbody = GetComponent<Rigidbody2D>();
 		}
         float angle = Vector2.Angle(Vector2.right, direction.normalized);
-		Vector2 force = new Vector2(Mathf.Cos(angle / 180 * Mathf.PI) * speed, Mathf.Sin(angle / 180 * Mathf.PI) * speed);
+		Vector2 velocity = new Vector2(Mathf.Cos(angle / 180 * Mathf.PI) * speed, Mathf.Sin(angle / 180 * Mathf.PI) * speed);
 
-        rigbody.AddForce(force);
+        rigbody.velocity = velocity;
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 	
-	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
 	void OnCollisionEnter2D (Collision2D collision)
 	{
-		if (canCollat) 
+        Health health = collision.gameObject.GetComponent<Health>();
+        if (health != null)
+        {
+            health.current -= 4;
+        }
+        if (canCollat) 
 		{
-			if(collision.gameObject.tag == "Nazi" && collat <= 3)
-			{
-				++collat;
-				if (collat == 3)
-				{
-					Destroy(gameObject);
-				}
-				Destroy(collision.gameObject);
-			}
-			if (collision.gameObject.tag != "Nazi")
-			{
-				Destroy(gameObject);
-			}
+            collat--;
+            if (collat < 0)
+            {
+                Destroy(gameObject);
+            }
 		}
 		else 
 		{
-			if (collision.gameObject.tag == "Nazi")
-			{
-				Destroy(collision.gameObject);
-			}
 			Destroy(gameObject);
 		}
 

@@ -27,7 +27,7 @@ public class LMGShooting : Weapon {
 			GameObject bullet = (GameObject) Instantiate(Bullet, (Vector2) transform.position + bulletOffset, Quaternion.identity);
 			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
 			bulletMotion.direction = direction;
-			bulletMotion.speed = 500f;
+			bulletMotion.speed = 30f;
 			bulletMotion.Activate();
 			ammo--;
 			CanShoot = false;
