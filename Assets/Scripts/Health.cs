@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Health : MonoBehaviour {
-
     public int current = 0;
     public int max = 0;
 
@@ -23,5 +22,6 @@ public class Health : MonoBehaviour {
             Destroy(gameObject);
         }
         if (current > max) current = max;
+
 	}
 }

@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 	float jetpackDuration = 9;
 	Transform YRotation;
     public GameObject handAnchor;
+	public GameObject jetpackFire;
 
 	// Use this for initialization
 	void Start ()
@@ -22,9 +23,10 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update ()
 	{
-		if (canJump == false) {
+		/*if (canJump == false) 
+		{
 			jetpackDuration -= Time.deltaTime;
-		}
+		}*/
 	}
 
 	// Update is called once per frame
@@ -64,12 +66,18 @@ public class PlayerMovement : MonoBehaviour
 		else if(canJump == false && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical")>0 && jetpackDuration >= 0)
 		{
 			rigbod.AddForce(new Vector2(0f, jetpackPower));
+			jetpackDuration -= Time.deltaTime;
+			jetpackFire.GetComponent<SpriteRenderer>().enabled = true;
 		}
 
         if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0)
         {
             GetComponent<PhaseThroughFloor>().DropDown();
         }
+		if (Input.GetAxisRaw("Vertical") <= 0 || jetpackDuration <= 0)
+		{
+			jetpackFire.GetComponent<SpriteRenderer>().enabled = false;
+		}
 	}
 
 	//Enables Jumping
