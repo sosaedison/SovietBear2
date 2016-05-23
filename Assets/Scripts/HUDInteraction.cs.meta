@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7c6cc6917490b49f7a127d8f26f74b16
+timeCreated: 1464019433
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - TLQuarter: {fileID: 198088, guid: 390b6eaf046b3477d86f2d4b78545205, type: 2}
+  - BLQuarter: {fileID: 192648, guid: 466c7708e1d5447c88ae1ed19f81c6c9, type: 2}
+  - BRQuarter: {fileID: 132508, guid: 1e924fae0f851436695effc382892465, type: 2}
+  - TRQuarter: {fileID: 135616, guid: 57b152efa1e984204bac37bd740bf547, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
