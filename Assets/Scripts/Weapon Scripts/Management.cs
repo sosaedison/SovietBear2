@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Management : MonoBehaviour {
 	public int WeaponSlot = 0;
 	public GameObject[] weapons;
-	//GameObject Pistol;
-	//GameObject AssultRifle;
-	//GameObject Shotgun;
-	//GameObject Flamethrower;
-	//private Flamethrower Flamethrowing;
+	public Text HUDAmmo;
 
 	// Use this for initialization
 	void Start () 
@@ -26,6 +23,7 @@ public class Management : MonoBehaviour {
 			weapons[0].GetComponent<Weapon>().equipped = true;
 			weapons[0].GetComponent<SpriteRenderer>().enabled = true;
 			WeaponSlot = 0;
+
 		}
 		else if (Input.GetKeyDown(KeyCode.Alpha2))
 		{
@@ -67,5 +65,6 @@ public class Management : MonoBehaviour {
 			weapons[5].GetComponent<SpriteRenderer>().enabled = true;
 			WeaponSlot = 5;
 		}
+		HUDAmmo.text = weapons[WeaponSlot].GetComponent<Weapon>().ammo.ToString()+"/"+weapons[WeaponSlot].GetComponent<Weapon>().maxAmmo.ToString();
 	}
 }

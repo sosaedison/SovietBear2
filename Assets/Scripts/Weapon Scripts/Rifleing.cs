@@ -4,7 +4,6 @@ using System.Collections;
 public class Rifleing : Weapon {
 
 	public GameObject prefab;
-	public int ammo = 100;
 	public int burstFireCooldown = 0;
 	public bool firing = false;
 	bool CanShoot = true;

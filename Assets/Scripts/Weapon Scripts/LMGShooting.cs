@@ -3,7 +3,6 @@ using System.Collections;
 
 public class LMGShooting : Weapon {
 	public GameObject Bullet;
-	public int ammo = 100;
 	bool CanShoot = true;
 	float CoolDown = .09f;
 	void Start () 

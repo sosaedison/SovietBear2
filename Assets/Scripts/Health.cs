@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Health : MonoBehaviour {
     public int current = 0;
-    public int max = 0;
+    public int max = 12;
 
 	// Use this for initialization
 	void Start () {

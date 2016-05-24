@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Pistoling : Weapon {
 	public GameObject Bullet;
-	public int ammo = 100;
 	public float coolDown = .35f;
     float nextShotTime = 0f;
 	void Start () 
 	{
+		
 	}
 	
 	// Update is called once per frame

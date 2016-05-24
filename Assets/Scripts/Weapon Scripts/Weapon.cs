@@ -3,14 +3,17 @@ using System.Collections;
 
 public class Weapon : MonoBehaviour {
 	public bool equipped = false;
+	public int ammo;
+	public int maxAmmo;
 	// Use this for initialization
 	void Start () 
 	{
-		
+		ammo = maxAmmo;
 	}
 	
 	void FixedUpdate () 
 	{
+		if (ammo > maxAmmo) ammo = maxAmmo;
         if (transform.root.CompareTag("Player"))
         {
 			if (Input.GetButtonDown("Fire1") && equipped == true && transform.root.transform.rotation.eulerAngles.y == 0)
