@@ -20,7 +20,11 @@ public class BulletMotion : MonoBehaviour
  		if (rigbody == null) {
 			rigbody = GetComponent<Rigidbody2D>();
 		}
-        float angle = Vector2.Angle(Vector2.right, direction.normalized);
+        float angle = Vector2.Angle(direction.normalized, Vector2.right);
+        if (angle > 45 && angle < 135) Destroy(gameObject);
+        float sign = 1.0f;
+        if (direction.y < 0) sign = -1.0f;
+        angle *= sign;
 		Vector2 velocity = new Vector2(Mathf.Cos(angle / 180 * Mathf.PI) * speed, Mathf.Sin(angle / 180 * Mathf.PI) * speed);
 
         rigbody.velocity = velocity;

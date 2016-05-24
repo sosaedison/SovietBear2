@@ -20,9 +20,9 @@ public class HUDInteraction : MonoBehaviour {
 	void Start () 
 	{
 		playerHealth = Player.GetComponent<Health>();
-		for(int i=0; i<playerHealth.maxHealth)
+		for(int i=0; i < playerHealth.max; i++)
 		{
-			HeartPieces.Add
+           
 		}
 	}
 	// Update is called once per frame

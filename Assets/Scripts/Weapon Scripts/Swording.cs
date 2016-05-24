@@ -30,11 +30,15 @@ public class Swording : Weapon {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-        Health health = other.gameObject.GetComponent<Health>();
-		if (health != null && CanSwing == false)
-		{
-            health.current -= 12;
-		}
+        if (!other.isTrigger)
+        {
+            Health health = other.gameObject.GetComponent<Health>();
+            if (health != null && CanSwing == false)
+            {
+                health.current -= 12;
+            }
+        }
+        
 	}
 
 	void Reset ()
