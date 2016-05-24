@@ -4,7 +4,6 @@ using System.Collections;
 public class Flamethrowing : Weapon {
 
 	public GameObject prefab;
-	public int ammo = 1200;
 	public int flameFireCooldown = 0;
 	void Start () {
 	
@@ -45,7 +44,7 @@ public class Flamethrowing : Weapon {
                 middleFlame.GetComponent<FlameScript>().bulletSpeed = characterVelocity.x + 6;
                 upperFlame.GetComponent<FlameScript>().direction = direction;
                 upperFlame.GetComponent<FlameScript>().bulletSpeed = characterVelocity.x + 6;
-                ammo -= 3;
+                ammo -= 1;
 				flameFireCooldown = 0;
 			}
 		}

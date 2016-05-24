@@ -4,7 +4,6 @@ using System.Collections;
 public class Sniping : Weapon {
 
 	public GameObject prefab;
-	public int ammo = 10;
 	bool CanShoot = true;
 	float CoolDown = 1.2f;
 	void Start () {

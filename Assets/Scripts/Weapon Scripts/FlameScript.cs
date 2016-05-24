@@ -26,12 +26,12 @@ public class FlameScript : MonoBehaviour {
         }
         ++flameLife;
         transform.Translate(Vector3.right * bulletSpeed * speedFactor * Time.deltaTime);
-		transform.Translate(Vector3.up * Random.Range(-1f,1f) * Time.deltaTime);
-        if(flameLife == 80)
+		transform.Translate(Vector3.up * Random.Range(-2f,2f) * Time.deltaTime);
+        if(flameLife == 110)
         {
             Destroy(gameObject);
         }
-		objectAlpha = objectAlpha - .012f;
+		objectAlpha = objectAlpha - .007f;
 		spriteRendererName.color = new Color(1f, 1f, 1f, objectAlpha);
     }
 
