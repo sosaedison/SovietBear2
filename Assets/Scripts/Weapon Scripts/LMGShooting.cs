@@ -18,12 +18,12 @@ public class LMGShooting : Weapon {
 	{
 		if (ammo > 0 && CanShoot == true)
 		{
-			Vector2 bulletOffset = new Vector2(3.24f, 0.4f);
+			Vector2 tempBulletOffset = bulletOffset;
 			if (direction.x < 0)
 			{
-				bulletOffset.x *= -1.0f;
+				tempBulletOffset.x *= -1.0f;
 			}
-			GameObject bullet = (GameObject) Instantiate(Bullet, (Vector2) transform.position + bulletOffset, Quaternion.identity);
+			GameObject bullet = (GameObject) Instantiate(Bullet, (Vector2) transform.position + tempBulletOffset, Quaternion.identity);
 			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
 			bulletMotion.direction = direction;
 			bulletMotion.speed = 30f;

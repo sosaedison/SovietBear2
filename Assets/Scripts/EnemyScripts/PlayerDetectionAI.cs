@@ -61,14 +61,10 @@ public class PlayerDetectionAI : MonoBehaviour {
             Debug.DrawRay(enemyPosition, rayDirection);
             if (hit.collider != null && hit.collider.gameObject == playerInCone)
             {
-                if (playerVisible == false)
-                {
-                    playerVisible = true;
-                    sightingIndex = levelManager.bearSightings.Count;
-                    levelManager.bearSightings.Add(playerInCone.transform.position);
-                    currentTarget = playerInCone.transform.position;
-                }
-                
+                playerVisible = true;
+                sightingIndex = levelManager.bearSightings.Count;
+                levelManager.bearSightings.Add(playerInCone.transform.position);
+                currentTarget = playerInCone.transform.position;
             }
             else
             {
@@ -94,7 +90,7 @@ public class PlayerDetectionAI : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && playerInCone != null)
         {
             playerVisible = false;
             sightingIndex = levelManager.bearSightings.Count;

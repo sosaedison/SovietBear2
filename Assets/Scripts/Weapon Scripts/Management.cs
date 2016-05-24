@@ -65,6 +65,6 @@ public class Management : MonoBehaviour {
 			weapons[5].GetComponent<SpriteRenderer>().enabled = true;
 			WeaponSlot = 5;
 		}
-		HUDAmmo.text = weapons[WeaponSlot].GetComponent<Weapon>().ammo.ToString()+"/"+weapons[WeaponSlot].GetComponent<Weapon>().maxAmmo.ToString();
+		//HUDAmmo.text = weapons[WeaponSlot].GetComponent<Weapon>().ammo.ToString()+"/"+weapons[WeaponSlot].GetComponent<Weapon>().maxAmmo.ToString();
 	}
 }

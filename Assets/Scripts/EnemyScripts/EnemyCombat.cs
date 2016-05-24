@@ -2,11 +2,18 @@
 using System.Collections;
 
 public class EnemyCombat : MonoBehaviour {
-    PlayerDetectionAI playerDetectionAI;
+    [System.NonSerialized] public PlayerDetectionAI playerDetectionAI;
 
     // Use this for initialization
     void Start () {
         playerDetectionAI = GetComponent<PlayerDetectionAI>();
+    }
+
+    public virtual void Attack()
+    {
+        Vector2 direction = playerDetectionAI.playerInCone.transform.position - transform.position;
+        GetComponentInChildren<Weapon>().Shoot(direction);
+        GetComponentInChildren<Weapon>().AutoShoot(direction);
     }
 
     // Update is called once per frame
@@ -14,9 +21,7 @@ public class EnemyCombat : MonoBehaviour {
     {
         if (playerDetectionAI.playerVisible)
         {
-            Vector2 direction = playerDetectionAI.playerInCone.transform.position - transform.position;
-            GetComponentInChildren<Weapon>().Shoot(direction);
-            GetComponentInChildren<Weapon>().AutoShoot(direction);
+            Attack();
         }
     }
 }

@@ -5,6 +5,7 @@ public class Weapon : MonoBehaviour {
 	public bool equipped = false;
 	public int ammo;
 	public int maxAmmo;
+    public Vector2 bulletOffset;
 	// Use this for initialization
 	void Start () 
 	{

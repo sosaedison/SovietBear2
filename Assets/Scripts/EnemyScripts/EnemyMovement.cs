@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour {
     public bool canJump = false;
     public float jumpPower = 100;
     public int startingDirection;
+    public float distanceToStop = 10f;
 
     PlayerDetectionAI playerDetectionAI;
     Rigidbody2D rigbod;
@@ -101,6 +102,11 @@ public class EnemyMovement : MonoBehaviour {
             turns++;
         }
     }
+
+    void NormalMotion()
+    {
+        Patrol(); // override this in subclasses
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -133,12 +139,12 @@ public class EnemyMovement : MonoBehaviour {
                 Patrol();
                 DropDown();
             }
-            else if(playerDetectionAI.currentTarget.x < transform.position.x - 3)
+            else if(playerDetectionAI.currentTarget.x < transform.position.x - distanceToStop)
             {
                 currentDirection = -1;
                 Walk(-movementSpeed);
             }
-            else if (playerDetectionAI.currentTarget.x > transform.position.x + 3)
+            else if (playerDetectionAI.currentTarget.x > transform.position.x + distanceToStop)
             {
                 currentDirection = 1;
                 Walk(movementSpeed);
@@ -152,7 +158,7 @@ public class EnemyMovement : MonoBehaviour {
         }
         else
         {
-            Patrol();
+            NormalMotion();
         }
 	}
 

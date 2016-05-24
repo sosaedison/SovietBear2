@@ -21,7 +21,7 @@ public class Flamethrowing : Weapon {
 			// Cooldown timer needs to be larger for faster bullets
 			if (flameFireCooldown == 7)
 			{
-                Vector2 flameOffset = new Vector2(2.8f, 0.55f);
+                Vector2 flameOffset = bulletOffset;
                 Vector2 lowerOffset = new Vector2(1.1f, -0.25f);
                 Vector2 middleOffset = new Vector2(0.75f, 0f);
                 Vector2 upperOffset = new Vector2(1.1f, 0.25f);
