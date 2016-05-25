@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class Management : MonoBehaviour {
 	public int WeaponSlot = 0;
 	public GameObject[] weapons;
-	public Text HUDAmmo;
 
 	// Use this for initialization
 	void Start () 
@@ -65,6 +64,5 @@ public class Management : MonoBehaviour {
 			weapons[5].GetComponent<SpriteRenderer>().enabled = true;
 			WeaponSlot = 5;
 		}
-		//HUDAmmo.text = weapons[WeaponSlot].GetComponent<Weapon>().ammo.ToString()+"/"+weapons[WeaponSlot].GetComponent<Weapon>().maxAmmo.ToString();
 	}
 }
