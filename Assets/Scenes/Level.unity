@@ -1164,6 +1164,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!1 &1752637771 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 186878, guid: a7e1339ec8c4f4c079f361c94f33e384, type: 2}
+  m_PrefabInternal: {fileID: 60950721}
 --- !u!1 &1753749795
 GameObject:
   m_ObjectHideFlags: 0
