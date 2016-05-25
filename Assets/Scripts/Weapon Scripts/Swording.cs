@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Swording : Weapon {
 
-	public GameObject sword;
 	public bool CanSwing = true;
 	Animation SwordSwing;
 	// Use this for initialization

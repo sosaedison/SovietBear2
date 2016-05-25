@@ -10,6 +10,7 @@ public class MeleeCombat : EnemyCombat {
         if (distance.magnitude < 8)
         {
             GetComponentInChildren<Weapon>().Shoot(distance);
+            GetComponentInChildren<Weapon>().AutoShoot(distance);
         }
     }
 }
