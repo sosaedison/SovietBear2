@@ -26,13 +26,13 @@ GameObject:
   - 212: {fileID: 21207584}
   - 114: {fileID: 11455358}
   - 114: {fileID: 11405034}
-  - 114: {fileID: 11404990}
   - 114: {fileID: 11476274}
   - 114: {fileID: 11477526}
   - 114: {fileID: 11498092}
   - 61: {fileID: 6184684}
   - 60: {fileID: 6017032}
   - 50: {fileID: 5021386}
+  - 114: {fileID: 11484108}
   m_Layer: 0
   m_Name: Grenadier
   m_TagString: Untagged
@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.53, y: -2.13, z: -1}
+  m_LocalPosition: {x: -5.8140903, y: -1.6247523, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424766}
@@ -173,17 +173,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 3.84, y: 5.76}
---- !u!114 &11404990
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 113572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec4a1d75e35dff4bac63d847f2b8201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11405034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,6 +214,7 @@ MonoBehaviour:
   jumpPower: 1000
   startingDirection: -1
   distanceToStop: 30
+  useMovementAI: 1
 --- !u!114 &11476274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -261,6 +251,17 @@ MonoBehaviour:
   animationIndex: 0
   staticIndex: 0
   animating: 0
+--- !u!114 &11484108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1cfe444d1b47a448670cdaba4a72a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11494734
 MonoBehaviour:
   m_ObjectHideFlags: 1

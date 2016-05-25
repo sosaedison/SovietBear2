@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour {
     public float jumpPower = 100;
     public int startingDirection;
     public float distanceToStop = 10f;
+    public bool useMovementAI = true;
 
     PlayerDetectionAI playerDetectionAI;
     Rigidbody2D rigbod;
@@ -54,16 +55,16 @@ public class EnemyMovement : MonoBehaviour {
         return Physics2D.Linecast(lineCastPos, lineCastPos + Vector2.right * currentDirection);
     }
 
-    void Walk(float speed)
+    public void Walk(float speed, bool strafing)
     {
         if (speed < 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            if (!strafing) transform.rotation = Quaternion.Euler(0, 180, 0);
             GetComponent<AnimateSprite>().animating = true;
         }
         else if (speed > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (!strafing) transform.rotation = Quaternion.Euler(0, 0, 0);
             GetComponent<AnimateSprite>().animating = true;
         }
         else
@@ -78,7 +79,7 @@ public class EnemyMovement : MonoBehaviour {
         rigbod.velocity = new Vector2(speed, rigbod.velocity.y);
     }
 
-    void Jump()
+    public void Jump()
     {
         if (canJump == true)
         {
@@ -88,14 +89,14 @@ public class EnemyMovement : MonoBehaviour {
         
     }
 
-    void DropDown()
+    public void DropDown()
     {
         GetComponent<PhaseThroughFloor>().DropDown();
     }
 
-    void Patrol()
+    public void Patrol()
     {
-        Walk(movementSpeed * currentDirection);
+        Walk(movementSpeed * currentDirection, false);
         if (FindEdge() && canJump || FindWall())
         {
             currentDirection *= -1;
@@ -110,56 +111,61 @@ public class EnemyMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (playerDetectionAI.currentTarget != Vector3.zero)
+        if (useMovementAI)
         {
-            //chase player
-            if (playerDetectionAI.currentTarget.y > transform.position.y + 1)
+            if (playerDetectionAI.currentTarget != Vector3.zero)
             {
-                if (!searchingForJump)
+                //chase player
+                if (playerDetectionAI.currentTarget.y > transform.position.y + 1)
                 {
-                    searchingForJump = true;
-                    turns = 0;
+                    if (!searchingForJump)
+                    {
+                        searchingForJump = true;
+                        turns = 0;
+                    }
+
+                    if (FindJumpablePlatform())
+                    {
+                        Jump();
+                        searchingForJump = false;
+                    }
+                    else
+                    {
+                        Patrol();
+                        if (turns >= 2)
+                        {
+                            DropDown();
+                            searchingForJump = false;
+                        }
+                    }
                 }
-                
-                if (FindJumpablePlatform())
+                else if (playerDetectionAI.currentTarget.y < transform.position.y - 1)
                 {
-                    Jump();
+                    Patrol();
+                    DropDown();
+                }
+                else if (playerDetectionAI.currentTarget.x < transform.position.x - distanceToStop)
+                {
+                    currentDirection = -1;
+                    Walk(-movementSpeed, false);
+                }
+                else if (playerDetectionAI.currentTarget.x > transform.position.x + distanceToStop)
+                {
+                    currentDirection = 1;
+                    Walk(movementSpeed, false);
                 }
                 else
                 {
-                    Patrol();
-                    if (turns >= 2)
-                    {
-                        DropDown();
-                    }
+                    Walk(0.0f, false);
                 }
-            }
-            else if (playerDetectionAI.currentTarget.y < transform.position.y - 1)
-            {
-                Patrol();
-                DropDown();
-            }
-            else if(playerDetectionAI.currentTarget.x < transform.position.x - distanceToStop)
-            {
-                currentDirection = -1;
-                Walk(-movementSpeed);
-            }
-            else if (playerDetectionAI.currentTarget.x > transform.position.x + distanceToStop)
-            {
-                currentDirection = 1;
-                Walk(movementSpeed);
+
+
             }
             else
             {
-                Walk(0.0f);
+                NormalMotion();
             }
-
-
-        }
-        else
-        {
-            NormalMotion();
-        }
+        }    
 	}
 
     void OnCollisionEnter2D(Collision2D other)

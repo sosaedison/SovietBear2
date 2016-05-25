@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 		rigbod.velocity = new Vector2(xMovement*xVelocityFactor, rigbod.velocity.y);
         if (Input.GetAxisRaw("Horizontal") > 0f)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (!Input.GetButton("Strafe")) transform.rotation = Quaternion.Euler(0, 0, 0);
             if (canJump == true)//on ground
             {
                 GetComponent<AnimateSprite>().animating = true;
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetAxisRaw("Horizontal") < 0f)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            if (!Input.GetButton("Strafe")) transform.rotation = Quaternion.Euler(0, 180, 0);
             if (canJump == true)//on ground
             {
 

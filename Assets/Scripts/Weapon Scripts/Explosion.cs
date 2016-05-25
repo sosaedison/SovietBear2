@@ -16,10 +16,14 @@ public class Explosion : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Health health = other.gameObject.GetComponent<Health>();
-        if (health != null)
+        if (!other.isTrigger)
         {
-            health.current -= 5;
+            Health health = other.gameObject.GetComponent<Health>();
+            if (health != null)
+            {
+                health.current -= 5;
+            }
         }
+        
     }
 }

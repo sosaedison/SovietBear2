@@ -5,7 +5,7 @@ public class EnemyCombat : MonoBehaviour {
     [System.NonSerialized] public PlayerDetectionAI playerDetectionAI;
 
     // Use this for initialization
-    void Start () {
+    protected void Start () {
         playerDetectionAI = GetComponent<PlayerDetectionAI>();
     }
 
