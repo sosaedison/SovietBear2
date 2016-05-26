@@ -159,8 +159,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 41409c723c53b314c9ce19bfb79ff6db, type: 3}
   staticSprites:
   - {fileID: 21300000, guid: c748ae856c31e2546b924853ad0d5413, type: 3}
-  - {fileID: 21300000, guid: 44cf0f1af1b3a0e459ce164c9de0a202, type: 3}
   - {fileID: 21300000, guid: a9f62218032817143a0baba3515b7a80, type: 3}
+  - {fileID: 21300000, guid: 44cf0f1af1b3a0e459ce164c9de0a202, type: 3}
   - {fileID: 21300000, guid: 2ac88ffe44b3a4d468634dc262f9d1aa, type: 3}
   spriteGap: 10
   animationIndex: 0
@@ -209,6 +209,7 @@ MonoBehaviour:
   startingDirection: -1
   distanceToStop: 10
   useMovementAI: 1
+  handAnchor: {fileID: 0}
 --- !u!114 &11485902
 MonoBehaviour:
   m_ObjectHideFlags: 1
