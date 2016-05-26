@@ -28,6 +28,7 @@ public class Health : MonoBehaviour
             {
                 levelManager.GameOver();
             }
+            levelManager.currentExp += expForKill;
             GameObject dyingSprite = (GameObject)Instantiate(dyingPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
