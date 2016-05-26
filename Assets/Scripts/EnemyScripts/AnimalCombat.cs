@@ -45,7 +45,9 @@ public class AnimalCombat : EnemyCombat {
             if (pouncing == true)
             {
                 sprite.staticIndex = 2;
-                GetComponent<Rigidbody2D>().velocity = new Vector2(20f, 5f);
+                float Vx = 20f;
+                if (transform.rotation.eulerAngles.y != 0) Vx *= -1;
+                GetComponent<Rigidbody2D>().velocity = new Vector2(Vx, 5f);
             }
             else if (landing == true)
             {

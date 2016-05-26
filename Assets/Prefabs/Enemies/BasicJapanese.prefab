@@ -118,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.131756, y: -2.0531063, z: -1}
+  m_LocalPosition: {x: 18.101902, y: -1.808359, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 445768}
@@ -187,6 +187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   current: 0
   max: 8
+  expForKill: 0
+  dyingPrefab: {fileID: 168390, guid: 3a845f2ee3120ab4387ee17f24d800d3, type: 2}
 --- !u!114 &11427334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,6 +212,7 @@ MonoBehaviour:
   animationIndex: 0
   staticIndex: 0
   animating: 0
+  singleAnimation: 0
 --- !u!114 &11453886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -268,6 +271,7 @@ MonoBehaviour:
   jumpPower: 1000
   startingDirection: -1
   distanceToStop: 10
+  useMovementAI: 1
 --- !u!114 &11476714
 MonoBehaviour:
   m_ObjectHideFlags: 1

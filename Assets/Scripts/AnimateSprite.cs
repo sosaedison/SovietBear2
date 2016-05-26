@@ -14,6 +14,7 @@ public class AnimateSprite : MonoBehaviour {
     public int animationIndex = 0;
     public int staticIndex = 0;
     public bool animating = false;
+    public bool singleAnimation = false;
 
     [System.NonSerialized]
     public int frameCount = 0;

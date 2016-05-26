@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.539294, y: -1.6640882, z: -1}
+  m_LocalPosition: {x: 19.81539, y: -1.5703751, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 446754}
@@ -236,6 +236,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   current: 0
   max: 8
+  expForKill: 0
+  dyingPrefab: {fileID: 112256, guid: c17dff42a43b8a54dacd33f67aebbf59, type: 2}
 --- !u!114 &11426990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,6 +254,7 @@ MonoBehaviour:
   jumpPower: 1000
   startingDirection: -1
   distanceToStop: 4
+  useMovementAI: 1
 --- !u!114 &11446584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -286,6 +289,7 @@ MonoBehaviour:
   animationIndex: 0
   staticIndex: 0
   animating: 0
+  singleAnimation: 0
 --- !u!114 &11466454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,7 +316,6 @@ MonoBehaviour:
   ammo: 0
   maxAmmo: 0
   bulletOffset: {x: 0, y: 0}
-  sword: {fileID: 141802, guid: d2653a607686202449f5a0a5976b062f, type: 2}
   CanSwing: 1
 --- !u!114 &11483656
 MonoBehaviour:

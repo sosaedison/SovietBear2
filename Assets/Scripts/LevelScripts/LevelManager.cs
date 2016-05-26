@@ -5,16 +5,12 @@ using System.Linq;
 
 public class LevelManager : MonoBehaviour {
 
-     public List<Vector3> bearSightings = new List<Vector3>();
+    public List<Vector3> bearSightings = new List<Vector3>();
+    public int levelNumber = 0;
+    public int currentExp;
 
+	public void GameOver()
+    {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
 }

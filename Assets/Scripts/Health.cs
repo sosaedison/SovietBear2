@@ -1,27 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Health : MonoBehaviour {
-    public int current = 0;
-    public int max = 12;
+public class Health : MonoBehaviour
+{
+    public int current;
+    public int max;
+    public int expForKill;
+    public GameObject dyingPrefab;
+
+    bool dead = false;
+
+    LevelManager levelManager;
 
 	// Use this for initialization
 	void Start () {
         current = max;
-	
+        levelManager = FindObjectOfType<LevelManager>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	    if (current <= 0)
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (current <= 0 && !dead)
         {
+            dead = true;
             if (CompareTag("Player"))
             {
-                //gameover
+                levelManager.GameOver();
             }
+            GameObject dyingSprite = (GameObject)Instantiate(dyingPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
         if (current > max) current = max;
 
-	}
+    }
 }
