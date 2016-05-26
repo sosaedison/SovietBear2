@@ -21,14 +21,6 @@ public class PlayerMovement : MonoBehaviour
 		rigbod = GetComponent<Rigidbody2D> ();
 	}
 
-	void Update ()
-	{
-		/*if (canJump == false) 
-		{
-			jetpackDuration -= Time.deltaTime;
-		}*/
-	}
-
 	// Update is called once per frame
 	void FixedUpdate ()
 	{

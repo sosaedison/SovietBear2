@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour {
     public int startingDirection;
     public float distanceToStop = 10f;
     public bool useMovementAI = true;
+    public GameObject handAnchor;
 
     PlayerDetectionAI playerDetectionAI;
     Rigidbody2D rigbod;
@@ -173,6 +174,13 @@ public class EnemyMovement : MonoBehaviour {
         if (other.gameObject.layer == 8)
         {
             canJump = true;
+            GetComponent<AnimateSprite>().staticIndex = 0;
+            if (handAnchor)
+            {
+                Vector3 newPos = handAnchor.transform.localPosition;
+                newPos.y = -0.264f;
+                handAnchor.transform.localPosition = newPos;
+            }
         }
     }
     void OnCollisionExit2D(Collision2D other)
@@ -181,6 +189,13 @@ public class EnemyMovement : MonoBehaviour {
         {
             canJump = false;
             GetComponent<AnimateSprite>().animating = false;
+            GetComponent<AnimateSprite>().staticIndex = 1;
+            if (handAnchor)
+            {
+                Vector3 newPos = handAnchor.transform.localPosition;
+                newPos.y = 0f;
+                handAnchor.transform.localPosition = newPos;
+            }
         }
     } 
 }

@@ -31,7 +31,7 @@ public class AnimalCombat : EnemyCombat {
             movement.Walk(0.0f, false);
             pouncing = true;
             frameCount = 0;
-            sprite.staticIndex = 1;
+            sprite.staticIndex = 2;
         }
         
     }
@@ -44,7 +44,7 @@ public class AnimalCombat : EnemyCombat {
         {
             if (pouncing == true)
             {
-                sprite.staticIndex = 2;
+                sprite.staticIndex = 1;
                 float Vx = 20f;
                 if (transform.rotation.eulerAngles.y != 0) Vx *= -1;
                 GetComponent<Rigidbody2D>().velocity = new Vector2(Vx, 5f);

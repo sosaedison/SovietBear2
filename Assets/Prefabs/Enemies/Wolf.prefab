@@ -61,7 +61,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.524687, y: -2.5223124, z: -1}
+  m_LocalPosition: {x: 24.05813, y: -3.331337, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410084}
@@ -133,6 +133,7 @@ MonoBehaviour:
   startingDirection: -1
   distanceToStop: 10
   useMovementAI: 1
+  handAnchor: {fileID: 0}
 --- !u!114 &11402918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,8 +203,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: f7d1396b98c1a7b469da9f84a9724611, type: 3}
   staticSprites:
   - {fileID: 21300000, guid: f7d1396b98c1a7b469da9f84a9724611, type: 3}
-  - {fileID: 21300000, guid: d4bf0c315f0604b42a189d81818a1734, type: 3}
   - {fileID: 21300000, guid: d9be6f70cc9524f438d379e7fe96994b, type: 3}
+  - {fileID: 21300000, guid: d4bf0c315f0604b42a189d81818a1734, type: 3}
   - {fileID: 21300000, guid: b8981c6b0dc2a5145a236470737a5de6, type: 3}
   spriteGap: 10
   animationIndex: 0
