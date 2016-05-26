@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 472484}
   - 212: {fileID: 21279590}
+  - 114: {fileID: 11404236}
   m_Layer: 0
   m_Name: Jetpack Fire MK 2.2d
   m_TagString: Untagged
@@ -262,7 +263,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8250003, y: -1.1159999, z: 0.100000024}
+  m_LocalPosition: {x: -2.79, y: -0.729, z: 0.100000024}
   m_LocalScale: {x: 0.62653685, y: 0.62653685, z: 0.62653685}
   m_Children: []
   m_Father: {fileID: 417908}
@@ -298,7 +299,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2, y: 16.1, z: -1}
+  m_LocalPosition: {x: 6.48, y: -1.6, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 425212}
@@ -398,6 +399,26 @@ MonoBehaviour:
   maxAmmo: 30
   bulletOffset: {x: 3.24, y: 0.4}
   Bullet: {fileID: 198738, guid: a17d0a6bdb837427c90bf75a75385af9, type: 2}
+--- !u!114 &11404236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58973ff0403f65f4d97c93f3ef552cd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedSprites:
+  - sprites:
+    - {fileID: 21300000, guid: b9da960dc22ef4e4481f23dd250e4434, type: 3}
+    - {fileID: 21300000, guid: 762ef20d0ea034b86a52d1f526d6463a, type: 3}
+  staticSprites: []
+  spriteGap: 4
+  animationIndex: 0
+  staticIndex: 0
+  animating: 1
 --- !u!114 &11412872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -489,7 +510,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current: 0
-  max: 16
+  max: 42
+  expForKill: 0
+  dyingPrefab: {fileID: 0}
 --- !u!114 &11455842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -509,7 +532,6 @@ MonoBehaviour:
   - {fileID: 105446}
   - {fileID: 121612}
   - {fileID: 116044}
-  HUDAmmo: {fileID: 0}
 --- !u!114 &11473944
 MonoBehaviour:
   m_ObjectHideFlags: 1
