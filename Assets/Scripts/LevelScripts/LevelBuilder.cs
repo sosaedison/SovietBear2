@@ -8,14 +8,19 @@ public class LevelBuilder : MonoBehaviour
 {
 	GameObject[,] map;
 	List<GameObject> potentialBossRooms;
-
-	public GameObject[] tiles;
+    [System.Serializable]
+    public class TileSet
+    {
+        public GameObject[] tiles;
+    }
+	public TileSet[] tileSets;
 	//Array of all tiles that can be generated (prefabs)
 	public GameObject starterTile;
 
 	int tilesSinceDeadEnd = 0;
 	int tilesGenerated = 0;
 	bool deadEndMode = false;
+    int attempts = 0;
 
 	bool CheckCompatibility (GameObject tile1, int direction, GameObject tile2)
 	{
@@ -64,10 +69,15 @@ public class LevelBuilder : MonoBehaviour
 					map [(int)newCoords.x, (int)newCoords.y - 1]
 				};
 				while (!tileGenerated) {
-					int index = Random.Range (0, tiles.Length - 1);
+                    attempts++;
+                    if (attempts > 1000)
+                    {
+                        return null;
+                    }
+					int index = Random.Range (0, tileSets[i].tiles.Length);
 					float newX = (newCoords.x - 25f) * 98.6f;
 					float newY = (newCoords.y - 25f) * 48.96f;
-					potentialTile = (GameObject)Instantiate (tiles [index], new Vector3 (newX, newY, 0.3f), Quaternion.Euler (270, 0, 0));
+					potentialTile = (GameObject)Instantiate (tileSets[i].tiles [index], new Vector3 (newX, newY, 0.3f), Quaternion.Euler (270, 0, 0));
 
 					tileGenerated = true;
                     
@@ -76,18 +86,20 @@ public class LevelBuilder : MonoBehaviour
 					int maxY = potentialTile.GetComponent<LevelTile> ().maxY;
 
 					if (minY >= 0) {
-						if (newCoords.y < minY)
-							tileGenerated = false;
+                        if (newCoords.y < minY)
+                            tileGenerated = false;
+                        
 					}
 
 					if (maxY >= 0) {
-						if (newCoords.y > maxY)
-							tileGenerated = false;
-					}
+                        if (newCoords.y > maxY)
+                            tileGenerated = false;
+                    }
 
 					if (potentialTile.GetComponent<LevelTile> ().isDeadEnd && !deadEndMode) {
 						if (tilesSinceDeadEnd <= 5)
-							tileGenerated = false; //attempt to prevent short levels
+                            tileGenerated = false; //attempt to prevent short levels
+							
 					}
 
 					if (!tileGenerated) {
@@ -96,8 +108,9 @@ public class LevelBuilder : MonoBehaviour
 					} //save some time
 					for (int j = 0; j < testingTiles.Length; j++) {
 						if (testingTiles [j] != null) {
-							if (!CheckCompatibility (potentialTile, j, testingTiles [j]))
-								tileGenerated = false;
+                            if (!CheckCompatibility(potentialTile, j, testingTiles[j]))
+                                tileGenerated = false;
+								
 							if (tileGenerated) {
 								potentialTile.GetComponent<LevelTile> ().adjacentTiles [j] = testingTiles [j];
 							} else {
@@ -116,6 +129,7 @@ public class LevelBuilder : MonoBehaviour
 					if (!tileGenerated)
 						Destroy (potentialTile);
 				}
+                attempts = 0;
 				potentialTile.GetComponent<LevelTile> ().coordinates = newCoords;
 				for (int l = 0; l < testingTiles.Length; l++) {
 					if (testingTiles [l] != null) {

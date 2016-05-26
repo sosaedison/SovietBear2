@@ -3407,9 +3407,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adjacentTiles:
   - {fileID: 125346, guid: 730ae11f5a0608d4295aaf3bcbfa6856, type: 2}
+  - {fileID: 125346, guid: 730ae11f5a0608d4295aaf3bcbfa6856, type: 2}
+  - {fileID: 125346, guid: 730ae11f5a0608d4295aaf3bcbfa6856, type: 2}
   - {fileID: 168244, guid: 91b75de8a4b8b004d8511d76068a6f9b, type: 2}
-  - {fileID: 125346, guid: 730ae11f5a0608d4295aaf3bcbfa6856, type: 2}
-  - {fileID: 125346, guid: 730ae11f5a0608d4295aaf3bcbfa6856, type: 2}
   minY: -1
   maxY: 24
   isDeadEnd: 1
