@@ -3,11 +3,9 @@ using System.Collections;
 
 public class Rifleing : Weapon {
 
-	public GameObject prefab;
-	public int burstFireCooldown = 0;
-	public bool firing = false;
+	int burstFireCooldown = 0;
+	bool firing = false;
 	bool CanShoot = true;
-	float CoolDown = 1.2f;
 	void Start () {
 	
 	}
@@ -16,21 +14,12 @@ public class Rifleing : Weapon {
 	void Update () {
 	
 	}
+
 	override public void AutoShoot (Vector2 direction)
 	{
 		if (ammo > 0 && CanShoot == true)
 		{
-            Vector2 tempBulletOffset = bulletOffset;
-            if (direction.x < 0)
-            {
-                tempBulletOffset.x *= -1.0f;
-            }
-            GameObject bullet = (GameObject) Instantiate(prefab, (Vector2)transform.position + tempBulletOffset, Quaternion.identity);
-			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
-			bulletMotion.direction = direction;
-			bulletMotion.speed = 30f;
-			bulletMotion.Activate();
-            ammo--;
+            FireBullet(direction);
 			firing = true;
 			CanShoot = false;
 		}
@@ -40,23 +29,13 @@ public class Rifleing : Weapon {
 			++burstFireCooldown;
 			if (burstFireCooldown == 10 || burstFireCooldown == 19)
 			{
-                Vector2 tempBulletOffset = bulletOffset;
-                if (direction.x < 0)
-                {
-                    tempBulletOffset.x *= -1.0f;
-                }
-                GameObject bullet = (GameObject)Instantiate(prefab, (Vector2)transform.position + tempBulletOffset, Quaternion.identity);
-				BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
-				bulletMotion.direction = direction;
-				bulletMotion.speed = 30f;
-				bulletMotion.Activate();
-                ammo--;
+                FireBullet(direction);
 			}
 			else if (burstFireCooldown == 21)
 			{
 				burstFireCooldown = 0;
 				firing = false;
-				Invoke("Reset", CoolDown);
+				Invoke("Reset", coolDown);
 			}
 		}
 	}

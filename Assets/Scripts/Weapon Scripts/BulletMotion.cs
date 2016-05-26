@@ -7,6 +7,7 @@ public class BulletMotion : MonoBehaviour
     public Vector2 direction;
 	public float speed;
 	public bool canCollat = false;
+    public int damage;
 	private int collat = 3;
 	// Use this for initialization
 	void Start () 
@@ -36,7 +37,7 @@ public class BulletMotion : MonoBehaviour
         Health health = collision.gameObject.GetComponent<Health>();
         if (health != null)
         {
-            health.current -= 4;
+            health.current -= damage;
         }
         if (canCollat) 
 		{

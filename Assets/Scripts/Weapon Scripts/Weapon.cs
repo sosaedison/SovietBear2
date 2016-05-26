@@ -2,15 +2,37 @@
 using System.Collections;
 
 public class Weapon : MonoBehaviour {
-	public bool equipped = false;
+    public GameObject Bullet;
+    public Vector2 bulletOffset;
+    public bool equipped = false;
 	public int ammo;
 	public int maxAmmo;
-    public Vector2 bulletOffset;
+    public int damage;
+    public float bulletSpeed;
+    public float coolDown;
+    public bool canCollat;
 	// Use this for initialization
 	void Start () 
 	{
 		ammo = maxAmmo;
 	}
+
+    protected void FireBullet(Vector2 direction)
+    {
+        Vector2 tempBulletOffset = bulletOffset;
+        if (direction.x < 0)
+        {
+            tempBulletOffset.x *= -1.0f;
+        }
+        GameObject bullet = (GameObject)Instantiate(Bullet, (Vector2)transform.position + tempBulletOffset, Quaternion.identity);
+        BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
+        bulletMotion.direction = direction;
+        bulletMotion.speed = bulletSpeed;
+        bulletMotion.damage = damage;
+        bulletMotion.canCollat = canCollat;
+        bulletMotion.Activate();
+        ammo--;
+    }
 	
 	void FixedUpdate () 
 	{

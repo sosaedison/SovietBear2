@@ -11,19 +11,13 @@ public class Swording : Weapon {
 		SwordSwing = GetComponent<Animation>();
 	}
 
-	// Update is called once per frame
-	void Update () 
-	{
-
-	}
-
 	override public void Shoot (Vector2 direction)
 	{
 		if (CanSwing == true)
 		{
 			CanSwing = false;
 			SwordSwing.Play();
-			Invoke("Reset",.6f);
+			Invoke("Reset", coolDown);
 		}
 	}
 
@@ -34,7 +28,7 @@ public class Swording : Weapon {
             Health health = other.gameObject.GetComponent<Health>();
             if (health != null && CanSwing == false)
             {
-                health.current -= 12;
+                health.current -= damage;
             }
         }
         

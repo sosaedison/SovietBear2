@@ -3,9 +3,7 @@ using System.Collections;
 
 public class Sniping : Weapon {
 
-	public GameObject prefab;
 	bool CanShoot = true;
-	float CoolDown = 1.2f;
 	void Start () {
 	
 	}
@@ -18,20 +16,9 @@ public class Sniping : Weapon {
 	{
 		if(ammo > 0 && CanShoot == true)
 		{
-            Vector2 tempBulletOffset = bulletOffset;
-            if (direction.x < 0)
-            {
-                tempBulletOffset.x *= -1.0f;
-            }
-            GameObject bullet = (GameObject) Instantiate(prefab, (Vector2)transform.position + tempBulletOffset, Quaternion.identity);
-			BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
-			bulletMotion.direction = direction;
-			bulletMotion.speed = 54f;
-			bulletMotion.canCollat = true;
-			bulletMotion.Activate();
-            ammo--;
+            FireBullet(direction);
 			CanShoot = false;
-			Invoke("Reset", CoolDown);
+			Invoke("Reset", coolDown);
 		}
 	}
 	void Reset()

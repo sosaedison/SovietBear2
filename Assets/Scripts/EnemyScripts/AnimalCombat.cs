@@ -8,6 +8,8 @@ public class AnimalCombat : EnemyCombat {
     int frameCount = 0;
     bool pouncing;
     bool landing;
+    public int baseDamage;
+    public int pounchDamage;
 
 	// Use this for initialization
 	new void Start () {
@@ -79,11 +81,11 @@ public class AnimalCombat : EnemyCombat {
             {
                 if (pouncing)
                 {
-                    health.current -= 6;
+                    health.current -= pounchDamage;
                 } 
                 else
                 {
-                    health.current -= 4;
+                    health.current -= baseDamage;
                 }
                 
             }
