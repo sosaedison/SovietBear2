@@ -9,13 +9,20 @@ public class HUDInteraction : MonoBehaviour {
 	Health playerHealth;
 	public GameObject Player;
 	public GameObject HealthUI;
+	public GameObject LevelPerkMenu;
 	public Text HUDAmmo;
+	public Slider XP;
+	public GameObject LevelManager;
+	bool canLevel = false;
 	public List<GameObject> HeartPieces;
 	int LastHeartPlaced = 0;
 	public GameObject[] Quarters = new GameObject[4];
 	public GameObject PreviousQuarter;
 	GameObject NewQuarter;
 	Vector3[] DisplacementVectors = {new Vector3(0f,15f,0f), new Vector3(23f,0f,0f), new Vector3(0f,-15f,0f), new Vector3(15f,0f,0f)};
+	int MaxExp = 60;
+	int currentExp;
+	int BearLvl = 1;
 	// From TL counter clockwise
 
 	// Use this for initialization
@@ -35,6 +42,7 @@ public class HUDInteraction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		//Heart Display
 		if (playerHealth.current > LastHeartPlaced)
 		{
 			for(int i=0; i<(playerHealth.current); i++)
@@ -54,8 +62,28 @@ public class HUDInteraction : MonoBehaviour {
 			LastHeartPlaced--;
 			PreviousQuarter = HeartPieces.Last();
 		}
+		// Ammo Display
 		Weapon currentWeapon = Player.GetComponent<Management>().weapons[Player.GetComponent<Management>().WeaponSlot].GetComponent<Weapon>();
 		HUDAmmo.text = currentWeapon.ammo.ToString()+"/"+currentWeapon.maxAmmo.ToString();
+
+		//XP Display
+		currentExp = LevelManager.GetComponent<LevelManager>().currentExp;
+		XP.maxValue = MaxExp;
+		XP.value = currentExp;
+		if (currentExp >= MaxExp)
+		{
+			Debug.Log("Should lvl up");
+			LevelManager.GetComponent<LevelManager>().currentExp = currentExp-MaxExp;
+			BearLvl++;
+			MaxExp = BearLvl*60;
+			canLevel = true;
+		}
+		if (canLevel == true && Input.GetButtonDown("PerkScreen"))
+		{
+			//pause game
+			canLevel = false;
+			LevelPerkMenu.active = !LevelPerkMenu.active;
+		}
 	}
 	// TL to BL is x,y-15. BL to BR is (x+15,y). BR to TR (is x,y+15). TR to TL is (x+23,y)
 }
