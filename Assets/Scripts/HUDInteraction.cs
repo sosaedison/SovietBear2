@@ -27,6 +27,7 @@ public class HUDInteraction : MonoBehaviour {
 	int MaxExp = 60;
 	int currentExp;
 	int BearLvl = 1;
+	public GameObject LevelReminder;
 	// From TL counter clockwise
 
 	// Use this for initialization
@@ -102,6 +103,14 @@ public class HUDInteraction : MonoBehaviour {
 		{
 			//pause game
 			LevelPerkMenu.active = !LevelPerkMenu.active;
+		}
+		if (canLevel > 0)
+		{
+			LevelReminder.active = true;
+		}
+		else if (canLevel <= 0)
+		{
+			LevelReminder.active = false;
 		}
 	}
 	// TL to BL is x,y-15. BL to BR is (x+15,y). BR to TR (is x,y+15). TR to TL is (x+23,y)
