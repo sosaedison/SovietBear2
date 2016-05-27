@@ -40,7 +40,7 @@ public class BulletMotion : MonoBehaviour
         Health health = collision.gameObject.GetComponent<Health>();
         if (health != null)
         {
-            health.current -= damage;
+            health.TakeDamage(damage);
         }
         if (canCollat) 
 		{

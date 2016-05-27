@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public GameObject dyingPrefab;
 
     bool dead = false;
+    float timeOfLastDamage = -1;
 
     LevelManager levelManager;
 
@@ -22,7 +23,19 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (current <= 0 && !dead && !LevelManager.isPaused())
+        
+        if (current > max) current = max;
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (Time.time - timeOfLastDamage > 1)
+        {
+            timeOfLastDamage = Time.time;
+            current -= damage;
+        }
+        if (current <= 0 && !dead)
         {
             dead = true;
             if (CompareTag("Player"))
@@ -33,7 +46,5 @@ public class Health : MonoBehaviour
             GameObject dyingSprite = (GameObject)Instantiate(dyingPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
-        if (current > max) current = max;
-
     }
 }

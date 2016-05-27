@@ -46,7 +46,7 @@ public class Swording : Weapon {
             Health health = other.gameObject.GetComponent<Health>();
             if (health != null && canSwing == false)
             {
-                health.current -= damage;
+                health.TakeDamage(damage);
             }
         }
         

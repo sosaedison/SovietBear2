@@ -43,7 +43,7 @@ public class FlameScript : MonoBehaviour {
         Health health = collision.gameObject.GetComponent<Health>();
         if (health != null)
         {
-            health.current -= 1;
+            health.TakeDamage(1);
         }
         Destroy(gameObject);
 

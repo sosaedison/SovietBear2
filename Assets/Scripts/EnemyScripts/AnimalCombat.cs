@@ -9,7 +9,7 @@ public class AnimalCombat : EnemyCombat {
     bool pouncing;
     bool landing;
     public int baseDamage;
-    public int pounchDamage;
+    public int pounceDamage;
     public float waitTime;
 
 	// Use this for initialization
@@ -85,11 +85,11 @@ public class AnimalCombat : EnemyCombat {
             {
                 if (pouncing)
                 {
-                    health.current -= pounchDamage;
+                    health.TakeDamage(pounceDamage);
                 } 
                 else
                 {
-                    health.current -= baseDamage;
+                    health.TakeDamage(baseDamage);
                 }
                 
             }

@@ -25,7 +25,7 @@ public class Explosion : MonoBehaviour {
             Health health = other.gameObject.GetComponent<Health>();
             if (health != null)
             {
-                health.current -= 5;
+                health.TakeDamage(5);
             }
         }
         
