@@ -7,24 +7,43 @@ public class MoveCamera : MonoBehaviour
 	public Vector3 endPos;
 	public float startTime = 0;
 	public float speed;
+    LevelManager levelManager;
+    bool moving;
+    float totalDistance;
+    float lerpTime;
 
 	// Use this for initialization
 	void Start ()
 	{
-		startPos = this.transform.position;
-		endPos = this.transform.position;
+		startPos = transform.position;
+		endPos = transform.position;
+        levelManager = FindObjectOfType<LevelManager>();
 	}
 	// Update is called once per frame
 	void Update ()
 	{
-		if (this.transform.position != endPos) {
-			Vector3 currentPos = this.transform.position;
-			endPos.z = currentPos.z;
-			float totalDistance = Vector3.Distance (startPos, endPos);
-			float distanceTravelled = (Time.time - startTime) * speed;
-			this.transform.position = Vector3.Lerp (currentPos, endPos, distanceTravelled / totalDistance);
-		}
+        endPos.z = startPos.z;
+        if (!moving && Vector3.Distance(transform.position, endPos) > .1)
+        {
+            moving = true;
+            levelManager.Pause();
+            startPos = transform.position;
+            totalDistance = Vector3.Distance(startPos, endPos);
+            lerpTime = totalDistance / speed;
+            startTime = Time.time;
+        }
 
+		float currentTime = Time.time - startTime;
+        if (currentTime > lerpTime && moving)
+        {
+            moving = false;
+            levelManager.Unpause();
+            transform.position = endPos;
+        }
+        if (moving)
+        {
+            transform.position = Vector3.Lerp(startPos, endPos, currentTime / lerpTime);
+        }
 	
 	}
 }
