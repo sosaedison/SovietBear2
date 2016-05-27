@@ -335,6 +335,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &159330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 418706}
+  - 114: {fileID: 11451176}
+  m_Layer: 0
+  m_Name: EnemySpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &161386
 GameObject:
   m_ObjectHideFlags: 1
@@ -546,6 +562,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &186268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 468134}
+  - 114: {fileID: 11433482}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &187142
 GameObject:
   m_ObjectHideFlags: 1
@@ -653,7 +685,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180378}
   m_LocalRotation: {x: -0.37797356, y: 0.48307052, z: 0.75149614, w: 0.24296588}
-  m_LocalPosition: {x: 1.956, y: 0.26, z: 1.153}
+  m_LocalPosition: {x: 1.956, y: 0.63, z: 1.153}
   m_LocalScale: {x: 0.16, y: 0.20867158, z: 1}
   m_Children: []
   m_Father: {fileID: 464684}
@@ -701,11 +733,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198926}
   m_LocalRotation: {x: -0.046891764, y: 0.7055502, z: 0.7055503, w: 0.046891768}
-  m_LocalPosition: {x: 1.221, y: 0.3, z: 0.85}
+  m_LocalPosition: {x: 1.221, y: 0.63, z: 0.85}
   m_LocalScale: {x: 0.13, y: 0.20682089, z: 1}
   m_Children: []
   m_Father: {fileID: 464684}
   m_RootOrder: 17
+--- !u!4 &418706
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159330}
+  m_LocalRotation: {x: -0.7071066, y: 0, z: 0, w: -0.70710695}
+  m_LocalPosition: {x: 2.2267206, y: 1.2218717, z: -1.1670065}
+  m_LocalScale: {x: 0.10121457, y: 0.20512828, z: 1}
+  m_Children: []
+  m_Father: {fileID: 489528}
+  m_RootOrder: 1
 --- !u!4 &420394
 Transform:
   m_ObjectHideFlags: 1
@@ -725,7 +769,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198332}
   m_LocalRotation: {x: 0.00000011520229, y: 0.70710695, z: -0.7071066, w: 0.00000011520235}
-  m_LocalPosition: {x: 1.26, y: 0.2, z: 1.4}
+  m_LocalPosition: {x: 1.26, y: 0.27, z: 1.4}
   m_LocalScale: {x: 0.10121457, y: 0.19999999, z: 1.4425799}
   m_Children: []
   m_Father: {fileID: 464684}
@@ -881,7 +925,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152902}
   m_LocalRotation: {x: -0.000000115202326, y: 0.7071067, z: -0.7071068, w: -0.00000011520231}
-  m_LocalPosition: {x: 1.66, y: 0.2, z: 0.97}
+  m_LocalPosition: {x: 1.66, y: 0.27, z: 0.97}
   m_LocalScale: {x: 0.10121457, y: 0.4, z: 1.4425799}
   m_Children: []
   m_Father: {fileID: 464684}
@@ -940,7 +984,7 @@ Transform:
   - {fileID: 416258}
   - {fileID: 411696}
   m_Father: {fileID: 489528}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!4 &466844
 Transform:
   m_ObjectHideFlags: 1
@@ -965,6 +1009,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 485030}
   m_RootOrder: 9
+--- !u!4 &468134
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186268}
+  m_LocalRotation: {x: -0.7071066, y: 0, z: 0, w: -0.70710695}
+  m_LocalPosition: {x: 4.2813754, y: 1.2218717, z: -1.1670065}
+  m_LocalScale: {x: 0.10121457, y: 0.20512828, z: 1}
+  m_Children: []
+  m_Father: {fileID: 489528}
+  m_RootOrder: 0
 --- !u!4 &468946
 Transform:
   m_ObjectHideFlags: 1
@@ -1020,7 +1076,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173316}
   m_LocalRotation: {x: 0.04498641, y: 0.7056743, z: 0.7056744, w: -0.044986416}
-  m_LocalPosition: {x: 1.554, y: 0.3, z: 0.342}
+  m_LocalPosition: {x: 1.554, y: 0.63, z: 0.342}
   m_LocalScale: {x: 0.1, y: 0.21, z: 1}
   m_Children: []
   m_Father: {fileID: 464684}
@@ -1084,7 +1140,7 @@ Transform:
   - {fileID: 466844}
   - {fileID: 429838}
   m_Father: {fileID: 489528}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!4 &489528
 Transform:
   m_ObjectHideFlags: 1
@@ -1095,6 +1151,8 @@ Transform:
   m_LocalPosition: {x: 493, y: -97.2, z: 0.3}
   m_LocalScale: {x: 9.88, y: 1, z: 4.874999}
   m_Children:
+  - {fileID: 468134}
+  - {fileID: 418706}
   - {fileID: 485030}
   - {fileID: 495694}
   - {fileID: 464684}
@@ -1127,7 +1185,7 @@ Transform:
   - {fileID: 496490}
   - {fileID: 455174}
   m_Father: {fileID: 489528}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!4 &496490
 Transform:
   m_ObjectHideFlags: 1
@@ -1463,6 +1521,50 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &11433482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdabb72abee9a94e8b5bf412aa6b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - enemies:
+    - {fileID: 129290, guid: b4f2e2d4bfb71284fafef44eca3af243, type: 2}
+    - {fileID: 170082, guid: 1fccfeb645cd03c43b404fb555ad6c07, type: 2}
+  - enemies:
+    - {fileID: 129290, guid: b4f2e2d4bfb71284fafef44eca3af243, type: 2}
+    - {fileID: 170082, guid: 1fccfeb645cd03c43b404fb555ad6c07, type: 2}
+    - {fileID: 122282, guid: 1cb70cf671edf8141aec20bdb0e1ee27, type: 2}
+    - {fileID: 131288, guid: 128f8f8f0e5bb244995e27b18a6e7236, type: 2}
+    - {fileID: 190810, guid: 75c7961944deea54da400cce4b202c16, type: 2}
+    - {fileID: 114238, guid: 786224ba6fb3bf54b8c4cf8d33129823, type: 2}
+    - {fileID: 174884, guid: 367f309b92385ca4795809ce85d2e47d, type: 2}
+    - {fileID: 168234, guid: 75562e8f1e4f6d3488300a34905ff5c0, type: 2}
+  - enemies:
+    - {fileID: 122282, guid: 1cb70cf671edf8141aec20bdb0e1ee27, type: 2}
+    - {fileID: 190810, guid: 75c7961944deea54da400cce4b202c16, type: 2}
+    - {fileID: 131288, guid: 128f8f8f0e5bb244995e27b18a6e7236, type: 2}
+    - {fileID: 168234, guid: 75562e8f1e4f6d3488300a34905ff5c0, type: 2}
+    - {fileID: 174884, guid: 367f309b92385ca4795809ce85d2e47d, type: 2}
+    - {fileID: 116216, guid: f9f1cbf4580f7aa429a78d9fb8d88b71, type: 2}
+    - {fileID: 114238, guid: 786224ba6fb3bf54b8c4cf8d33129823, type: 2}
+    - {fileID: 195654, guid: 0a5def26ca4f78c4aa9b30bc1420a985, type: 2}
+    - {fileID: 121368, guid: 64e290fc056d1fe4aa8cfe46b27e8599, type: 2}
+  - enemies:
+    - {fileID: 190810, guid: 75c7961944deea54da400cce4b202c16, type: 2}
+    - {fileID: 131288, guid: 128f8f8f0e5bb244995e27b18a6e7236, type: 2}
+    - {fileID: 174884, guid: 367f309b92385ca4795809ce85d2e47d, type: 2}
+    - {fileID: 114238, guid: 786224ba6fb3bf54b8c4cf8d33129823, type: 2}
+    - {fileID: 116216, guid: f9f1cbf4580f7aa429a78d9fb8d88b71, type: 2}
+    - {fileID: 195654, guid: 0a5def26ca4f78c4aa9b30bc1420a985, type: 2}
+    - {fileID: 121368, guid: 64e290fc056d1fe4aa8cfe46b27e8599, type: 2}
+    - {fileID: 110744, guid: 0021009916e96a741a9abf43a7f96ed5, type: 2}
+    - {fileID: 113572, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
 --- !u!114 &11433872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1489,6 +1591,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
   direction: 0
+--- !u!114 &11451176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdabb72abee9a94e8b5bf412aa6b86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - enemies:
+    - {fileID: 129290, guid: b4f2e2d4bfb71284fafef44eca3af243, type: 2}
+    - {fileID: 170082, guid: 1fccfeb645cd03c43b404fb555ad6c07, type: 2}
+  - enemies:
+    - {fileID: 129290, guid: b4f2e2d4bfb71284fafef44eca3af243, type: 2}
+    - {fileID: 170082, guid: 1fccfeb645cd03c43b404fb555ad6c07, type: 2}
+    - {fileID: 122282, guid: 1cb70cf671edf8141aec20bdb0e1ee27, type: 2}
+    - {fileID: 131288, guid: 128f8f8f0e5bb244995e27b18a6e7236, type: 2}
+    - {fileID: 190810, guid: 75c7961944deea54da400cce4b202c16, type: 2}
+    - {fileID: 114238, guid: 786224ba6fb3bf54b8c4cf8d33129823, type: 2}
+    - {fileID: 174884, guid: 367f309b92385ca4795809ce85d2e47d, type: 2}
+    - {fileID: 168234, guid: 75562e8f1e4f6d3488300a34905ff5c0, type: 2}
+  - enemies:
+    - {fileID: 122282, guid: 1cb70cf671edf8141aec20bdb0e1ee27, type: 2}
+    - {fileID: 190810, guid: 75c7961944deea54da400cce4b202c16, type: 2}
+    - {fileID: 131288, guid: 128f8f8f0e5bb244995e27b18a6e7236, type: 2}
+    - {fileID: 168234, guid: 75562e8f1e4f6d3488300a34905ff5c0, type: 2}
+    - {fileID: 174884, guid: 367f309b92385ca4795809ce85d2e47d, type: 2}
+    - {fileID: 116216, guid: f9f1cbf4580f7aa429a78d9fb8d88b71, type: 2}
+    - {fileID: 114238, guid: 786224ba6fb3bf54b8c4cf8d33129823, type: 2}
+    - {fileID: 195654, guid: 0a5def26ca4f78c4aa9b30bc1420a985, type: 2}
+    - {fileID: 121368, guid: 64e290fc056d1fe4aa8cfe46b27e8599, type: 2}
+  - enemies:
+    - {fileID: 190810, guid: 75c7961944deea54da400cce4b202c16, type: 2}
+    - {fileID: 131288, guid: 128f8f8f0e5bb244995e27b18a6e7236, type: 2}
+    - {fileID: 174884, guid: 367f309b92385ca4795809ce85d2e47d, type: 2}
+    - {fileID: 114238, guid: 786224ba6fb3bf54b8c4cf8d33129823, type: 2}
+    - {fileID: 116216, guid: f9f1cbf4580f7aa429a78d9fb8d88b71, type: 2}
+    - {fileID: 195654, guid: 0a5def26ca4f78c4aa9b30bc1420a985, type: 2}
+    - {fileID: 121368, guid: 64e290fc056d1fe4aa8cfe46b27e8599, type: 2}
+    - {fileID: 110744, guid: 0021009916e96a741a9abf43a7f96ed5, type: 2}
+    - {fileID: 113572, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
 --- !u!114 &11457182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1510,7 +1656,9 @@ MonoBehaviour:
   isDeadEnd: 0
   isBossRoom: 0
   coordinates: {x: 28, y: 26}
-  enemySpawners: []
+  enemySpawners:
+  - {fileID: 186268}
+  - {fileID: 159330}
   enemiesSpawned: 0
 --- !u!114 &11459604
 MonoBehaviour:
