@@ -7,7 +7,10 @@ public class PlayerMovement : MonoBehaviour
 	public int xVelocityFactor = 5;
 	float xMovement = 0.0f;
 	Rigidbody2D rigbod;
+    AnimateSprite sprite;
+    BoxCollider2D collider;
 	public bool canJump = true;
+    public bool crouching = false;
 	public int jumpPower = 800;
 	public int jetpackPower = 16;
 	float jetpackDuration = 9;
@@ -22,39 +25,81 @@ public class PlayerMovement : MonoBehaviour
 	void Start ()
 	{
 		rigbod = GetComponent<Rigidbody2D> ();
+        sprite = GetComponent<AnimateSprite>();
+        collider = GetComponent<BoxCollider2D>();
 	}
 
-	// Update is called once per frame
-	void FixedUpdate ()
-	{
+	void Update()
+    {
         if (!paused)
         {
             xMovement = (Input.GetAxis("Horizontal"));
-            rigbod.velocity = new Vector2(xMovement * xVelocityFactor, rigbod.velocity.y);
             if (Input.GetAxisRaw("Horizontal") > 0f)
             {
                 if (!Input.GetButton("Strafe")) transform.rotation = Quaternion.Euler(0, 0, 0);
                 if (canJump == true)//on ground
-                {
-                    GetComponent<AnimateSprite>().animating = true;
-                }
+                    sprite.animating = true;
             }
             else if (Input.GetAxisRaw("Horizontal") < 0f)
             {
                 if (!Input.GetButton("Strafe")) transform.rotation = Quaternion.Euler(0, 180, 0);
                 if (canJump == true)//on ground
-                {
-
-                    GetComponent<AnimateSprite>().animating = true;
-                }
+                    sprite.animating = true;
             }
             else if (Input.GetAxisRaw("Horizontal") == 0f)
             {
                 if (canJump == true)//on ground
-                {
-                    GetComponent<AnimateSprite>().animating = false;
-                }
+                    sprite.animating = false;
             }
+
+            if (!canJump && !crouching)
+            {
+                sprite.animating = false;
+                sprite.staticIndex = 1;
+                Vector3 newPos = handAnchor.transform.localPosition;
+                newPos.y = 0f;
+                handAnchor.transform.localPosition = newPos;
+            }
+            else if (Input.GetButton("Crouch"))
+            {
+                crouching = true;
+                xMovement = 0;
+                sprite.staticIndex = 2;
+                sprite.animating = false;
+                Vector3 newPos = handAnchor.transform.localPosition;
+                newPos.y = -0.68f;
+                handAnchor.transform.localPosition = newPos;
+                collider.offset = new Vector2(0.125f, -0.04f);
+                collider.size = new Vector2(3.95f, 4.8f);
+            }
+            else
+            {
+                sprite.staticIndex = 0;
+                crouching = false;
+                Vector3 newPos = handAnchor.transform.localPosition;
+                newPos.y = -0.264f;
+                handAnchor.transform.localPosition = newPos;
+                collider.offset = new Vector2(-0.09f, -0.07f);
+                collider.size = new Vector2(3.5f, 5.5f);
+            }
+            
+
+            if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0)
+            {
+                GetComponent<PhaseThroughFloor>().DropDown();
+            }
+            if (Input.GetAxisRaw("Vertical") <= 0 || jetpackDuration <= 0)
+            {
+                jetpackFire.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
+    }
+
+	void FixedUpdate ()
+	{
+        if (!paused)
+        {
+            rigbod.velocity = new Vector2(xMovement * xVelocityFactor, rigbod.velocity.y);
 
             if (canJump == true && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0)
             {
@@ -67,26 +112,16 @@ public class PlayerMovement : MonoBehaviour
                 jetpackFire.GetComponent<SpriteRenderer>().enabled = true;
             }
 
-            if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0)
-            {
-                GetComponent<PhaseThroughFloor>().DropDown();
-            }
-            if (Input.GetAxisRaw("Vertical") <= 0 || jetpackDuration <= 0)
-            {
-                jetpackFire.GetComponent<SpriteRenderer>().enabled = false;
-            }
+           
         }
 	}
 
 	//Enables Jumping
-	void OnCollisionStay2D (Collision2D other)
+	void OnCollisionEnter2D (Collision2D other)
 	{
 		if (other.gameObject.layer == 8 && !paused) {
 			canJump = true;
-            GetComponent<AnimateSprite>().staticIndex = 0;
-            Vector3 newPos = handAnchor.transform.localPosition;
-            newPos.y = -0.264f;
-            handAnchor.transform.localPosition = newPos; 
+            
             if (jetpackDuration <= 3) {
 				jetpackDuration = 3;
 			}
@@ -95,14 +130,8 @@ public class PlayerMovement : MonoBehaviour
 
 	void OnCollisionExit2D (Collision2D other)
 	{
-		if (other.gameObject.layer == 8 && !paused) {
+		if (other.gameObject.layer == 8 && !paused)
 			canJump = false;
-            GetComponent<AnimateSprite>().animating = false;
-            GetComponent<AnimateSprite>().staticIndex = 1;
-            Vector3 newPos = handAnchor.transform.localPosition;
-            newPos.y = 0f;
-            handAnchor.transform.localPosition = newPos;
-        }
 	}
 
     void OnPause()
