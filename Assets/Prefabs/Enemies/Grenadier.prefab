@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.848738, y: -1.6168113, z: -1}
+  m_LocalPosition: {x: 31.211935, y: -1.8064339, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424766}
@@ -215,7 +215,7 @@ MonoBehaviour:
   startingDirection: -1
   distanceToStop: 30
   useMovementAI: 1
-  handAnchor: {fileID: 0}
+  handAnchor: {fileID: 112046}
 --- !u!114 &11476274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,10 +227,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ee7bb5ed0a2ac4faf3a24f87e6cf4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBoss: 0
   current: 0
   max: 8
   expForKill: 0
-  dyingPrefab: {fileID: 112046}
+  dyingPrefab: {fileID: 150632, guid: 040a3ebdbd598e146a62cbc154f6ecaf, type: 2}
 --- !u!114 &11477526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,7 +256,6 @@ MonoBehaviour:
   animationIndex: 0
   staticIndex: 0
   animating: 0
-  singleAnimation: 0
 --- !u!114 &11484108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,10 +278,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0acf7e88a6c90647aa6a9db8b6eac16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 0}
+  bulletOffset: {x: 0, y: 0}
   equipped: 1
   ammo: 100
   maxAmmo: 100
-  bulletOffset: {x: 0, y: 0}
+  damage: 0
+  bulletSpeed: 0
+  coolDown: 0
+  canCollat: 0
   prefab: {fileID: 185528, guid: 0cf131fddd28ff043a4df4884b47b554, type: 2}
 --- !u!114 &11498092
 MonoBehaviour:
