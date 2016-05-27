@@ -13,13 +13,17 @@ public class HUDInteraction : MonoBehaviour {
 	public Text HUDAmmo;
 	public Slider XP;
 	public GameObject LevelManager;
-	bool canLevel = false;
+	public int canLevel = 0;
 	public List<GameObject> HeartPieces;
 	int LastHeartPlaced = 0;
 	public GameObject[] Quarters = new GameObject[4];
 	public GameObject PreviousQuarter;
 	GameObject NewQuarter;
 	Vector3[] DisplacementVectors = {new Vector3(0f,15f,0f), new Vector3(23f,0f,0f), new Vector3(0f,-15f,0f), new Vector3(15f,0f,0f)};
+	int maxHP = 0;
+	public GameObject Outlineprefab;
+	public GameObject PreviousOutline;
+	GameObject NewOutline;
 	int MaxExp = 60;
 	int currentExp;
 	int BearLvl = 1;
@@ -62,9 +66,26 @@ public class HUDInteraction : MonoBehaviour {
 			LastHeartPlaced--;
 			PreviousQuarter = HeartPieces.Last();
 		}
+		if (playerHealth.max > maxHP)
+		{
+			NewOutline = (GameObject) Instantiate(Outlineprefab, new Vector3(PreviousOutline.transform.position.x + 38f, PreviousOutline.transform.position.y, -1f), Quaternion.identity);
+			NewOutline.transform.SetParent(HealthUI.transform, true);
+			NewOutline.transform.SetAsFirstSibling();
+			PreviousOutline = NewOutline;
+			maxHP += 4;
+		}
 		// Ammo Display
 		Weapon currentWeapon = Player.GetComponent<Management>().weapons[Player.GetComponent<Management>().WeaponSlot].GetComponent<Weapon>();
-		HUDAmmo.text = currentWeapon.ammo.ToString()+"/"+currentWeapon.maxAmmo.ToString();
+		//HUDAmmo.text = currentWeapon.ammo.ToString()+"/"+currentWeapon.maxAmmo.ToString();
+		if (currentWeapon.transform.name == "ActualSword")
+		{
+			HUDAmmo.text = "N/A";
+		}
+		else if (currentWeapon.transform.name !="ActualSword")
+		{
+			HUDAmmo.text = currentWeapon.ammo.ToString()+"/"+currentWeapon.maxAmmo.ToString();
+
+		}
 
 		//XP Display
 		currentExp = LevelManager.GetComponent<LevelManager>().currentExp;
@@ -72,16 +93,14 @@ public class HUDInteraction : MonoBehaviour {
 		XP.value = currentExp;
 		if (currentExp >= MaxExp)
 		{
-			Debug.Log("Should lvl up");
 			LevelManager.GetComponent<LevelManager>().currentExp = currentExp-MaxExp;
 			BearLvl++;
 			MaxExp = BearLvl*60;
-			canLevel = true;
+			canLevel++;
 		}
-		if (canLevel == true && Input.GetButtonDown("PerkScreen"))
+		if (canLevel > 0 && Input.GetButtonDown("PerkScreen"))
 		{
 			//pause game
-			canLevel = false;
 			LevelPerkMenu.active = !LevelPerkMenu.active;
 		}
 	}
