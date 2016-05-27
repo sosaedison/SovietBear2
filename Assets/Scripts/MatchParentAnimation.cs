@@ -4,14 +4,11 @@ using System.Collections;
 public class MatchParentAnimation : MonoBehaviour {
 
     SpriteRenderer spriteRenderer;
-    // Use this for initialization
-    void Start ()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
     public void NewSprite(Sprite sprite)
     {
+        if (!spriteRenderer)
+            spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprite;
     }
 }

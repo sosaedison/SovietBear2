@@ -10,10 +10,11 @@ public class BossTigerCombat : AnimalCombat {
         health = GetComponent<Health>();
     }
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
+        base.Update();
         if (health.current <= health.max / 2)
         {
-            waitFrames = 1;
+            waitTime = 0;
         }
 	}
 }

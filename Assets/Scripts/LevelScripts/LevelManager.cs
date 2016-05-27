@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour {
     public int currentExp;
     public GameObject boss;
 
+    static LevelManager levelManager;
+
     
 
 	public void GameOver()
@@ -24,7 +26,8 @@ public class LevelManager : MonoBehaviour {
     
     public static bool isPaused()
     {
-        LevelManager levelManager = FindObjectOfType<LevelManager>();
+        if (!levelManager)
+            levelManager = FindObjectOfType<LevelManager>();
         if (levelManager == null)
         {
             return false;

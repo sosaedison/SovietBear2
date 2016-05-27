@@ -17,7 +17,7 @@ public class EnemyCombat : MonoBehaviour {
     }
 
     // Update is called once per frame
-    protected void FixedUpdate()
+    protected void Update()
     {
         if (playerDetectionAI.playerVisible && !LevelManager.isPaused())
         {

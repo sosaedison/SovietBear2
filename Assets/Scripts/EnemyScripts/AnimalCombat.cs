@@ -5,12 +5,12 @@ public class AnimalCombat : EnemyCombat {
 
     AnimateSprite sprite;
     EnemyMovement movement;
-    int frameCount = 0;
+    float timeCount;
     bool pouncing;
     bool landing;
     public int baseDamage;
     public int pounchDamage;
-    public int waitFrames;
+    public float waitTime;
 
 	// Use this for initialization
 	new void Start () {
@@ -33,19 +33,19 @@ public class AnimalCombat : EnemyCombat {
             movement.useMovementAI = false;
             movement.Walk(0.0f, false);
             pouncing = true;
-            frameCount = 0;
+            timeCount = 0;
             sprite.staticIndex = 2;
         }
         
     }
 	
 	// Update is called once per frame
-	new void FixedUpdate () {
-        base.FixedUpdate();
+	new void Update () {
+        base.Update();
         if (!LevelManager.isPaused())
         {
-            frameCount++;
-            if (frameCount == waitFrames)
+            timeCount += Time.deltaTime;
+            if (timeCount >= waitTime)
             {
                 if (pouncing == true)
                 {
@@ -75,7 +75,7 @@ public class AnimalCombat : EnemyCombat {
                 sprite.staticIndex = 3;
                 pouncing = false;
                 landing = true;
-                frameCount = 0;
+                timeCount = 0;
             }
         }
         else

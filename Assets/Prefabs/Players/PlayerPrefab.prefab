@@ -508,7 +508,7 @@ MonoBehaviour:
   bulletOffset: {x: 2.65, y: 0.73}
   equipped: 0
   ammo: 100
-  maxAmmo: 21
+  maxAmmo: 30
   damage: 4
   bulletSpeed: 30
   coolDown: 1.2
@@ -526,7 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   current: 0
-  max: 42
+  max: 399
   expForKill: 0
   dyingPrefab: {fileID: 0}
 --- !u!114 &11455842
@@ -569,7 +569,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f26c52fc1ea9c1e49929466625b48ceb, type: 3}
   - {fileID: 21300000, guid: f0a6407d2b77de54c8efdd0c16801acf, type: 3}
   - {fileID: 21300000, guid: 3c03d3fbf80ca3d4ab91986521971764, type: 3}
-  spriteGap: 10
+  spriteGap: 0.16
   animationIndex: 0
   staticIndex: 0
   animating: 0

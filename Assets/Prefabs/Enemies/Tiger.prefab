@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 4
   pounchDamage: 6
-  waitFrames: 30
+  waitTime: 0.5
 --- !u!212 &21217462
 SpriteRenderer:
   m_ObjectHideFlags: 1
