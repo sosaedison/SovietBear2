@@ -29,6 +29,27 @@ public class BossHeavyCombat : BossCombat {
                 attacking = false;
             }
             Vector2 direction = player.transform.position - transform.position;
+            if (direction.x < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else if (direction.x > 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+
+            if (direction.x > 0 && direction.x < 10)
+            {
+                movement.Walk(-movement.movementSpeed, true);
+            }
+            else if (direction.x < 0 && direction.x > -10)
+            {
+                movement.Walk(movement.movementSpeed, true);
+            }
+            else
+            {
+                movement.Walk(0.0f, true);
+            }
             if (attacking)
             {
                 if (attackIndex == 1) // jump and shoot
