@@ -144,6 +144,14 @@ Prefab:
       propertyPath: m_Size.y
       value: 5.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11433226, guid: a7e1339ec8c4f4c079f361c94f33e384, type: 2}
+      propertyPath: jumpPower
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433226, guid: a7e1339ec8c4f4c079f361c94f33e384, type: 2}
+      propertyPath: jetpackDuration
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7e1339ec8c4f4c079f361c94f33e384, type: 2}
   m_IsPrefabParent: 0
@@ -340,7 +348,7 @@ Prefab:
       objectReference: {fileID: 614412595}
     - target: {fileID: 22483932, guid: 581f8eef3656c49649507b31ec74ce81, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22422894, guid: 581f8eef3656c49649507b31ec74ce81, type: 2}
       propertyPath: m_AnchoredPosition.y

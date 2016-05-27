@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public bool crouching = false;
 	public int jumpPower = 800;
 	public int jetpackPower = 16;
-	float jetpackDuration = 9;
+	public float jetpackDuration = 2;
 	Transform YRotation;
     public GameObject handAnchor;
 	public GameObject jetpackFire;
