@@ -42,29 +42,32 @@ public class AnimalCombat : EnemyCombat {
 	// Update is called once per frame
 	new void FixedUpdate () {
         base.FixedUpdate();
-        frameCount++;
-        if (frameCount == waitFrames)
+        if (!FindObjectOfType<LevelManager>().paused)
         {
-            if (pouncing == true)
+            frameCount++;
+            if (frameCount == waitFrames)
             {
-                sprite.staticIndex = 1;
-                float Vx = 20f;
-                if (transform.rotation.eulerAngles.y != 0) Vx *= -1;
-                GetComponent<Rigidbody2D>().velocity = new Vector2(Vx, 5f);
+                if (pouncing == true)
+                {
+                    sprite.staticIndex = 1;
+                    float Vx = 20f;
+                    if (transform.rotation.eulerAngles.y != 0) Vx *= -1;
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(Vx, 5f);
+                }
+                else if (landing == true)
+                {
+                    landing = false;
+                    movement.useMovementAI = true;
+                    sprite.staticIndex = 0;
+                }
+
             }
-            else if (landing == true)
-            {
-                landing = false;
-                movement.useMovementAI = true;
-                sprite.staticIndex = 0;
-            }
-            
         }
 	}
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == 8)
+        if (other.gameObject.layer == 8 && !FindObjectOfType<LevelManager>().paused)
         {
             if (pouncing)
             {

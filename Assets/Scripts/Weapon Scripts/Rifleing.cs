@@ -5,23 +5,31 @@ public class Rifleing : Weapon {
 
 	int burstFireCooldown = 0;
 	bool firing = false;
-	bool CanShoot = true;
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	bool canShoot = true;
 
-	override public void AutoShoot (Vector2 direction)
+    int frameCount;
+
+    new void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (!FindObjectOfType<LevelManager>().paused)
+        {
+            frameCount++;
+            int frameCoolDown = (int)(coolDown * 60f);
+            if (frameCount == frameCoolDown)
+            {
+                canShoot = true;
+            }
+        }
+    }
+
+    override public void AutoShoot (Vector2 direction)
 	{
-		if (ammo > 0 && CanShoot == true)
+		if (ammo > 0 && canShoot == true)
 		{
             FireBullet(direction);
 			firing = true;
-			CanShoot = false;
+			canShoot = false;
 		}
 		if (firing == true)
 		{
@@ -35,12 +43,8 @@ public class Rifleing : Weapon {
 			{
 				burstFireCooldown = 0;
 				firing = false;
-				Invoke("Reset", coolDown);
+                frameCount = 0;
 			}
 		}
-	}
-	void Reset()
-	{
-		CanShoot = true;
 	}
 }

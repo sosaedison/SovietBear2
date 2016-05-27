@@ -17,6 +17,9 @@ public class EnemyMovement : MonoBehaviour {
     int turns = 0;
     int currentDirection = 1;
     bool searchingForJump = false;
+
+    bool paused;
+    Vector2 velocity;
     
 
     // Use this for initialization
@@ -112,7 +115,7 @@ public class EnemyMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (useMovementAI)
+        if (useMovementAI && !paused)
         {
             if (playerDetectionAI.currentTarget != Vector3.zero)
             {
@@ -171,21 +174,21 @@ public class EnemyMovement : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == 8)
+        if (other.gameObject.layer == 8 && !paused)
         {
             canJump = true;
             GetComponent<AnimateSprite>().staticIndex = 0;
             if (handAnchor)
             {
                 Vector3 newPos = handAnchor.transform.localPosition;
-                newPos.y = -0.264f;
+                newPos.y = .04f;
                 handAnchor.transform.localPosition = newPos;
             }
         }
     }
     void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.layer == 8)
+        if (other.gameObject.layer == 8 && !paused)
         {
             canJump = false;
             GetComponent<AnimateSprite>().animating = false;
@@ -193,9 +196,36 @@ public class EnemyMovement : MonoBehaviour {
             if (handAnchor)
             {
                 Vector3 newPos = handAnchor.transform.localPosition;
-                newPos.y = 0f;
+                newPos.y = .29f;
                 handAnchor.transform.localPosition = newPos;
             }
         }
     } 
+
+    void OnPause()
+    {
+        paused = true;
+        velocity = rigbod.velocity;
+        rigbod.velocity = Vector2.zero;
+        rigbod.isKinematic = true;
+    }
+
+    void OnUnpause()
+    {
+        rigbod.isKinematic = false;
+        rigbod.velocity = velocity;
+        paused = false;
+    }
+
+    void OnEnable()
+    {
+        LevelManager.OnPause += OnPause;
+        LevelManager.OnUnpause += OnUnpause;
+    }
+
+    void OnDisable()
+    {
+        LevelManager.OnPause -= OnPause;
+        LevelManager.OnUnpause -= OnUnpause;
+    }
 }

@@ -3,26 +3,30 @@ using System.Collections;
 
 public class Sniping : Weapon {
 
-	bool CanShoot = true;
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	override public void Shoot (Vector2 direction)
+	bool canShoot = true;
+    int frameCount;
+
+    new void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (!FindObjectOfType<LevelManager>().paused)
+        {
+            frameCount++;
+            int frameCoolDown = (int)(coolDown * 60f);
+            if (frameCount == frameCoolDown)
+            {
+                canShoot = true;
+            }
+        }
+    }
+
+    override public void Shoot (Vector2 direction)
 	{
-		if(ammo > 0 && CanShoot == true)
+		if(ammo > 0 && canShoot == true)
 		{
             FireBullet(direction);
-			CanShoot = false;
-			Invoke("Reset", coolDown);
-		}
-	}
-	void Reset()
-	{
-		CanShoot = true;
+            canShoot = false;
+            frameCount = 0;
+        }
 	}
 }

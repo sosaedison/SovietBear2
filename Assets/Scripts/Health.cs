@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (current <= 0 && !dead)
+        if (current <= 0 && !dead && !FindObjectOfType<LevelManager>().paused)
         {
             dead = true;
             if (CompareTag("Player"))

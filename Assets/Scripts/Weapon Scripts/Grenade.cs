@@ -8,6 +8,10 @@ public class Grenade : MonoBehaviour {
     GrenadeThrower thrower;
     public GameObject explosion;
 
+    bool paused;
+    bool isKinematic;
+    Vector2 velocity;
+
 	// Use this for initialization
 	void Start () {
         rigbod = gameObject.GetComponent<Rigidbody2D>();
@@ -31,7 +35,7 @@ public class Grenade : MonoBehaviour {
     }
 
     void FixedUpdate () {
-        if (thrown)
+        if (thrown && !paused)
         {
             transform.Rotate(0, 0, 10f);
         }
@@ -40,5 +44,33 @@ public class Grenade : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision)
     {
         Explode();
+    }
+
+    void OnPause()
+    {
+        paused = true;
+        velocity = rigbod.velocity;
+        isKinematic = rigbod.isKinematic;
+        rigbod.velocity = Vector2.zero;
+        rigbod.isKinematic = true;
+    }
+
+    void OnUnpause()
+    {
+        rigbod.isKinematic = isKinematic;
+        rigbod.velocity = velocity;
+        paused = false;
+    }
+
+    void OnEnable()
+    {
+        LevelManager.OnPause += OnPause;
+        LevelManager.OnUnpause += OnUnpause;
+    }
+
+    void OnDisable()
+    {
+        LevelManager.OnPause -= OnPause;
+        LevelManager.OnUnpause -= OnUnpause;
     }
 }

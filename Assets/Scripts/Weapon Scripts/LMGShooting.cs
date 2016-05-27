@@ -2,26 +2,31 @@
 using System.Collections;
 
 public class LMGShooting : Weapon {
-	bool CanShoot = true;
+	bool canShoot = true;
 
+    int frameCount;
 
+    new void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (!FindObjectOfType<LevelManager>().paused)
+        {
+            frameCount++;
+            int frameCoolDown = (int)(coolDown * 60f);
+            if (frameCount == frameCoolDown)
+            {
+                canShoot = true;
+            }
+        }
+    }
 
-	// Update is called once per frame
-	void Update () 
+    override public void AutoShoot (Vector2 direction)	
 	{
-
-	}
-	override public void AutoShoot (Vector2 direction)	
-	{
-		if (ammo > 0 && CanShoot == true)
+		if (ammo > 0 && canShoot == true)
 		{
             FireBullet(direction);
-			CanShoot = false;
-			Invoke("Reset", coolDown);
+			canShoot = false;
+            frameCount = 0;
 		}
-	}
-	void Reset()
-	{
-		CanShoot = true;
 	}
 }

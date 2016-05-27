@@ -37,28 +37,31 @@ public class AnimateSprite : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-	    if (animating)
+        if (!FindObjectOfType<LevelManager>().paused)
         {
-            frameCount++;
-            if (frameCount == spriteGap)
+            if (animating)
             {
-                frameIndex++;
-                if (frameIndex >= animatedSprites[animationIndex].sprites.Length)
+                frameCount++;
+                if (frameCount == spriteGap)
                 {
-                    frameIndex = 0;
+                    frameIndex++;
+                    if (frameIndex >= animatedSprites[animationIndex].sprites.Length)
+                    {
+                        frameIndex = 0;
+                    }
+                    Sprite newSprite = animatedSprites[animationIndex].sprites[frameIndex];
+                    spriteRenderer.sprite = newSprite;
+                    updateChildren(newSprite);
+                    frameCount = 0;
                 }
-                Sprite newSprite = animatedSprites[animationIndex].sprites[frameIndex];
-                spriteRenderer.sprite = newSprite;
-                updateChildren(newSprite);
+            }
+            else
+            {
                 frameCount = 0;
+                animationIndex = 0;
+                spriteRenderer.sprite = staticSprites[staticIndex];
+                updateChildren(staticSprites[staticIndex]);
             }
         }
-        else
-        {
-            frameCount = 0;
-            animationIndex = 0;
-            spriteRenderer.sprite = staticSprites[staticIndex];
-            updateChildren(staticSprites[staticIndex]);
-        }
-	}
+    }
 }

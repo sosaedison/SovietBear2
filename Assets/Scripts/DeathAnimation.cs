@@ -16,21 +16,24 @@ public class DeathAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        frameCount++;
-        if (frameCount == spriteGap)
+        if (!FindObjectOfType<LevelManager>().paused)
         {
-            frameIndex++;
-            if (frameIndex >= sprites.Length)
+            frameCount++;
+            if (frameCount == spriteGap)
             {
-                if (!CompareTag("Player")) Destroy(gameObject);
+                frameIndex++;
+                if (frameIndex >= sprites.Length)
+                {
+                    if (!CompareTag("Player")) Destroy(gameObject);
+                }
+                Sprite newSprite = sprites[frameIndex];
+                float newY = (spriteRenderer.sprite.bounds.size.y - newSprite.bounds.size.y) / 2;
+                Vector3 position = transform.position;
+                position.y -= newY;
+                transform.position = position;
+                spriteRenderer.sprite = newSprite;
+                frameCount = 0;
             }
-            Sprite newSprite = sprites[frameIndex];
-            float newY = (spriteRenderer.sprite.bounds.size.y - newSprite.bounds.size.y) / 2;
-            Vector3 position = transform.position;
-            position.y -= newY;
-            transform.position = position;
-            spriteRenderer.sprite = newSprite;
-            frameCount = 0;
         }
     }
 }

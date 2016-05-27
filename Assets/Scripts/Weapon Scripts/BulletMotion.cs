@@ -3,23 +3,26 @@ using System.Collections;
 
 public class BulletMotion : MonoBehaviour 
 {
-	Rigidbody2D rigbody;
+	Rigidbody2D rigbod;
     public Vector2 direction;
 	public float speed;
 	public bool canCollat = false;
     public int damage;
 	private int collat = 3;
+
+    bool paused;
+    Vector2 velocity;
 	// Use this for initialization
 	void Start () 
 	{
-		rigbody = GetComponent<Rigidbody2D>();
+		rigbod = GetComponent<Rigidbody2D>();
 			
 	}
 
     public void Activate()
     {
- 		if (rigbody == null) {
-			rigbody = GetComponent<Rigidbody2D>();
+ 		if (rigbod == null) {
+			rigbod = GetComponent<Rigidbody2D>();
 		}
         float angle = Vector2.Angle(direction.normalized, Vector2.right);
         if (angle > 45 && angle < 135) Destroy(gameObject);
@@ -28,7 +31,7 @@ public class BulletMotion : MonoBehaviour
         angle *= sign;
 		Vector2 velocity = new Vector2(Mathf.Cos(angle / 180 * Mathf.PI) * speed, Mathf.Sin(angle / 180 * Mathf.PI) * speed);
 
-        rigbody.velocity = velocity;
+        rigbod.velocity = velocity;
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 	
@@ -53,5 +56,31 @@ public class BulletMotion : MonoBehaviour
 		}
 
 	}
+    void OnPause()
+    {
+        paused = true;
+        velocity = rigbod.velocity;
+        rigbod.velocity = Vector2.zero;
+        rigbod.isKinematic = true;
+    }
+
+    void OnUnpause()
+    {
+        rigbod.isKinematic = false;
+        rigbod.velocity = velocity;
+        paused = false;
+    }
+
+    void OnEnable()
+    {
+        LevelManager.OnPause += OnPause;
+        LevelManager.OnUnpause += OnUnpause;
+    }
+
+    void OnDisable()
+    {
+        LevelManager.OnPause -= OnPause;
+        LevelManager.OnUnpause -= OnUnpause;
+    }
 
 }

@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject handAnchor;
 	public GameObject jetpackFire;
 
+    bool paused;
+    Vector2 velocity;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -24,58 +27,61 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-		xMovement = (Input.GetAxis("Horizontal"));
-		rigbod.velocity = new Vector2(xMovement*xVelocityFactor, rigbod.velocity.y);
-        if (Input.GetAxisRaw("Horizontal") > 0f)
+        if (!paused)
         {
-            if (!Input.GetButton("Strafe")) transform.rotation = Quaternion.Euler(0, 0, 0);
-            if (canJump == true)//on ground
+            xMovement = (Input.GetAxis("Horizontal"));
+            rigbod.velocity = new Vector2(xMovement * xVelocityFactor, rigbod.velocity.y);
+            if (Input.GetAxisRaw("Horizontal") > 0f)
             {
-                GetComponent<AnimateSprite>().animating = true;
+                if (!Input.GetButton("Strafe")) transform.rotation = Quaternion.Euler(0, 0, 0);
+                if (canJump == true)//on ground
+                {
+                    GetComponent<AnimateSprite>().animating = true;
+                }
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0f)
+            {
+                if (!Input.GetButton("Strafe")) transform.rotation = Quaternion.Euler(0, 180, 0);
+                if (canJump == true)//on ground
+                {
+
+                    GetComponent<AnimateSprite>().animating = true;
+                }
+            }
+            else if (Input.GetAxisRaw("Horizontal") == 0f)
+            {
+                if (canJump == true)//on ground
+                {
+                    GetComponent<AnimateSprite>().animating = false;
+                }
+            }
+
+            if (canJump == true && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0)
+            {
+                rigbod.AddForce(new Vector2(0f, jumpPower));
+            }
+            else if (canJump == false && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0 && jetpackDuration >= 0)
+            {
+                rigbod.AddForce(new Vector2(0f, jetpackPower));
+                jetpackDuration -= Time.deltaTime;
+                jetpackFire.GetComponent<SpriteRenderer>().enabled = true;
+            }
+
+            if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0)
+            {
+                GetComponent<PhaseThroughFloor>().DropDown();
+            }
+            if (Input.GetAxisRaw("Vertical") <= 0 || jetpackDuration <= 0)
+            {
+                jetpackFire.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0f)
-        {
-            if (!Input.GetButton("Strafe")) transform.rotation = Quaternion.Euler(0, 180, 0);
-            if (canJump == true)//on ground
-            {
-
-                GetComponent<AnimateSprite>().animating = true;
-            }
-        }
-        else if (Input.GetAxisRaw("Horizontal") == 0f)
-        {
-            if (canJump == true)//on ground
-            {
-                GetComponent<AnimateSprite>().animating = false;
-            }
-        }
-
-		if (canJump == true && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical")>0)
-		{
-			rigbod.AddForce(new Vector2(0f, jumpPower));
-		}
-		else if(canJump == false && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical")>0 && jetpackDuration >= 0)
-		{
-			rigbod.AddForce(new Vector2(0f, jetpackPower));
-			jetpackDuration -= Time.deltaTime;
-			jetpackFire.GetComponent<SpriteRenderer>().enabled = true;
-		}
-
-        if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0)
-        {
-            GetComponent<PhaseThroughFloor>().DropDown();
-        }
-		if (Input.GetAxisRaw("Vertical") <= 0 || jetpackDuration <= 0)
-		{
-			jetpackFire.GetComponent<SpriteRenderer>().enabled = false;
-		}
 	}
 
 	//Enables Jumping
 	void OnCollisionStay2D (Collision2D other)
 	{
-		if (other.gameObject.layer == 8) {
+		if (other.gameObject.layer == 8 && !paused) {
 			canJump = true;
             GetComponent<AnimateSprite>().staticIndex = 0;
             Vector3 newPos = handAnchor.transform.localPosition;
@@ -89,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void OnCollisionExit2D (Collision2D other)
 	{
-		if (other.gameObject.layer == 8) {
+		if (other.gameObject.layer == 8 && !paused) {
 			canJump = false;
             GetComponent<AnimateSprite>().animating = false;
             GetComponent<AnimateSprite>().staticIndex = 1;
@@ -98,4 +104,31 @@ public class PlayerMovement : MonoBehaviour
             handAnchor.transform.localPosition = newPos;
         }
 	}
+
+    void OnPause()
+    {
+        paused = true;
+        velocity = rigbod.velocity;
+        rigbod.velocity = Vector2.zero;
+        rigbod.isKinematic = true;
+    }
+
+    void OnUnpause()
+    {
+        rigbod.isKinematic = false;
+        rigbod.velocity = velocity;
+        paused = false;
+    }
+
+    void OnEnable()
+    {
+        LevelManager.OnPause += OnPause;
+        LevelManager.OnUnpause += OnUnpause;
+    }
+
+    void OnDisable()
+    {
+        LevelManager.OnPause -= OnPause;
+        LevelManager.OnUnpause -= OnUnpause;
+    }
 }

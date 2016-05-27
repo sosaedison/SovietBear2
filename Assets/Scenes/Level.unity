@@ -181,6 +181,48 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 173570, guid: 4f77a0d34e8173744825dd8a47931340, type: 2}
   m_PrefabInternal: {fileID: 362245138}
+--- !u!1001 &585110340
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 435954, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 31.211935
+      objectReference: {fileID: 0}
+    - target: {fileID: 435954, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.8064339
+      objectReference: {fileID: 0}
+    - target: {fileID: 435954, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 435954, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435954, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435954, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435954, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 435954, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &666931692
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b68f5b14832c9f4a85ff72bf7deb884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: 0
   bearSightings: []
   levelNumber: 0
   currentExp: 0
@@ -223,7 +266,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1339245559
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,4 +504,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3

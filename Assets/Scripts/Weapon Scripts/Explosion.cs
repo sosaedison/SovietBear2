@@ -7,11 +7,15 @@ public class Explosion : MonoBehaviour {
 
 	void FixedUpdate()
     {
-        frameCount++;
-        if (frameCount > 30)
+        if (!FindObjectOfType<LevelManager>().paused)
         {
-            Destroy(gameObject);
+            frameCount++;
+            if (frameCount > 30)
+            {
+                Destroy(gameObject);
+            }
         }
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)

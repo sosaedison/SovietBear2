@@ -2,15 +2,31 @@
 using System.Collections;
 
 public class Pistoling : Weapon {
-	
-    float nextShotTime = 0f;
+
+    bool canShoot;
+    int frameCount;
+
+    new void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (!FindObjectOfType<LevelManager>().paused)
+        {
+            frameCount++;
+            int frameCoolDown = (int)(coolDown * 60f);
+            if (frameCount == frameCoolDown)
+            {
+                canShoot = true;
+            }
+        }
+    }
 	
 	override public void Shoot (Vector2 direction)
 	{
-        if (ammo > 0 && Time.time >= nextShotTime)
+        if (ammo > 0 && canShoot)
 		{
             FireBullet(direction);
-            nextShotTime = Time.time + coolDown;
+            canShoot = false;
+            frameCount = 0;
 		}
 	}
 }

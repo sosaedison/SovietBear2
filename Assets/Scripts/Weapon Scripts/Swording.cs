@@ -3,21 +3,39 @@ using System.Collections;
 
 public class Swording : Weapon {
 
-	public bool CanSwing = true;
+	public bool canSwing = true;
 	Animation SwordSwing;
-	// Use this for initialization
-	void Start () 
-	{
-		SwordSwing = GetComponent<Animation>();
-	}
+
+    bool paused;
+
+    int frameCount;
+
+    void Start()
+    {
+        SwordSwing = GetComponent<Animation>();
+    }
+
+    new void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (!paused)
+        {
+            frameCount++;
+            int frameCoolDown = (int) (coolDown * 60f);
+            if (frameCount == frameCoolDown)
+            {
+                canSwing = true;
+            }
+        }
+    }
 
 	override public void Shoot (Vector2 direction)
 	{
-		if (CanSwing == true)
+		if (canSwing == true)
 		{
-			CanSwing = false;
+			canSwing = false;
 			SwordSwing.Play();
-			Invoke("Reset", coolDown);
+            frameCount = 0;
 		}
 	}
 
@@ -26,7 +44,7 @@ public class Swording : Weapon {
         if (!other.isTrigger)
         {
             Health health = other.gameObject.GetComponent<Health>();
-            if (health != null && CanSwing == false)
+            if (health != null && canSwing == false)
             {
                 health.current -= damage;
             }
@@ -34,8 +52,27 @@ public class Swording : Weapon {
         
 	}
 
-	void Reset ()
-	{
-		CanSwing = true;
-	}
+    void OnPause()
+    {
+        SwordSwing.enabled = false;
+        paused = true;
+    }
+
+    void OnUnpause()
+    {
+        SwordSwing.enabled = true;
+        paused = false;
+    }
+
+    void OnEnable()
+    {
+        LevelManager.OnPause += OnPause;
+        LevelManager.OnUnpause += OnUnpause;
+    }
+
+    void OnDisable()
+    {
+        LevelManager.OnPause -= OnPause;
+        LevelManager.OnUnpause -= OnUnpause;
+    }
 }
