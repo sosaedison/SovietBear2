@@ -9,7 +9,7 @@ public class Sniping : Weapon {
     new void FixedUpdate()
     {
         base.FixedUpdate();
-        if (!FindObjectOfType<LevelManager>().paused)
+        if (!LevelManager.isPaused())
         {
             frameCount++;
             int frameCoolDown = (int)(coolDown * 60f);

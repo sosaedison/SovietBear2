@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour {
     public delegate void PauseChange();
     public static event PauseChange OnPause;
     public static event PauseChange OnUnpause;
-    public bool paused;
+    public bool paused; //don't use this directly
 
     public List<Vector3> bearSightings = new List<Vector3>();
     public int levelNumber = 0;
@@ -21,21 +21,41 @@ public class LevelManager : MonoBehaviour {
     {
 
     }
+    
+    public static bool isPaused()
+    {
+        LevelManager levelManager = FindObjectOfType<LevelManager>();
+        if (levelManager == null)
+        {
+            return false;
+        }
+        else return levelManager.paused;
+    }
+
+    public void Pause()
+    {
+        paused = true;
+        if (OnPause != null)
+            OnPause();
+    }
+    public void Unpause()
+    {
+        paused = false;
+        if (OnUnpause != null)
+            OnUnpause();
+    }
 
     void Update()
     {
         if (Input.GetButtonDown("Pause"))
         {
-            paused = !paused;
             if (paused)
             {
-                if (OnPause != null)
-                    OnPause();
+                Unpause();
             }
             else
             {
-                if (OnUnpause != null)
-                    OnUnpause();
+                Pause();
             }
         }
     }

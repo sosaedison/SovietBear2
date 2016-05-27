@@ -7,7 +7,7 @@ public class Explosion : MonoBehaviour {
 
 	void FixedUpdate()
     {
-        if (!FindObjectOfType<LevelManager>().paused)
+        if (!LevelManager.isPaused())
         {
             frameCount++;
             if (frameCount > 30)

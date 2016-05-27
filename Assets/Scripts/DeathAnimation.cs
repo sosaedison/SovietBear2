@@ -16,7 +16,7 @@ public class DeathAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (!FindObjectOfType<LevelManager>().paused)
+        if (!LevelManager.isPaused())
         {
             frameCount++;
             if (frameCount == spriteGap)
@@ -25,6 +25,7 @@ public class DeathAnimation : MonoBehaviour {
                 if (frameIndex >= sprites.Length)
                 {
                     if (!CompareTag("Player")) Destroy(gameObject);
+                    return;
                 }
                 Sprite newSprite = sprites[frameIndex];
                 float newY = (spriteRenderer.sprite.bounds.size.y - newSprite.bounds.size.y) / 2;

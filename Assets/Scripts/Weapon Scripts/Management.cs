@@ -15,7 +15,7 @@ public class Management : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-        if (!FindObjectOfType<LevelManager>().paused)
+        if (!LevelManager.isPaused())
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {

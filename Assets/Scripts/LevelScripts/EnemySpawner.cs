@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour {
     public void SpawnRandomEnemy()
     {
         int levelIndex = FindObjectOfType<LevelManager>().levelNumber;
-        int index = Random.Range(0, enemies.Length);
+        int index = Random.Range(0, enemies[levelIndex].enemies.Length);
         Instantiate(enemies[levelIndex].enemies[index], transform.position, transform.rotation);
     }
 }

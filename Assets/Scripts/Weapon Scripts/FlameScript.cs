@@ -20,7 +20,7 @@ public class FlameScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (!FindObjectOfType<LevelManager>().paused)
+        if (!LevelManager.isPaused())
         {
             if (direction.x < 0)
             {

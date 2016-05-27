@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour {
 	protected void FixedUpdate () 
 	{
 		if (ammo > maxAmmo) ammo = maxAmmo;
-        if (transform.root.CompareTag("Player") && !FindObjectOfType<LevelManager>().paused)
+        if (transform.root.CompareTag("Player") && !LevelManager.isPaused())
         {
 			if (Input.GetButtonDown("Fire1") && equipped == true && transform.root.transform.rotation.eulerAngles.y == 0)
             {

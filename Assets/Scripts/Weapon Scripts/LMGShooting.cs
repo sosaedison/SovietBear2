@@ -9,7 +9,7 @@ public class LMGShooting : Weapon {
     new void FixedUpdate()
     {
         base.FixedUpdate();
-        if (!FindObjectOfType<LevelManager>().paused)
+        if (!LevelManager.isPaused())
         {
             frameCount++;
             int frameCoolDown = (int)(coolDown * 60f);

@@ -37,7 +37,7 @@ public class AnimateSprite : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (!FindObjectOfType<LevelManager>().paused)
+        if (!LevelManager.isPaused())
         {
             if (animating)
             {

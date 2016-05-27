@@ -42,7 +42,7 @@ public class AnimalCombat : EnemyCombat {
 	// Update is called once per frame
 	new void FixedUpdate () {
         base.FixedUpdate();
-        if (!FindObjectOfType<LevelManager>().paused)
+        if (!LevelManager.isPaused())
         {
             frameCount++;
             if (frameCount == waitFrames)
@@ -67,7 +67,7 @@ public class AnimalCombat : EnemyCombat {
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == 8 && !FindObjectOfType<LevelManager>().paused)
+        if (other.gameObject.layer == 8 && !LevelManager.isPaused())
         {
             if (pouncing)
             {
