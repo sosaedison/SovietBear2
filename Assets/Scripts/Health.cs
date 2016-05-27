@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public int max;
     public int expForKill;
     public GameObject dyingPrefab;
+    public float damageCooldown;
 
     bool dead = false;
     float timeOfLastDamage = -1;
@@ -30,7 +31,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (Time.time - timeOfLastDamage > 1)
+        if (Time.time - timeOfLastDamage > damageCooldown)
         {
             timeOfLastDamage = Time.time;
             current -= damage;

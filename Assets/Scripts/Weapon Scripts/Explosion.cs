@@ -20,7 +20,7 @@ public class Explosion : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.isTrigger)
+        if (!other.isTrigger && !other.CompareTag("Tank"))
         {
             Health health = other.gameObject.GetComponent<Health>();
             if (health != null)

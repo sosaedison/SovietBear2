@@ -52,7 +52,7 @@ public class EnemyMovement : MonoBehaviour {
         }
     }
 
-    bool FindWall()
+    public bool FindWall()
     {
         Vector2 lineCastPos = transform.position + transform.right * GetComponent<BoxCollider2D>().bounds.extents.x;
         Debug.DrawLine(lineCastPos, lineCastPos + Vector2.right * currentDirection);

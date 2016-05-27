@@ -469,8 +469,9 @@ MonoBehaviour:
   xVelocityFactor: 25
   canJump: 0
   crouching: 0
-  jumpPower: 300
+  jumpPower: 800
   jetpackPower: 16
+  jetpackDuration: 2
   handAnchor: {fileID: 168666}
   jetpackFire: {fileID: 135246}
 --- !u!114 &11434878
@@ -530,6 +531,7 @@ MonoBehaviour:
   max: 399
   expForKill: 0
   dyingPrefab: {fileID: 0}
+  damageCooldown: 1
 --- !u!114 &11455842
 MonoBehaviour:
   m_ObjectHideFlags: 1

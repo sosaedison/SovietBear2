@@ -11,6 +11,7 @@ TagManager:
   - CamHere
   - JumpTrigger
   - Enemy
+  - Tank
   layers:
   - Default
   - TransparentFX

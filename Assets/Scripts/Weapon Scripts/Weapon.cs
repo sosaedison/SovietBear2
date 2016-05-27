@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour {
 		ammo = maxAmmo;
 	}
 
-    protected void FireBullet(Vector2 direction)
+    public void FireBullet(Vector2 direction)
     {
         Vector2 tempBulletOffset = bulletOffset;
         if (direction.x < 0)
