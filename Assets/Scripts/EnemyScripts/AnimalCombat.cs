@@ -10,6 +10,7 @@ public class AnimalCombat : EnemyCombat {
     bool landing;
     public int baseDamage;
     public int pounchDamage;
+    public int waitFrames;
 
 	// Use this for initialization
 	new void Start () {
@@ -42,7 +43,7 @@ public class AnimalCombat : EnemyCombat {
 	new void FixedUpdate () {
         base.FixedUpdate();
         frameCount++;
-        if (frameCount == 30)
+        if (frameCount == waitFrames)
         {
             if (pouncing == true)
             {

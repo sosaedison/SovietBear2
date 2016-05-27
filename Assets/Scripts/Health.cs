@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Health : MonoBehaviour
 {
+    public bool isBoss;
     public int current;
     public int max;
     public int expForKill;

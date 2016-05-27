@@ -122,7 +122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 494038, guid: a7e1339ec8c4f4c079f361c94f33e384, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 186878, guid: a7e1339ec8c4f4c079f361c94f33e384, type: 2}
       propertyPath: m_Name
@@ -172,7 +172,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 429908, guid: 4f77a0d34e8173744825dd8a47931340, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f77a0d34e8173744825dd8a47931340, type: 2}
@@ -211,6 +211,7 @@ MonoBehaviour:
   bearSightings: []
   levelNumber: 0
   currentExp: 0
+  boss: {fileID: 0}
 --- !u!4 &666931694
 Transform:
   m_ObjectHideFlags: 0

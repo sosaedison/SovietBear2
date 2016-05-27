@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour {
     public List<Vector3> bearSightings = new List<Vector3>();
     public int levelNumber = 0;
     public int currentExp;
+    public GameObject boss;
 
 	public void GameOver()
     {

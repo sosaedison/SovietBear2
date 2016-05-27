@@ -9,18 +9,27 @@ public class LevelTile : MonoBehaviour {
     public bool isDeadEnd = false;
     public bool isBossRoom = false;
     public Vector2 coordinates = Vector2.zero;
+    public GameObject exitBlock;
 
     public GameObject[] enemySpawners;
     public bool enemiesSpawned;
+    public Vector3 bossSpawnLocation;
 
     public void SpawnEnemies()
     {
-        foreach (GameObject spawner in enemySpawners)
+        if (isBossRoom)
         {
-            spawner.GetComponent<EnemySpawner>().SpawnRandomEnemy();
-            Destroy(spawner);
+            exitBlock.SetActive(true);
+            Instantiate(FindObjectOfType<LevelManager>().boss, transform.position + bossSpawnLocation, Quaternion.identity);
+        }
+        else
+        {
+            foreach (GameObject spawner in enemySpawners)
+            {
+                spawner.GetComponent<EnemySpawner>().SpawnRandomEnemy();
+                Destroy(spawner);
+            }
         }
         enemiesSpawned = true;
-        Debug.Log("Spawned");
     }
 }
