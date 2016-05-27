@@ -7,7 +7,6 @@ public class Weapon : MonoBehaviour {
     public bool equipped = false;
 	public int ammo;
 	public int maxAmmo;
-	public int initialMaxAmmo;
     public int damage;
     public float bulletSpeed;
     public float coolDown;
@@ -16,7 +15,6 @@ public class Weapon : MonoBehaviour {
 	void Start () 
 	{
 		ammo = maxAmmo;
-		initialMaxAmmo = maxAmmo;
 	}
 
     protected void FireBullet(Vector2 direction)

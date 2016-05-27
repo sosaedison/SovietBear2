@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class AddPerk : MonoBehaviour {
 
 	public GameObject Player;
+	public Canvas HUD;
 	Health PlayerHealth;
 	GameObject PerkMenu;
 	[SerializeField] GameObject[] buttons;
@@ -13,7 +14,7 @@ public class AddPerk : MonoBehaviour {
 	void Start () 
 	{
 		PlayerHealth = Player.GetComponent<Health>();
-		PerkMenu = gameObject.transform.parent.gameObject;
+		PerkMenu = gameObject;
 	}
 	
 	// Update is called once per frame
@@ -41,6 +42,7 @@ public class AddPerk : MonoBehaviour {
 	public void AddHP ()
 	{
 		PlayerHealth.max += 4;
+		HUD.GetComponent<HUDInteraction>().canLevel--;
 		PerkMenu.active = false;
 	}
 	public void AddAmmo ()
@@ -48,6 +50,7 @@ public class AddPerk : MonoBehaviour {
 		foreach (Weapon shootyMcBangBang in Player.GetComponentsInChildren<Weapon>())
 		{
 			shootyMcBangBang.maxAmmo += 10;
+			HUD.GetComponent<HUDInteraction>().canLevel--;
 			PerkMenu.active = false;
 		}
 	}
