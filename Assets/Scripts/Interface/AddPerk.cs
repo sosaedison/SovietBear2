@@ -11,8 +11,9 @@ public class AddPerk : MonoBehaviour {
 	[SerializeField] GameObject[] buttons;
 	int selectedButton = -1;
 	// Use this for initialization
-	void Start () 
+	void OnEnable () 
 	{
+        Player = GameObject.FindGameObjectWithTag("Player");
 		PlayerHealth = Player.GetComponent<Health>();
 		PerkMenu = gameObject;
 	}

@@ -40,9 +40,7 @@ public class Health : MonoBehaviour
         {
             dead = true;
             if (CompareTag("Player"))
-            {
                 levelManager.GameOver();
-            }
             levelManager.currentExp += expForKill;
             if (isBoss) levelManager.BossDefeated();
             Instantiate(dyingPrefab, transform.position, transform.rotation);

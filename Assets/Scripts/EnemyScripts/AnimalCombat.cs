@@ -22,22 +22,24 @@ public class AnimalCombat : EnemyCombat {
 
     override public void Attack()
     {
-        Vector2 distance = playerDetectionAI.playerInCone.transform.position - transform.position;
+        if (playerDetectionAI.playerInCone != null)
+        {
+            Vector2 distance = playerDetectionAI.playerInCone.transform.position - transform.position;
 
-        if (distance.magnitude < 20 && !pouncing)
-        {
-            movement.useMovementAI = false;
-            movement.Walk(-1 * distance.normalized.x * movement.movementSpeed, true);
-        }
-        else if (distance.magnitude < 25 && !pouncing)
-        {
-            movement.useMovementAI = false;
-            movement.Walk(0.0f, false);
-            shouldPounce = true;
-            timeCount = 0;
-            sprite.staticIndex = 2;
-        }
-        
+            if (distance.magnitude < 20 && !pouncing)
+            {
+                movement.useMovementAI = false;
+                movement.Walk(-1 * distance.normalized.x * movement.movementSpeed, true);
+            }
+            else if (distance.magnitude < 25 && !pouncing)
+            {
+                movement.useMovementAI = false;
+                movement.Walk(0.0f, false);
+                shouldPounce = true;
+                timeCount = 0;
+                sprite.staticIndex = 2;
+            }
+        }        
     }
 	
 	// Update is called once per frame

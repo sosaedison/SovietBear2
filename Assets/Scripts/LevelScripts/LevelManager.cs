@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour {
 
 	public void GameOver()
     {
-
+        FindObjectOfType<HUDInteraction>().ShowGameOver();
     }
 
     public void BossDefeated()

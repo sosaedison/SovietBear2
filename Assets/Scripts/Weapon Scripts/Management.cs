@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Management : MonoBehaviour {
 	public int WeaponSlot = 0;
 	public GameObject[] weapons;
+    public bool isWeaponMaster;
 
 	// Use this for initialization
 	void Start () 
@@ -15,7 +16,7 @@ public class Management : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-        if (!LevelManager.isPaused())
+        if (!LevelManager.isPaused() && !isWeaponMaster)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {

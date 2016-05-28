@@ -10,6 +10,8 @@ public class HUDInteraction : MonoBehaviour {
 	public GameObject Player;
 	public GameObject HealthUI;
 	public GameObject LevelPerkMenu;
+    public GameObject pauseMenu;
+    public GameObject gameOver;
 	public Text HUDAmmo;
 	public Slider XP;
 	LevelManager levelManager;
@@ -46,6 +48,11 @@ public class HUDInteraction : MonoBehaviour {
 			LastHeartPlaced++;
 		}
 	}
+
+    public void ShowGameOver()
+    {
+        gameOver.SetActive(true);
+    }
 	// Update is called once per frame
 	void Update () 
 	{
@@ -114,6 +121,11 @@ public class HUDInteraction : MonoBehaviour {
 		{
 			LevelReminder.SetActive(false);
 		}
+
+        if (Input.GetButtonDown("Pause"))
+        {
+            pauseMenu.SetActive(LevelManager.isPaused());
+        }
 	}
 	// TL to BL is x,y-15. BL to BR is (x+15,y). BR to TR (is x,y+15). TR to TL is (x+23,y)
 }

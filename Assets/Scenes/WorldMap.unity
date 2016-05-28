@@ -254,7 +254,20 @@ MonoBehaviour:
   - {fileID: 161360, guid: 05e6e57092f61c642a0ac9070118d186, type: 2}
   - {fileID: 154668, guid: 9cbb5ed1f2220b241bb194b0c1b50ce9, type: 2}
   - {fileID: 134158, guid: de760a77d7eac204393bf09a3f0c11a0, type: 2}
-  playerPrefab: {fileID: 186878, guid: a7e1339ec8c4f4c079f361c94f33e384, type: 2}
+  players:
+  - {fileID: 186878, guid: a7e1339ec8c4f4c079f361c94f33e384, type: 2}
+  - {fileID: 173952, guid: 3c01444787788c843be347438741fdbd, type: 2}
+  - {fileID: 122994, guid: d151e8ed243df2b4a90d420065ae71be, type: 2}
+  - {fileID: 136848, guid: d6eccbe3fed918d4095d9a36adbec355, type: 2}
+  - {fileID: 142396, guid: fc289d2ce5b940a41947ee43c9cd4a44, type: 2}
+  - {fileID: 151902, guid: 2c2fc1768d643d14c95fefc361fa48fa, type: 2}
+  - {fileID: 150516, guid: 4b627f88896215e48871c96d3d1f03bf, type: 2}
+  - {fileID: 108404, guid: 4c6e71bdfef84b740974191a5d9cdd4b, type: 2}
+  - {fileID: 140740, guid: c6ee566f62747f142b688b19218b75ae, type: 2}
+  - {fileID: 198642, guid: ae62d54760466834e80cb55345acd99e, type: 2}
+  - {fileID: 114506, guid: ea007d82ea871664f8bcdbf2e278fe31, type: 2}
+  - {fileID: 152410, guid: 6801b91d957891c40b5ef8a8bf36827d, type: 2}
+  - {fileID: 170988, guid: 2a22e3df957c7b1498cfaa856d49e196, type: 2}
   levelManagerPrefab: {fileID: 143040, guid: 973ee8646ef43c944affb73b9a4ab842, type: 2}
   marker: {fileID: 172012760}
   map: {fileID: 426486328}

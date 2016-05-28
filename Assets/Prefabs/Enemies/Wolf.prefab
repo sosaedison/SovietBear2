@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDamage: 4
-  pounchDamage: 6
+  pounceDamage: 6
   waitTime: 0.5
 --- !u!114 &11474856
 MonoBehaviour:
@@ -213,6 +213,7 @@ MonoBehaviour:
   animationIndex: 0
   staticIndex: 0
   animating: 0
+  overridePause: 0
 --- !u!114 &11492390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,6 +230,7 @@ MonoBehaviour:
   max: 8
   expForKill: 0
   dyingPrefab: {fileID: 137364, guid: 6ede7794f39f34f49b86bfb0dad30c08, type: 2}
+  damageCooldown: 0
 --- !u!212 &21205054
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ButtonHandler : MonoBehaviour {
 
@@ -14,6 +15,11 @@ public class ButtonHandler : MonoBehaviour {
 #else
         Application.Quit();
 #endif
+    }
+
+    public void Play()
+    {
+        SceneManager.LoadScene("PlayerSelection");
     }
 
     void Update()

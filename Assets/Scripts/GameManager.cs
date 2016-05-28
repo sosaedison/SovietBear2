@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour {
 
     public GameObject[] bosses;
-    public GameObject playerPrefab;
+    public GameObject[] players;
     public GameObject levelManagerPrefab;
     public GameObject marker;
     public GameObject map;
@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     bool nextSceneReady;
     Scene nextScene;
     LevelManager currentLevelManager;
+    GameObject playerPrefab;
 
     //animate marker
     Vector3 startPos;
@@ -24,6 +25,20 @@ public class GameManager : MonoBehaviour {
     public float markerSpeed;
     float totalDistance;
     float lerpTime;
+
+    void Awake()
+    {
+        SceneManager.LoadSceneAsync("Level", LoadSceneMode.Additive);
+        nextScene = SceneManager.GetSceneByName("Level");
+        currentLevelManager = (LevelManager)Instantiate(levelManagerPrefab).GetComponent<LevelManager>();
+        playerPrefab = players[PlayerPrefs.GetInt("CurrentPlayer", 0)];
+        currentLevelManager.player = (GameObject)Instantiate(playerPrefab, Vector3.zero + Vector3.back * .3f, Quaternion.identity);
+        currentLevelManager.Pause();
+        currentLevelManager.boss = bosses[0];
+
+        ResetMarker();
+        marker.GetComponent<AnimateSprite>().animatedSprites = playerPrefab.GetComponent<AnimateSprite>().animatedSprites;
+    }
 
     public void LoadNextLevel(LevelManager levelManager)
     {
@@ -78,19 +93,6 @@ public class GameManager : MonoBehaviour {
         totalDistance = Vector3.Distance(startPos, endPos);
         lerpTime = totalDistance / markerSpeed;
         startTime = Time.time;
-    }
-
-    void Awake()
-    {
-        SceneManager.LoadSceneAsync("Level", LoadSceneMode.Additive);
-        nextScene = SceneManager.GetSceneByName("Level");
-        currentLevelManager = (LevelManager) Instantiate(levelManagerPrefab).GetComponent<LevelManager>();
-        currentLevelManager.player = (GameObject) Instantiate(playerPrefab, Vector3.zero + Vector3.back * .3f, Quaternion.identity);
-        currentLevelManager.Pause();
-        currentLevelManager.boss = bosses[0];
-
-        ResetMarker();
-        marker.GetComponent<AnimateSprite>().animatedSprites = playerPrefab.GetComponent<AnimateSprite>().animatedSprites;
     }
 
     void Update()

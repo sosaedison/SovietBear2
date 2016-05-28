@@ -132,6 +132,7 @@ MonoBehaviour:
   max: 8
   expForKill: 0
   dyingPrefab: {fileID: 170360, guid: 561a6548aa062164c87e4157eb4180ed, type: 2}
+  damageCooldown: 0
 --- !u!114 &11425502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDamage: 4
-  pounchDamage: 6
+  pounceDamage: 6
   waitTime: 0.5
 --- !u!114 &11449952
 MonoBehaviour:
@@ -181,6 +182,7 @@ MonoBehaviour:
   animationIndex: 0
   staticIndex: 0
   animating: 0
+  overridePause: 0
 --- !u!114 &11466570
 MonoBehaviour:
   m_ObjectHideFlags: 1
