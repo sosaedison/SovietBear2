@@ -11,6 +11,8 @@ TagManager:
   - CamHere
   - JumpTrigger
   - Enemy
+  - Nazi
+  - Ground
   layers:
   - Default
   - TransparentFX

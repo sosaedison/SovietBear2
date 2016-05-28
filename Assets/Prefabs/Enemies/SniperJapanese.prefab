@@ -210,8 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ee7bb5ed0a2ac4faf3a24f87e6cf4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBoss: 0
   current: 0
-  max: 8
+  max: 12
   expForKill: 0
   dyingPrefab: {fileID: 168390, guid: 3a845f2ee3120ab4387ee17f24d800d3, type: 2}
 --- !u!114 &11418936
@@ -249,7 +250,6 @@ MonoBehaviour:
   animationIndex: 0
   staticIndex: 0
   animating: 0
-  singleAnimation: 0
 --- !u!114 &11421022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -261,11 +261,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81b62e517a21418ab09897bba92293c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 0}
+  bulletOffset: {x: 2.7, y: 0.4}
   equipped: 1
   ammo: 10
   maxAmmo: 10
-  bulletOffset: {x: 2.7, y: 0.4}
-  prefab: {fileID: 198738, guid: a17d0a6bdb837427c90bf75a75385af9, type: 2}
+  damage: 0
+  bulletSpeed: 0
+  coolDown: 0
+  canCollat: 0
 --- !u!114 &11443508
 MonoBehaviour:
   m_ObjectHideFlags: 1
