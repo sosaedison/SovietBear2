@@ -6,6 +6,7 @@ public class AnimalCombat : EnemyCombat {
     AnimateSprite sprite;
     EnemyMovement movement;
     float timeCount;
+    bool shouldPounce;
     bool pouncing;
     bool landing;
     public int baseDamage;
@@ -32,7 +33,7 @@ public class AnimalCombat : EnemyCombat {
         {
             movement.useMovementAI = false;
             movement.Walk(0.0f, false);
-            pouncing = true;
+            shouldPounce = true;
             timeCount = 0;
             sprite.staticIndex = 2;
         }
@@ -47,8 +48,10 @@ public class AnimalCombat : EnemyCombat {
             timeCount += Time.deltaTime;
             if (timeCount >= waitTime)
             {
-                if (pouncing == true)
+                if (shouldPounce == true)
                 {
+                    shouldPounce = false;
+                    pouncing = true;
                     sprite.staticIndex = 1;
                     float Vx = 20f;
                     if (transform.rotation.eulerAngles.y != 0) Vx *= -1;

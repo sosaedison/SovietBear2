@@ -10,6 +10,8 @@ GameObject:
   - 4: {fileID: 454946}
   - 212: {fileID: 21231218}
   - 114: {fileID: 11407250}
+  - 61: {fileID: 6118536}
+  - 50: {fileID: 5002670}
   m_Layer: 0
   m_Name: DholeDeath
   m_TagString: Untagged
@@ -24,11 +26,42 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.901737, y: -1.6179712, z: -1}
+  m_LocalPosition: {x: 202.76653, y: -36.68636, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5002670
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170360}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &6118536
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170360}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 4.16, y: 2.88}
 --- !u!114 &11407250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -40,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eebea1cb8de3994a9b63914b00eb78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigbod: {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: 4fa553db6bd7dc64890c8256455ff848, type: 3}
   spriteGap: 30

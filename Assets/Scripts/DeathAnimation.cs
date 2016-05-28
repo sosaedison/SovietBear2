@@ -3,20 +3,23 @@ using System.Collections;
 
 public class DeathAnimation : MonoBehaviour {
     SpriteRenderer spriteRenderer;
+    public Rigidbody2D rigbod;
     public Sprite[] sprites;
     public int spriteGap;
 
     int frameCount = 0;
     int frameIndex = -1;
+    bool animating;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rigbod = GetComponent<Rigidbody2D>();
     }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-        if (!LevelManager.isPaused())
+
+    // Update is called once per frame
+    void FixedUpdate () {
+        if (!LevelManager.isPaused() && animating)
         {
             frameCount++;
             if (frameCount == spriteGap)
@@ -35,6 +38,15 @@ public class DeathAnimation : MonoBehaviour {
                 spriteRenderer.sprite = newSprite;
                 frameCount = 0;
             }
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 8) {
+            animating = true;
+            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(rigbod);
         }
     }
 }
