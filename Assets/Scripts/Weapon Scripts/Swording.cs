@@ -10,7 +10,7 @@ public class Swording : Weapon {
 
     int frameCount;
 
-    void Start()
+    void Awake()
     {
         SwordSwing = GetComponent<Animation>();
     }

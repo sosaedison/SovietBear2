@@ -19,7 +19,7 @@ public class LevelTile : MonoBehaviour {
     {
         if (isBossRoom)
         {
-            exitBlock.SetActive(true);
+            //exitBlock.SetActive(true);
             Instantiate(FindObjectOfType<LevelManager>().boss, transform.position + bossSpawnLocation, Quaternion.identity);
         }
         else

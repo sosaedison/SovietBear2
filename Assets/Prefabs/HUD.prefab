@@ -202,7 +202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &153334
 GameObject:
   m_ObjectHideFlags: 1
@@ -350,7 +350,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22418032}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &11400722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -497,7 +497,7 @@ MonoBehaviour:
   PreviousQuarter: {fileID: 111510}
   Outlineprefab: {fileID: 103164, guid: 4be03a4dc74be4ddda95ce51ac147290, type: 2}
   PreviousOutline: {fileID: 139886}
-  LevelReminder: {fileID: 11464804}
+  LevelReminder: {fileID: 151886}
 --- !u!114 &11429260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1146,9 +1146,9 @@ RectTransform:
   - {fileID: 22466520}
   - {fileID: 22451716}
   - {fileID: 22493660}
+  - {fileID: 22422894}
   - {fileID: 22420038}
   - {fileID: 480302}
-  - {fileID: 22422894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -1172,7 +1172,7 @@ RectTransform:
   - {fileID: 22421170}
   - {fileID: 22444420}
   m_Father: {fileID: 22418032}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -59}
@@ -1224,10 +1224,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22418032}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -375, y: 168}
+  m_AnchoredPosition: {x: -375, y: 169}
   m_SizeDelta: {x: 186, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22424722

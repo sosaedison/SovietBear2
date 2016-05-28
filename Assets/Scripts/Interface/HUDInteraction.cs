@@ -12,7 +12,7 @@ public class HUDInteraction : MonoBehaviour {
 	public GameObject LevelPerkMenu;
 	public Text HUDAmmo;
 	public Slider XP;
-	public GameObject LevelManager;
+	LevelManager levelManager;
 	public int canLevel = 0;
 	public List<GameObject> HeartPieces;
 	int LastHeartPlaced = 0;
@@ -31,8 +31,10 @@ public class HUDInteraction : MonoBehaviour {
 	// From TL counter clockwise
 
 	// Use this for initialization
-	void Start () 
+	void OnEnable () 
 	{
+        levelManager = FindObjectOfType<LevelManager>();
+        Player = GameObject.FindGameObjectWithTag("Player");
 		playerHealth = Player.GetComponent<Health>();
 		for(int i=0; i<playerHealth.max; i++)
 		{
@@ -89,28 +91,28 @@ public class HUDInteraction : MonoBehaviour {
 		}
 
 		//XP Display
-		currentExp = LevelManager.GetComponent<LevelManager>().currentExp;
+		currentExp = levelManager.currentExp;
 		XP.maxValue = MaxExp;
 		XP.value = currentExp;
 		if (currentExp >= MaxExp)
 		{
-			LevelManager.GetComponent<LevelManager>().currentExp = currentExp-MaxExp;
+			levelManager.currentExp = currentExp-MaxExp;
 			BearLvl++;
 			MaxExp = BearLvl*60;
 			canLevel++;
 		}
 		if (canLevel > 0 && Input.GetButtonDown("PerkScreen"))
 		{
-			//pause game
-			LevelPerkMenu.active = !LevelPerkMenu.active;
+            levelManager.Pause();
+            LevelPerkMenu.SetActive(!LevelPerkMenu.activeInHierarchy);
 		}
 		if (canLevel > 0)
 		{
-			LevelReminder.active = true;
+			LevelReminder.SetActive(true);
 		}
 		else if (canLevel <= 0)
 		{
-			LevelReminder.active = false;
+			LevelReminder.SetActive(false);
 		}
 	}
 	// TL to BL is x,y-15. BL to BR is (x+15,y). BR to TR (is x,y+15). TR to TL is (x+23,y)

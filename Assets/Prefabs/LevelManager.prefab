@@ -41,9 +41,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   bearSightings: []
-  levelNumber: 1
+  levelNumber: 0
   currentExp: 0
-  boss: {fileID: 161360, guid: 05e6e57092f61c642a0ac9070118d186, type: 2}
+  boss: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

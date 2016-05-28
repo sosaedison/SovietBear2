@@ -3,9 +3,13 @@ using System.Collections;
 using random = UnityEngine.Random;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class LevelBuilder : MonoBehaviour
 {
+    public delegate void FinishedGeneration();
+    public static event FinishedGeneration OnFinishedGeneration;
+
 	GameObject[,] map;
 	List<GameObject> potentialBossRooms;
     [System.Serializable]
@@ -16,6 +20,9 @@ public class LevelBuilder : MonoBehaviour
 	public TileSet[] tileSets;
 	//Array of all tiles that can be generated (prefabs)
 	public GameObject starterTile;
+
+    [System.NonSerialized]
+    public bool doneGenerating;
 
 	int tilesSinceDeadEnd = 0;
 	int tilesGenerated = 0;
@@ -78,8 +85,8 @@ public class LevelBuilder : MonoBehaviour
 					float newX = (newCoords.x - 25f) * 98.6f;
 					float newY = (newCoords.y - 25f) * 48.96f;
 					potentialTile = (GameObject)Instantiate (tileSets[i].tiles [index], new Vector3 (newX, newY, 0.3f), Quaternion.Euler (270, 0, 0));
-
-					tileGenerated = true;
+                    potentialTile.transform.parent = transform;
+                    tileGenerated = true;
                     
 					//check compatiblity
 					int minY = potentialTile.GetComponent<LevelTile> ().minY;
@@ -128,6 +135,7 @@ public class LevelBuilder : MonoBehaviour
 
 					if (!tileGenerated)
 						Destroy (potentialTile);
+
 				}
                 attempts = 0;
 				potentialTile.GetComponent<LevelTile> ().coordinates = newCoords;
@@ -155,7 +163,7 @@ public class LevelBuilder : MonoBehaviour
 		return generatedTiles.ToArray ();
 	}
 
-	GameObject[,] GenerateNewLevel (GameObject startingTile)
+	IEnumerator GenerateNewLevel (GameObject startingTile)
 	{
 		tilesGenerated = 0;
 		tilesSinceDeadEnd = 0;
@@ -172,13 +180,13 @@ public class LevelBuilder : MonoBehaviour
 			GameObject[] newTiles = GenerateAdjacentTiles (generationQueue [0]);
 			generationQueue.AddRange (newTiles.ToList ());
 			generationQueue.RemoveAt (0);
+            yield return null;
 		}
-
-		//TODO: generate enemies
 
 		int bossRoom = Random.Range (0, potentialBossRooms.Count);
 		potentialBossRooms [bossRoom].GetComponent<LevelTile> ().isBossRoom = true;
-		return map;
+        if (OnFinishedGeneration != null)
+            OnFinishedGeneration();
 	}
 
 	void printMap (GameObject[,] map)
@@ -200,9 +208,9 @@ public class LevelBuilder : MonoBehaviour
 		}
 	}
 
-	void Start ()
-	{
-		GameObject[,] newLevel = GenerateNewLevel (starterTile);
+    void Awake()
+    {
+        StartCoroutine(GenerateNewLevel(starterTile));
 		//printMap(newLevel);
 	}
 }

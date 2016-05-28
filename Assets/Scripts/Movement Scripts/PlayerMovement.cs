@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 velocity;
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 		rigbod = GetComponent<Rigidbody2D> ();
         sprite = GetComponent<AnimateSprite>();

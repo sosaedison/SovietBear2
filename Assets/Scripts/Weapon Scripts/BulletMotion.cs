@@ -10,7 +10,6 @@ public class BulletMotion : MonoBehaviour
     public int damage;
 	private int collat = 3;
 
-    bool paused;
     Vector2 velocity;
 	// Use this for initialization
 	void Start () 
@@ -58,7 +57,6 @@ public class BulletMotion : MonoBehaviour
 	}
     void OnPause()
     {
-        paused = true;
         velocity = rigbod.velocity;
         rigbod.velocity = Vector2.zero;
         rigbod.isKinematic = true;
@@ -68,7 +66,6 @@ public class BulletMotion : MonoBehaviour
     {
         rigbod.isKinematic = false;
         rigbod.velocity = velocity;
-        paused = false;
     }
 
     void OnEnable()

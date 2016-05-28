@@ -9,7 +9,6 @@ public class TankCombat : BossCombat {
     Weapon cannon;
     EnemyMovement movement;
 
-    int attackFrameCount;
     bool charging;
     bool returning;
     float startX;
@@ -55,7 +54,6 @@ public class TankCombat : BossCombat {
         base.Attack(nearDeath);
         if (!attacking && movement.canJump)
         {
-            attackFrameCount = 0;
             if (attackIndex == 0)
             {
                 Vector2 direction = player.transform.position - transform.position;

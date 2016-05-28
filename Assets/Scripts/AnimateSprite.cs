@@ -14,6 +14,7 @@ public class AnimateSprite : MonoBehaviour {
     public int animationIndex = 0;
     public int staticIndex = 0;
     public bool animating = false;
+    public bool overridePause;
 
     [System.NonSerialized]
     public float spriteTime = 0;
@@ -24,7 +25,8 @@ public class AnimateSprite : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer
-        spriteRenderer.sprite = staticSprites[staticIndex]; // set the sprite to baseSprite
+        if (staticSprites.Length != 0)
+           spriteRenderer.sprite = staticSprites[staticIndex]; // set the sprite to baseSprite
     }
 
     void updateChildren(Sprite newSprite)
@@ -37,7 +39,7 @@ public class AnimateSprite : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!LevelManager.isPaused())
+        if (!LevelManager.isPaused() || overridePause)
         {
             if (animating)
             {

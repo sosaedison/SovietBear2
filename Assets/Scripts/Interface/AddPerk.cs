@@ -43,15 +43,17 @@ public class AddPerk : MonoBehaviour {
 	{
 		PlayerHealth.max += 4;
 		HUD.GetComponent<HUDInteraction>().canLevel--;
-		PerkMenu.active = false;
-	}
+		PerkMenu.SetActive(false);
+        FindObjectOfType<LevelManager>().Unpause();
+    }
 	public void AddAmmo ()
 	{
 		foreach (Weapon shootyMcBangBang in Player.GetComponentsInChildren<Weapon>())
 		{
 			shootyMcBangBang.maxAmmo += 10;
 			HUD.GetComponent<HUDInteraction>().canLevel--;
-			PerkMenu.active = false;
-		}
+			PerkMenu.SetActive(false);
+            FindObjectOfType<LevelManager>().Unpause();
+        }
 	}
 }

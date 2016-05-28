@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
@@ -17,11 +18,21 @@ public class LevelManager : MonoBehaviour {
 
     static LevelManager levelManager;
 
+    public GameObject player;
+
+    public bool levelComplete;
+
     
 
 	public void GameOver()
     {
 
+    }
+
+    public void BossDefeated()
+    {
+        player.GetComponent<AnimateSprite>().staticIndex = 3;
+        levelComplete = true;
     }
     
     public static bool isPaused()
@@ -33,6 +44,14 @@ public class LevelManager : MonoBehaviour {
             return false;
         }
         else return levelManager.paused;
+    }
+
+    public void StartNewLevel()
+    {
+        levelManager.levelComplete = false;
+        levelManager.bearSightings = new List<Vector3>();
+        Unpause();
+        FindObjectOfType<HUDManager>().HUD.SetActive(true);
     }
 
     public void Pause()
@@ -60,6 +79,16 @@ public class LevelManager : MonoBehaviour {
             {
                 Pause();
             }
+        }
+
+        if (levelComplete && Input.GetButton("Strafe"))
+        {
+            Pause();
+            Scene worldMap = SceneManager.GetSceneByName("WorldMap");
+            SceneManager.MoveGameObjectToScene(player, worldMap);
+            SceneManager.MoveGameObjectToScene(gameObject, worldMap);
+            SceneManager.MoveGameObjectToScene(FindObjectOfType<Camera>().gameObject, worldMap);
+            FindObjectOfType<GameManager>().LoadNextLevel(this);
         }
     }
 }

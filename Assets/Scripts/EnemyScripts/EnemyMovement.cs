@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour {
     
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         playerDetectionAI = GetComponent<PlayerDetectionAI>();
         rigbod = GetComponent<Rigidbody2D>();
         currentDirection = startingDirection / Mathf.Abs(startingDirection); //just to be safe

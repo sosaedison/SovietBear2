@@ -17,11 +17,13 @@ public class MoveCamera : MonoBehaviour
 	{
 		startPos = transform.position;
 		endPos = transform.position;
-        levelManager = FindObjectOfType<LevelManager>();
+        
 	}
 	// Update is called once per frame
 	void Update ()
 	{
+        if (!levelManager)
+            levelManager = FindObjectOfType<LevelManager>();
         endPos.z = startPos.z;
         if (!moving && Vector3.Distance(transform.position, endPos) > .1)
         {

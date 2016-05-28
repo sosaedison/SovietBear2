@@ -424,6 +424,7 @@ MonoBehaviour:
   animationIndex: 0
   staticIndex: 0
   animating: 1
+  overridePause: 0
 --- !u!114 &11412872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -572,10 +573,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f26c52fc1ea9c1e49929466625b48ceb, type: 3}
   - {fileID: 21300000, guid: f0a6407d2b77de54c8efdd0c16801acf, type: 3}
   - {fileID: 21300000, guid: e9801ec3c1bc1a94abca8fd35b897a45, type: 3}
+  - {fileID: 21300000, guid: 8f5c7a11ccfe5214aab685a7e5c641d6, type: 3}
   spriteGap: 0.16
   animationIndex: 0
   staticIndex: 0
   animating: 0
+  overridePause: 0
 --- !u!114 &11476438
 MonoBehaviour:
   m_ObjectHideFlags: 1
