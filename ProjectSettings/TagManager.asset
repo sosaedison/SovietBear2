@@ -12,6 +12,8 @@ TagManager:
   - JumpTrigger
   - Enemy
   - Tank
+  - Ground
+  - Laser
   layers:
   - Default
   - TransparentFX

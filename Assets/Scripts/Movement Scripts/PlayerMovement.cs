@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 	float xMovement = 0.0f;
 	Rigidbody2D rigbod;
     AnimateSprite sprite;
-    BoxCollider2D collider;
+    BoxCollider2D hitbox;
 	public bool canJump = true;
     public bool crouching = false;
 	public int jumpPower = 800;
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		rigbod = GetComponent<Rigidbody2D> ();
         sprite = GetComponent<AnimateSprite>();
-        collider = GetComponent<BoxCollider2D>();
+        hitbox = GetComponent<BoxCollider2D>();
 	}
 
 	void Update()
@@ -69,8 +69,8 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 newPos = handAnchor.transform.localPosition;
                 newPos.y = -0.68f;
                 handAnchor.transform.localPosition = newPos;
-                collider.offset = new Vector2(0.125f, -0.04f);
-                collider.size = new Vector2(3.95f, 4.8f);
+                hitbox.offset = new Vector2(0.125f, -0.04f);
+                hitbox.size = new Vector2(3.95f, 4.8f);
             }
             else
             {
@@ -79,8 +79,8 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 newPos = handAnchor.transform.localPosition;
                 newPos.y = -0.264f;
                 handAnchor.transform.localPosition = newPos;
-                collider.offset = new Vector2(-0.09f, -0.07f);
-                collider.size = new Vector2(3.5f, 5.5f);
+                hitbox.offset = new Vector2(-0.09f, -0.07f);
+                hitbox.size = new Vector2(3.5f, 5.5f);
             }
             
 

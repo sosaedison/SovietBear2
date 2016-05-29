@@ -195,8 +195,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170988}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.5, y: -2.1, z: -1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: 136.9, y: 71.7, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 431080}
@@ -430,6 +430,7 @@ MonoBehaviour:
   - {fileID: 116308}
   - {fileID: 184216}
   - {fileID: 132680}
+  isWeaponMaster: 0
 --- !u!114 &11436922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -576,7 +577,7 @@ MonoBehaviour:
   ammo: 600
   maxAmmo: 600
   damage: 0
-  bulletSpeed: 0
+  bulletSpeed: 6
   coolDown: 0
   canCollat: 0
   prefab: {fileID: 191124, guid: 1d5b77e0871ec46898fd37807e155821, type: 2}

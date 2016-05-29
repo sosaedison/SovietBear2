@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour {
         FindObjectOfType<HUDInteraction>().ShowGameOver();
     }
 
-    public void BossDefeated()
+    virtual public void BossDefeated()
     {
         player.GetComponent<AnimateSprite>().staticIndex = 3;
         levelComplete = true;

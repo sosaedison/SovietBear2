@@ -25,7 +25,7 @@ public abstract class BossCombat : MonoBehaviour {
         {
             frameCount++;
             int frameCoolDown = (int)(attackCooldown * 60f);
-            if (frameCount == frameCoolDown)
+            if (frameCount >= frameCoolDown)
             {
                 Attack(health.current <= health.max / 2);
             }

@@ -3,13 +3,13 @@ using System.Collections;
 
 public class MoveToNextArea : MonoBehaviour
 {
-	public GameObject camera;
+	public GameObject cam;
 	private Vector3 currentPos;
 	public int direction;
 	// Use this for initialization
 	void Start ()
 	{
-		camera = GameObject.Find ("Main Camera");
+		cam = GameObject.Find ("Main Camera");
 	}
 
 	void FixedUpdate ()
@@ -21,7 +21,7 @@ public class MoveToNextArea : MonoBehaviour
 	{
         if (other.CompareTag("Player"))
         {
-            MoveCamera moveCamera = camera.GetComponent<MoveCamera>();
+            MoveCamera moveCamera = cam.GetComponent<MoveCamera>();
             GameObject adjacentTile = this.GetComponentInParent<LevelTile>().adjacentTiles[direction];
 
             moveCamera.endPos = adjacentTile.transform.position;

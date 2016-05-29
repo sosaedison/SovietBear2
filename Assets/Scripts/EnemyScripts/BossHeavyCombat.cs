@@ -12,8 +12,8 @@ public class BossHeavyCombat : BossCombat {
     new void Start () {
         base.Start();
         lmg = GetComponentInChildren<Weapon>();
-        mainAttacks = 2;
-        nearDeathAttacks = 3;
+        mainAttacks = 3;
+        nearDeathAttacks = 4;
         movement = GetComponent<EnemyMovement>();
         movement.useMovementAI = false;
     }

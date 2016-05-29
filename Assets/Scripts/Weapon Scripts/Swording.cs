@@ -41,15 +41,22 @@ public class Swording : Weapon {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-        if (!other.isTrigger)
+        if (!canSwing)
         {
-            Health health = other.gameObject.GetComponent<Health>();
-            if (health != null && canSwing == false)
+            if (!other.isTrigger)
             {
-                health.TakeDamage(damage);
+                Health health = other.gameObject.GetComponent<Health>();
+                if (health != null && canSwing == false)
+                {
+                    health.TakeDamage(damage);
+                }
+            }
+            else if (other.CompareTag("Laser"))
+            {
+                other.transform.rotation = Quaternion.Euler(0, 0, -180f);
+                other.GetComponent<Rigidbody2D>().velocity = Vector2.left * other.GetComponent<LaserMotion>().speed;
             }
         }
-        
 	}
 
     void OnPause()
