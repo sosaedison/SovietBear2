@@ -149,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.0030127, y: -2.0317652, z: -1}
+  m_LocalPosition: {x: 78.28948, y: -4.8558936, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 471040}
@@ -280,12 +280,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef97e4bdbf87b4385930dab95f90c5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xVelocityFactor: 25
+  xVelocityFactor: 32
   canJump: 0
   crouching: 0
   jumpPower: 800
   jetpackPower: 16
-  jetpackDuration: 2
+  jetpackDuration: 3
   handAnchor: {fileID: 194336}
   jetpackFire: {fileID: 162388}
 --- !u!114 &11463460
@@ -306,7 +306,7 @@ MonoBehaviour:
   maxAmmo: 0
   damage: 12
   bulletSpeed: 0
-  coolDown: 0.2
+  coolDown: 0.15
   canCollat: 1
   canSwing: 1
 --- !u!114 &11474506
@@ -324,6 +324,7 @@ MonoBehaviour:
   current: 0
   max: 5
   expForKill: 0
+  potentialDrops: []
   dyingPrefab: {fileID: 126742, guid: da55bf21cc406e94ba3077dd9fc2c321, type: 2}
   damageCooldown: 1
 --- !u!114 &11485678
