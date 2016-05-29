@@ -11,6 +11,8 @@ public class Weapon : MonoBehaviour {
     public float bulletSpeed;
     public float coolDown;
     public bool canCollat;
+    public bool shouldShoot;
+    public bool shouldAutoShoot;
 	// Use this for initialization
 	void Start () 
 	{
@@ -33,28 +35,42 @@ public class Weapon : MonoBehaviour {
         bulletMotion.Activate();
         ammo--;
     }
+
+    protected void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            shouldShoot = true;
+        } 
+        if (Input.GetButton("Fire1"))
+        {
+            shouldAutoShoot = true;
+        }
+    }
 	
 	protected void FixedUpdate () 
 	{
 		if (ammo > maxAmmo) ammo = maxAmmo;
         if (transform.root.CompareTag("Player") && !LevelManager.isPaused())
         {
-			if (Input.GetButtonDown("Fire1") && equipped == true && transform.root.transform.rotation.eulerAngles.y == 0)
+			if (shouldShoot && equipped == true && transform.root.transform.rotation.eulerAngles.y == 0)
             {
 				this.Shoot(Vector2.right);
             }
-			else if (Input.GetButtonDown("Fire1") && equipped == true && transform.root.transform.rotation.eulerAngles.y != 0)
+			else if (shouldShoot && equipped == true && transform.root.transform.rotation.eulerAngles.y != 0)
 			{
 				this.Shoot(Vector2.left);
 			}
-			else if (Input.GetButton("Fire1") && equipped == true && transform.root.rotation.eulerAngles.y == 0)
+			else if (shouldAutoShoot && equipped == true && transform.root.rotation.eulerAngles.y == 0)
             {
-				this.AutoShoot(Vector2.right);
+                this.AutoShoot(Vector2.right);
             }
-			else if (Input.GetButton("Fire1") && equipped == true && transform.root.transform.rotation.eulerAngles.y != 0)
+			else if (shouldAutoShoot && equipped == true && transform.root.transform.rotation.eulerAngles.y != 0)
 			{
 				this.AutoShoot(Vector2.left);
 			}
+            shouldShoot = false;
+            shouldAutoShoot = false;
         }
 	}
 	virtual public void Shoot (Vector2 direction)
