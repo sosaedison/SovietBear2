@@ -608,10 +608,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 83
       objectReference: {fileID: 0}
-    - target: {fileID: 142490, guid: eecaa3f6d6bb64aa8a539b459448bcb7, type: 2}
-      propertyPath: m_Name
-      value: 2LT Lab 3rd Design
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eecaa3f6d6bb64aa8a539b459448bcb7, type: 2}
   m_IsPrefabParent: 0
@@ -3145,7 +3141,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 476122, guid: d89eaab89556f44d5b217fc7b3e3bb67, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 476122, guid: d89eaab89556f44d5b217fc7b3e3bb67, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5143,7 +5139,7 @@ Prefab:
       objectReference: {fileID: 2134159330}
     - target: {fileID: 447984, guid: 8c91bd6951d44294da9a87936f10dcc3, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 411918, guid: 8c91bd6951d44294da9a87936f10dcc3, type: 2}
       propertyPath: m_RootOrder
