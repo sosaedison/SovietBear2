@@ -43,10 +43,8 @@ public class DeathAnimation : MonoBehaviour {
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 8) {
-            animating = true;
-            Destroy(GetComponent<BoxCollider2D>());
-            Destroy(rigbod);
-        }
+        animating = true;
+        Destroy(GetComponent<BoxCollider2D>());
+        Destroy(rigbod);
     }
 }
