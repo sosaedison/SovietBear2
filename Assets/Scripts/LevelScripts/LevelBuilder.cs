@@ -9,6 +9,7 @@ public class LevelBuilder : MonoBehaviour
 {
     public delegate void FinishedGeneration();
     public static event FinishedGeneration OnFinishedGeneration;
+    public static event FinishedGeneration OnFailedGeneration;
 
 	GameObject[,] map;
 	List<GameObject> potentialBossRooms;
@@ -182,6 +183,12 @@ public class LevelBuilder : MonoBehaviour
 		while (generationQueue.Count > 0) {
 			deadEndMode = tilesGenerated > 20;
 			GameObject[] newTiles = GenerateAdjacentTiles (generationQueue [0]);
+            if (newTiles == null)
+            {
+                if (OnFailedGeneration != null) 
+                    OnFailedGeneration();
+                break;
+            }
 			generationQueue.AddRange (newTiles.ToList ());
 			generationQueue.RemoveAt (0);
             yield return null;
@@ -214,7 +221,9 @@ public class LevelBuilder : MonoBehaviour
 
     void Awake()
     {
-        StartCoroutine(GenerateNewLevel(starterTile));
+        GameObject firstTile = (GameObject)Instantiate(starterTile, Vector3.zero + Vector3.forward * .3f, Quaternion.Euler(270, 0, 0));
+        firstTile.transform.parent = transform;
+        StartCoroutine(GenerateNewLevel(firstTile));
 		//printMap(newLevel);
 	}
 }

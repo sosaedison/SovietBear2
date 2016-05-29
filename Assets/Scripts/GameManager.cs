@@ -135,13 +135,32 @@ public class GameManager : MonoBehaviour {
         nextSceneReady = true;
     }
 
+    void OnFailedGeneration()
+    {
+        SceneManager.UnloadScene(nextScene.name);
+        string nextLevelName;
+        nextSceneLoaded = false;
+        if (currentLevelManager.levelNumber == 2)
+        {
+            nextLevelName = "LabLevel";
+        }
+        else
+        {
+            nextLevelName = "Level";
+        }
+        SceneManager.LoadSceneAsync(nextLevelName, LoadSceneMode.Additive);
+        nextScene = SceneManager.GetSceneByName(nextLevelName);
+    }
+
     void OnEnable()
     {
         LevelBuilder.OnFinishedGeneration += OnFinishedGeneration;
+        LevelBuilder.OnFailedGeneration += OnFailedGeneration;
     }
 
     void OnDisable()
     {
         LevelBuilder.OnFinishedGeneration -= OnFinishedGeneration;
+        LevelBuilder.OnFailedGeneration -= OnFailedGeneration;
     }
 }
