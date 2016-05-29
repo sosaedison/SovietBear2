@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour {
             string nextLevelName;
             if (levelManager.levelNumber == 2)
             {
-                nextLevelName = "FinalLevel";
+                nextLevelName = "LabLevel";
             }
             else
             {

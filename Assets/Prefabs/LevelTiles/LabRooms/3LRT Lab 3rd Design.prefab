@@ -1412,7 +1412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab012d25d7fc24e9466e390e95cba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  cam: {fileID: 0}
   direction: 2
 --- !u!114 &11409084
 MonoBehaviour:
@@ -1425,7 +1425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab012d25d7fc24e9466e390e95cba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  cam: {fileID: 0}
   direction: 0
 --- !u!114 &11425636
 MonoBehaviour:
@@ -1482,7 +1482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab012d25d7fc24e9466e390e95cba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  cam: {fileID: 0}
   direction: 1
 --- !u!114 &11462030
 MonoBehaviour:
@@ -1545,7 +1545,7 @@ MonoBehaviour:
   - {fileID: 168244, guid: 91b75de8a4b8b004d8511d76068a6f9b, type: 2}
   - {fileID: 125346, guid: 730ae11f5a0608d4295aaf3bcbfa6856, type: 2}
   minY: -1
-  maxY: 24
+  maxY: -1
   isDeadEnd: 0
   isBossRoom: 0
   coordinates: {x: 27, y: 26}
