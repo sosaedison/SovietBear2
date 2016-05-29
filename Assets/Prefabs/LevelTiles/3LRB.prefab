@@ -50,22 +50,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &106180
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 421892}
-  - 212: {fileID: 21210368}
-  m_Layer: 8
-  m_Name: Dirt.2d (13)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &105948
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,6 +61,22 @@ GameObject:
   - 114: {fileID: 11409650}
   m_Layer: 0
   m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &106180
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 421892}
+  - 212: {fileID: 21210368}
+  m_Layer: 8
+  m_Name: Dirt.2d (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -706,6 +706,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &179804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 406936}
+  - 114: {fileID: 11440908}
+  m_Layer: 0
+  m_Name: EnemySpawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &184338
 GameObject:
   m_ObjectHideFlags: 1
@@ -733,22 +749,6 @@ GameObject:
   - 212: {fileID: 21235898}
   m_Layer: 8
   m_Name: Dirt.2d (16)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &179804
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 406936}
-  - 114: {fileID: 11440908}
-  m_Layer: 0
-  m_Name: EnemySpawner (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -842,7 +842,7 @@ Transform:
   m_LocalScale: {x: 0.10121457, y: 0.20512828, z: 1}
   m_Children: []
   m_Father: {fileID: 407558}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!4 &407558
 Transform:
   m_ObjectHideFlags: 1
@@ -1222,7 +1222,10 @@ Transform:
   m_LocalRotation: {x: 0.00000011520229, y: 0.70710695, z: -0.7071066, w: 0.00000011520235}
   m_LocalPosition: {x: -0.158, y: 0.1, z: -2.1}
   m_LocalScale: {x: 0.21114919, y: 0.23774259, z: 1.1589947}
-  m_Children: [{fileID: 442888}, {fileID: 409462}, {fileID: 435820}]
+  m_Children:
+  - {fileID: 442888}
+  - {fileID: 409462}
+  - {fileID: 435820}
   m_Father: {fileID: 409184}
   m_RootOrder: 2
 --- !u!4 &467062
@@ -1260,7 +1263,7 @@ Transform:
   m_LocalScale: {x: 0.10121457, y: 0.20512828, z: 1}
   m_Children: []
   m_Father: {fileID: 407558}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!4 &469184
 Transform:
   m_ObjectHideFlags: 1
@@ -1284,7 +1287,7 @@ Transform:
   m_LocalScale: {x: 0.10121457, y: 0.20512828, z: 1}
   m_Children: []
   m_Father: {fileID: 407558}
-  m_RootOrder: 9
+  m_RootOrder: 7
 --- !u!4 &475676
 Transform:
   m_ObjectHideFlags: 1
@@ -1296,7 +1299,7 @@ Transform:
   m_LocalScale: {x: 0.10121457, y: 0.20512828, z: 1}
   m_Children: []
   m_Father: {fileID: 407558}
-  m_RootOrder: 6
+  m_RootOrder: 4
 --- !u!4 &481732
 Transform:
   m_ObjectHideFlags: 1
@@ -1905,7 +1908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab012d25d7fc24e9466e390e95cba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  cam: {fileID: 0}
   direction: 0
 --- !u!114 &11426298
 MonoBehaviour:
@@ -1962,7 +1965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab012d25d7fc24e9466e390e95cba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  cam: {fileID: 0}
   direction: 3
 --- !u!114 &11440908
 MonoBehaviour:
@@ -2109,10 +2112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adjacentTiles:
   - {fileID: 168244, guid: 91b75de8a4b8b004d8511d76068a6f9b, type: 2}
-  - {fileID: 168244, guid: 91b75de8a4b8b004d8511d76068a6f9b, type: 2}
-  - {fileID: 168244, guid: 91b75de8a4b8b004d8511d76068a6f9b, type: 2}
   - {fileID: 125346, guid: 730ae11f5a0608d4295aaf3bcbfa6856, type: 2}
-  - {fileID: 168244, guid: 91b75de8a4b8b004d8511d76068a6f9b, type: 2}
   - {fileID: 168244, guid: 91b75de8a4b8b004d8511d76068a6f9b, type: 2}
   - {fileID: 168244, guid: 91b75de8a4b8b004d8511d76068a6f9b, type: 2}
   minY: 25
@@ -2121,8 +2121,14 @@ MonoBehaviour:
   isBossRoom: 0
   coordinates: {x: 28, y: 26}
   exitBlock: {fileID: 0}
-  enemySpawners: [{fileID: 152940}, {fileID: 119354}, {fileID: 144724}, {fileID: 105948},
-    {fileID: 156842}, {fileID: 179804}, {fileID: 143948}]
+  enemySpawners:
+  - {fileID: 152940}
+  - {fileID: 119354}
+  - {fileID: 144724}
+  - {fileID: 105948}
+  - {fileID: 156842}
+  - {fileID: 179804}
+  - {fileID: 143948}
   enemiesSpawned: 0
   bossSpawnLocation: {x: 0, y: 0, z: 0}
 --- !u!114 &11481630
@@ -2136,7 +2142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab012d25d7fc24e9466e390e95cba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  cam: {fileID: 0}
   direction: 2
 --- !u!212 &21200542
 SpriteRenderer:

@@ -229,6 +229,8 @@ MonoBehaviour:
   current: 0
   max: 5
   expForKill: 0
+  potentialDrops:
+  - {fileID: 198182, guid: ea5352c33b4c6544b8d751776bab61fb, type: 2}
   dyingPrefab: {fileID: 137364, guid: 6ede7794f39f34f49b86bfb0dad30c08, type: 2}
   damageCooldown: 0
 --- !u!212 &21205054

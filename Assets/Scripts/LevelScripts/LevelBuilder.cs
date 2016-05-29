@@ -69,15 +69,19 @@ public class LevelBuilder : MonoBehaviour
 					break;
 				}
 				bool tileGenerated = false;
-				GameObject potentialTile = null;
-				GameObject[] testingTiles = { map [(int)newCoords.x - 1, (int)newCoords.y],
-					map [(int)newCoords.x, (int)newCoords.y + 1],
-					map [(int)newCoords.x + 1, (int)newCoords.y],
-					map [(int)newCoords.x, (int)newCoords.y - 1]
+                GameObject potentialTile = null;
+                GameObject tile0 = map[(int)newCoords.x - 1, (int)newCoords.y];
+                GameObject tile1 = map[(int)newCoords.x, (int)newCoords.y + 1];
+                GameObject tile2 = map[(int)newCoords.x + 1, (int)newCoords.y];
+                GameObject tile3 = map[(int)newCoords.x, (int)newCoords.y - 1];
+                GameObject[] testingTiles = { tile0,
+					tile1,
+					tile2,
+					tile3
 				};
 				while (!tileGenerated) {
                     attempts++;
-                    if (attempts > 1000)
+                    if (attempts > 30)
                     {
                         return null;
                     }

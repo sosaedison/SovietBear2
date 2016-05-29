@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     public int current;
     public int max;
     public int expForKill;
+    public GameObject[] potentialDrops;
     public GameObject dyingPrefab;
     public float damageCooldown;
 
@@ -44,6 +45,15 @@ public class Health : MonoBehaviour
             levelManager.currentExp += expForKill;
             if (isBoss) levelManager.BossDefeated();
             Instantiate(dyingPrefab, transform.position, transform.rotation);
+            if (potentialDrops.Length != 0)
+            {
+                int chance =  Random.Range(0, 3);
+                if (chance == 0)
+                {
+                    int index = Random.Range(0, potentialDrops.Length);
+                    Instantiate(potentialDrops[index], transform.position, transform.rotation);
+                }
+            }
             Destroy(gameObject);
         }
     }

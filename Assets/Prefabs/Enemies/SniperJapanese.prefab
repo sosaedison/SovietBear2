@@ -214,7 +214,11 @@ MonoBehaviour:
   current: 0
   max: 12
   expForKill: 0
+  potentialDrops:
+  - {fileID: 188474, guid: 5f53a0261c430334095cdf591a8350a9, type: 2}
+  - {fileID: 198182, guid: ea5352c33b4c6544b8d751776bab61fb, type: 2}
   dyingPrefab: {fileID: 168390, guid: 3a845f2ee3120ab4387ee17f24d800d3, type: 2}
+  damageCooldown: 0
 --- !u!114 &11418936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,6 +254,7 @@ MonoBehaviour:
   animationIndex: 0
   staticIndex: 0
   animating: 0
+  overridePause: 0
 --- !u!114 &11421022
 MonoBehaviour:
   m_ObjectHideFlags: 1

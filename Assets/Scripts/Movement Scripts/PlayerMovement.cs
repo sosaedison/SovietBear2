@@ -126,6 +126,21 @@ public class PlayerMovement : MonoBehaviour
 				jetpackDuration = 3;
 			}
 		}
+        else if (other.gameObject.CompareTag("Pickup"))
+        {
+            Pickup pickup = other.gameObject.GetComponent<Pickup>();
+            if (pickup.isHealth)
+            {
+                GetComponent<Health>().current += pickup.amount;
+            }
+            else
+            {
+                Management weapons = GetComponent<Management>();
+                if (!weapons.isWeaponMaster)
+                    weapons.weapons[pickup.weaponType].GetComponent<Weapon>().ammo += pickup.amount;
+            }
+            Destroy(pickup.gameObject);
+        }
 	}
 
 	void OnCollisionExit2D (Collision2D other)
