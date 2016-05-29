@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 88.06698, y: -4.5263143, z: -1}
+  m_LocalPosition: {x: 87.78485, y: -2.5804677, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424428}
@@ -293,7 +293,7 @@ MonoBehaviour:
   ammo: 10
   maxAmmo: 10
   damage: 10
-  bulletSpeed: 54
+  bulletSpeed: 60
   coolDown: 0.6
   canCollat: 1
 --- !u!114 &11446498
