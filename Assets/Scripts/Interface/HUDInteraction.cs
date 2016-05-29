@@ -22,6 +22,7 @@ public class HUDInteraction : MonoBehaviour {
 	public GameObject PreviousQuarter;
 	GameObject NewQuarter;
 	Vector3[] DisplacementVectors = {new Vector3(0f,15f,0f), new Vector3(23f,0f,0f), new Vector3(0f,-15f,0f), new Vector3(15f,0f,0f)};
+	Vector3 PlaceHere;
 	int maxHP = 0;
 	public GameObject Outlineprefab;
 	public GameObject PreviousOutline;
@@ -41,7 +42,9 @@ public class HUDInteraction : MonoBehaviour {
 		for(int i=0; i<playerHealth.max; i++)
 		{
 			int index = (LastHeartPlaced + 1) % 4;
-			NewQuarter = (GameObject) Instantiate(Quarters[index], (new Vector3(PreviousQuarter.transform.position.x, PreviousQuarter.transform.position.y, 0f))+DisplacementVectors[index], Quaternion.identity);
+			PlaceHere = PreviousQuarter.transform.position + DisplacementVectors[index];
+			//NewQuarter = (GameObject) Instantiate(Quarters[index], (new Vector3(PreviousQuarter.transform.position.x, PreviousQuarter.transform.position.y, 0f)+DisplacementVectors[index]), Quaternion.identity);
+			NewQuarter = (GameObject) Instantiate(Quarters[index], PlaceHere, Quaternion.identity);
 			NewQuarter.transform.SetParent(HealthUI.transform, true);
 			HeartPieces.Add(NewQuarter);
 			PreviousQuarter = NewQuarter;
@@ -94,9 +97,7 @@ public class HUDInteraction : MonoBehaviour {
 		else if (currentWeapon.transform.name !="ActualSword")
 		{
 			HUDAmmo.text = currentWeapon.ammo.ToString()+"/"+currentWeapon.maxAmmo.ToString();
-
 		}
-
 		//XP Display
 		currentExp = levelManager.currentExp;
 		XP.maxValue = MaxExp;
