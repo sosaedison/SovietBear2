@@ -81,7 +81,7 @@ public class LevelBuilder : MonoBehaviour
 				};
 				while (!tileGenerated) {
                     attempts++;
-                    if (attempts > 30)
+                    if (attempts > 1000)
                     {
                         return null;
                     }

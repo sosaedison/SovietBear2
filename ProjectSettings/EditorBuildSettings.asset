@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Level.unity
   - enabled: 1
     path: Assets/Scenes/FinalBossBattle.unity
+  - enabled: 1
+    path: Assets/Scenes/LabLevel.unity
