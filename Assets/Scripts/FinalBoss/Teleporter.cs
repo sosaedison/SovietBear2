@@ -6,9 +6,9 @@ public class Teleporter : MonoBehaviour {
 
     public Sprite activeSprite;
 
-    bool canTeleport = true;
+    bool canTeleport = false;
 
-    public void enableTelporter()
+    public void enableTeleporter()
     {
         GetComponent<SpriteRenderer>().sprite = activeSprite;
         canTeleport = true;
@@ -19,6 +19,9 @@ public class Teleporter : MonoBehaviour {
         if (canTeleport && other.CompareTag("Player"))
         {
             canTeleport = false;
+            Health playerHealth = other.gameObject.GetComponent<Health>();
+            playerHealth.current = playerHealth.max;
+
             transform.parent = null;
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(other.gameObject);

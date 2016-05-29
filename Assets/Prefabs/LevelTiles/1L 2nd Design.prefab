@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab012d25d7fc24e9466e390e95cba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  cam: {fileID: 0}
   direction: 0
 --- !u!114 &11450158
 MonoBehaviour:
@@ -1964,9 +1964,12 @@ MonoBehaviour:
   isDeadEnd: 1
   isBossRoom: 0
   coordinates: {x: 30, y: 27}
+  exitBlock: {fileID: 124094}
+  teleporter: {fileID: 0}
   enemySpawners:
   - {fileID: 0}
   enemiesSpawned: 0
+  bossSpawnLocation: {x: 0, y: 0, z: 0}
 --- !u!114 &11499042
 MonoBehaviour:
   m_ObjectHideFlags: 1

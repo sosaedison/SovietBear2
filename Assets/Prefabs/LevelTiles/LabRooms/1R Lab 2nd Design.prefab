@@ -196,6 +196,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &126614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 462976}
+  - 212: {fileID: 21245132}
+  - 61: {fileID: 6119984}
+  - 114: {fileID: 11459474}
+  m_Layer: 0
+  m_Name: Teleporter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &134818
 GameObject:
   m_ObjectHideFlags: 1
@@ -656,6 +674,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 499798}
   m_RootOrder: 7
+--- !u!4 &462976
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126614}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: -2.1546233, y: 4.689999, z: -0.1217284}
+  m_LocalScale: {x: 0.1, y: 0.20000003, z: 1}
+  m_Children: []
+  m_Father: {fileID: 476122}
+  m_RootOrder: 8
 --- !u!4 &463764
 Transform:
   m_ObjectHideFlags: 1
@@ -746,6 +776,7 @@ Transform:
   - {fileID: 468444}
   - {fileID: 469370}
   - {fileID: 457144}
+  - {fileID: 462976}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &483930
@@ -955,6 +986,20 @@ BoxCollider2D:
   m_Offset: {x: 10.20156, y: 1.3145014}
   serializedVersion: 2
   m_Size: {x: 19.30186, y: 1.4217514}
+--- !u!61 &6119984
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126614}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.9260313, y: 1.4362352}
 --- !u!61 &6122900
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1142,6 +1187,7 @@ MonoBehaviour:
   isBossRoom: 0
   coordinates: {x: 25, y: 25}
   exitBlock: {fileID: 0}
+  teleporter: {fileID: 126614}
   enemySpawners: []
   enemiesSpawned: 0
   bossSpawnLocation: {x: 0, y: 0, z: 0}
@@ -1189,6 +1235,18 @@ MonoBehaviour:
     - {fileID: 121368, guid: 64e290fc056d1fe4aa8cfe46b27e8599, type: 2}
     - {fileID: 110744, guid: 0021009916e96a741a9abf43a7f96ed5, type: 2}
     - {fileID: 113572, guid: fed15170af0e36b4c923e5cbb9a2fc55, type: 2}
+--- !u!114 &11459474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6073911dbeb8ba42b60d20b22db7ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeSprite: {fileID: 21300000, guid: 79a03dbc25220f5418ef50c4ccacd192, type: 3}
 --- !u!114 &11490436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1545,6 +1603,36 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d858812c8cfaf5459bd2300d844251d, type: 3}
   m_Color: {r: 0.5442933, g: 0.5585382, b: 0.63235295, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!212 &21245132
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126614}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: b0d7f425e2965aa44939ee79c80512de, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &21247462

@@ -1736,7 +1736,8 @@ MonoBehaviour:
   isDeadEnd: 1
   isBossRoom: 0
   coordinates: {x: 0, y: 0}
-  exitBlock: {fileID: 0}
+  exitBlock: {fileID: 101474}
+  teleporter: {fileID: 0}
   enemySpawners:
   - {fileID: 134050}
   enemiesSpawned: 0

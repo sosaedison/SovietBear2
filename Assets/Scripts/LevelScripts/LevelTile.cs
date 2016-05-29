@@ -10,6 +10,7 @@ public class LevelTile : MonoBehaviour {
     public bool isBossRoom = false;
     public Vector2 coordinates = Vector2.zero;
     public GameObject exitBlock;
+    public GameObject teleporter;
 
     public GameObject[] enemySpawners;
     public bool enemiesSpawned;
@@ -19,8 +20,15 @@ public class LevelTile : MonoBehaviour {
     {
         if (isBossRoom)
         {
-            //exitBlock.SetActive(true);
-            Instantiate(FindObjectOfType<LevelManager>().boss, transform.position + bossSpawnLocation, Quaternion.identity);
+            if (teleporter != null)
+            {
+                teleporter.GetComponent<Teleporter>().enableTeleporter();
+            }
+            else
+            {
+                exitBlock.SetActive(true);
+                Instantiate(FindObjectOfType<LevelManager>().boss, transform.position + bossSpawnLocation, Quaternion.identity);
+            }
         }
         else
         {
