@@ -33,27 +33,25 @@ public class BulletMotion : MonoBehaviour
         rigbod.velocity = velocity;
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
-	
-	void OnCollisionEnter2D (Collision2D collision)
+	void OnTriggerEnter2D (Collider2D other)
 	{
-        Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null)
-        {
-            health.TakeDamage(damage);
-        }
-        if (canCollat) 
+		Health health = other.gameObject.GetComponent<Health>();
+		if (health != null)
 		{
-            collat--;
-            if (collat < 0)
-            {
-                Destroy(gameObject);
-            }
+			health.TakeDamage(damage);
+		}
+		if (canCollat) 
+		{
+			collat--;
+			if (collat <= 0)
+			{
+				Destroy(gameObject);
+			}
 		}
 		else 
 		{
 			Destroy(gameObject);
 		}
-
 	}
     void OnPause()
     {
