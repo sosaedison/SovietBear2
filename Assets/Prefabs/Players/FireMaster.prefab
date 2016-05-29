@@ -122,7 +122,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.661129, y: -2.2093365, z: -1}
+  m_LocalPosition: {x: 85.43976, y: -2.5170865, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 469794}
@@ -271,6 +271,7 @@ MonoBehaviour:
   current: 0
   max: 5
   expForKill: 0
+  potentialDrops: []
   dyingPrefab: {fileID: 103922, guid: 0cfd9f1e06420334987cc00515f1b65e, type: 2}
   damageCooldown: 1
 --- !u!114 &11460684
@@ -322,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef97e4bdbf87b4385930dab95f90c5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xVelocityFactor: 25
+  xVelocityFactor: 22
   canJump: 0
   crouching: 0
   jumpPower: 800

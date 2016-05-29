@@ -146,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.859546, y: -1.091425, z: -1}
+  m_LocalPosition: {x: 83.68309, y: -3.572073, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400680}
@@ -295,6 +295,7 @@ MonoBehaviour:
   current: 0
   max: 5
   expForKill: 0
+  potentialDrops: []
   dyingPrefab: {fileID: 105168, guid: f91e33d4a45576f45bf14f7f9ef62f0e, type: 2}
   damageCooldown: 1
 --- !u!114 &11462168
@@ -324,10 +325,10 @@ MonoBehaviour:
   equipped: 1
   ammo: 100
   maxAmmo: 50
-  damage: 4
+  damage: 7
   bulletSpeed: 30
-  coolDown: 0.25
-  canCollat: 0
+  coolDown: 0.2
+  canCollat: 1
 --- !u!212 &21231210
 SpriteRenderer:
   m_ObjectHideFlags: 1
