@@ -24,7 +24,7 @@ public class Weapon : MonoBehaviour {
         {
             tempBulletOffset.x *= -1.0f;
         }
-        GameObject bullet = (GameObject)Instantiate(Bullet, (Vector2)transform.position + tempBulletOffset, Quaternion.identity);
+        GameObject bullet = (GameObject)Instantiate(Bullet, transform.position + (Vector3) tempBulletOffset + Vector3.back * .3f, Quaternion.identity);
         BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
         bulletMotion.direction = direction;
         bulletMotion.speed = bulletSpeed;
