@@ -275,7 +275,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.437267, y: -1.2779417, z: -1}
+  m_LocalPosition: {x: 10.812223, y: -1.7750068, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 482332}
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 198738, guid: a17d0a6bdb837427c90bf75a75385af9, type: 2}
-  bulletOffset: {x: 0.84, y: 0.34}
+  bulletOffset: {x: 1.25, y: 0.34}
   equipped: 0
   ammo: 100
   maxAmmo: 50
