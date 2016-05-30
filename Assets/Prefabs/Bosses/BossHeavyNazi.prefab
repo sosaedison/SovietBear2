@@ -223,6 +223,8 @@ MonoBehaviour:
   bulletSpeed: 30
   coolDown: 0.09
   canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
 --- !u!114 &11470684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,7 +254,8 @@ MonoBehaviour:
   current: 0
   max: 100
   expForKill: 0
-  dyingPrefab: {fileID: 131304, guid: 3285207d1a459bf4bb2668277380ca71, type: 2}
+  potentialDrops: []
+  dyingPrefab: {fileID: 147404, guid: f651bbcc8e46a32438675255d26a0187, type: 2}
   damageCooldown: 0
 --- !u!114 &11491414
 MonoBehaviour:

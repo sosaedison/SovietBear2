@@ -1,43 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &170360
+--- !u!1 &147404
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 454946}
-  - 212: {fileID: 21231218}
-  - 114: {fileID: 11407250}
-  - 61: {fileID: 6118536}
-  - 50: {fileID: 5002670}
+  - 4: {fileID: 495136}
+  - 212: {fileID: 21223970}
+  - 114: {fileID: 11446524}
+  - 61: {fileID: 6120606}
+  - 50: {fileID: 5044244}
   m_Layer: 0
-  m_Name: DholeDeath
+  m_Name: BossHeavyDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &454946
+--- !u!4 &495136
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170360}
+  m_GameObject: {fileID: 147404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 202.76653, y: -36.68636, z: -1}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
+  m_LocalPosition: {x: 224.48041, y: -20.002787, z: -1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5002670
+--- !u!50 &5044244
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170360}
+  m_GameObject: {fileID: 147404}
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -48,12 +48,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6118536
+--- !u!61 &6120606
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170360}
+  m_GameObject: {fileID: 147404}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -61,13 +61,13 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 4.16, y: 2.88}
---- !u!114 &11407250
+  m_Size: {x: 3.84, y: 5.76}
+--- !u!114 &11446524
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170360}
+  m_GameObject: {fileID: 147404}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eebea1cb8de3994a9b63914b00eb78e, type: 3}
@@ -75,14 +75,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigbod: {fileID: 0}
   sprites:
-  - {fileID: 21300000, guid: 4fa553db6bd7dc64890c8256455ff848, type: 3}
+  - {fileID: 21300000, guid: e84d9c35959e4ad49939ebdbaf2d4104, type: 3}
+  - {fileID: 21300000, guid: 010509c55e203ce469fbb776aee3978e, type: 3}
   spriteGap: 30
---- !u!212 &21231218
+--- !u!212 &21223970
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170360}
+  m_GameObject: {fileID: 147404}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -103,7 +104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c748ae856c31e2546b924853ad0d5413, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e906f40f6bf561c4ebccdfe856263916, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,5 +117,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 170360}
+  m_RootGameObject: {fileID: 147404}
   m_IsPrefabParent: 1
