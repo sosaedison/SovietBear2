@@ -654,7 +654,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117912}
   m_LocalRotation: {x: -0.7071066, y: 0, z: 0, w: -0.70710695}
-  m_LocalPosition: {x: -1.25, y: 0, z: -0.6521908}
+  m_LocalPosition: {x: -1.25, y: 0.01, z: -0.6521908}
   m_LocalScale: {x: 0.10121457, y: 0.20512827, z: 1}
   m_Children: []
   m_Father: {fileID: 485148}
@@ -666,7 +666,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154448}
   m_LocalRotation: {x: -0.7071066, y: 0, z: 0, w: -0.70710695}
-  m_LocalPosition: {x: -3.27, y: 0, z: -0.6521908}
+  m_LocalPosition: {x: -3.27, y: 0.01, z: -0.6521908}
   m_LocalScale: {x: 0.10121457, y: 0.20512827, z: 1}
   m_Children: []
   m_Father: {fileID: 485148}
@@ -678,7 +678,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173570}
   m_LocalRotation: {x: 0.7071066, y: 0, z: 0, w: -0.70710695}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1282.3813, y: -193.51753, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 5}
   m_Children:
   - {fileID: 414936}
@@ -741,7 +741,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190578}
   m_LocalRotation: {x: -0.7071066, y: 0, z: 0, w: -0.70710695}
-  m_LocalPosition: {x: -2.23, y: 0, z: -0.6508253}
+  m_LocalPosition: {x: -2.23, y: 0.01, z: -0.6508253}
   m_LocalScale: {x: 0.10121457, y: 0.20512827, z: 1}
   m_Children: []
   m_Father: {fileID: 485148}
@@ -861,7 +861,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 414154}
@@ -1126,6 +1126,7 @@ MonoBehaviour:
   isBossRoom: 0
   coordinates: {x: 25, y: 25}
   exitBlock: {fileID: 0}
+  teleporter: {fileID: 0}
   enemySpawners: []
   enemiesSpawned: 0
   bossSpawnLocation: {x: 0, y: 0, z: 0}
