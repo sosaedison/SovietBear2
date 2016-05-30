@@ -13,7 +13,7 @@ public class PackSpawner : MonoBehaviour {
         List<BoxCollider2D> alreadySpawned = new List<BoxCollider2D>();
         for (int i = 0; i < spawnNumber; i++)
         {
-            GameObject newEnemy = (GameObject)Instantiate(prefab, transform.position + (Vector3.right * Random.Range(-3, 3)), transform.rotation);
+            GameObject newEnemy = (GameObject)Instantiate(prefab, transform.position + (Vector3.right * Random.Range(-3, 3)) + (Vector3.up * Random.Range(0, 3)), transform.rotation);
             BoxCollider2D newCollider = newEnemy.GetComponent<BoxCollider2D>();
             foreach (Collider2D collider in alreadySpawned)
             {

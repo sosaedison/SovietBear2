@@ -278,7 +278,7 @@ MonoBehaviour:
   - 1.6
   - 3.608
   - 0
-  musicPlayer: {fileID: 960145294}
+  musicPlayer: {fileID: 0}
   levelManagerPrefab: {fileID: 143040, guid: 973ee8646ef43c944affb73b9a4ab842, type: 2}
   marker: {fileID: 172012760}
   map: {fileID: 426486328}
@@ -423,9 +423,8 @@ GameObject:
   - 20: {fileID: 960145291}
   - 92: {fileID: 960145290}
   - 124: {fileID: 960145289}
-  - 81: {fileID: 960145288}
   - 114: {fileID: 960145293}
-  - 82: {fileID: 960145294}
+  - 81: {fileID: 960145288}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -515,77 +514,3 @@ MonoBehaviour:
   endPos: {x: 0, y: 0, z: 0}
   startTime: 0
   speed: 100
---- !u!82 &960145294
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 960145287}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0

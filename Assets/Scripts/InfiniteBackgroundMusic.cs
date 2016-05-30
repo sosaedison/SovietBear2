@@ -86,7 +86,7 @@ public sealed class InfiniteBackgroundMusic {
 		audioClip.GetData(entire, 0);
 
 		audioClip = AudioClip.Create(audioName + "_Loop", audioClip.samples, channels, audioClip.frequency, true, OnAudioRead, OnAudioSetPos);
-        Object.DontDestroyOnLoad(audioClip);
+
 		audioSource = source;
 
 		audioSource.loop = true;

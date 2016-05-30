@@ -16,6 +16,11 @@ public class LevelManager : MonoBehaviour {
     public int currentExp;
     public GameObject boss;
 
+    public PlayBackgroundMusic musicPlayer;
+    public AudioClip bossMusic;
+    public float bossLoop;
+    public AudioClip gameOverMusic;
+
     static LevelManager levelManager;
 
     public GameObject player;
@@ -27,6 +32,7 @@ public class LevelManager : MonoBehaviour {
 	public void GameOver()
     {
         FindObjectOfType<HUDInteraction>().ShowGameOver();
+        musicPlayer.PlaySingleLoop(gameOverMusic);
     }
 
     virtual public void BossDefeated()

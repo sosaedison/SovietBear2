@@ -193,11 +193,18 @@ public class LevelBuilder : MonoBehaviour
 			generationQueue.RemoveAt (0);
             yield return null;
 		}
-
-		int bossRoom = Random.Range (0, potentialBossRooms.Count);
-		potentialBossRooms [bossRoom].GetComponent<LevelTile> ().isBossRoom = true;
-        if (OnFinishedGeneration != null)
-            OnFinishedGeneration();
+        if (potentialBossRooms.Count == 0)
+        {
+            if (OnFailedGeneration != null)
+                OnFailedGeneration();
+        }
+        else
+        {
+            int bossRoom = Random.Range(0, potentialBossRooms.Count);
+            potentialBossRooms[bossRoom].GetComponent<LevelTile>().isBossRoom = true;
+            if (OnFinishedGeneration != null)
+                OnFinishedGeneration();
+        }
 	}
 
 	void printMap (GameObject[,] map)

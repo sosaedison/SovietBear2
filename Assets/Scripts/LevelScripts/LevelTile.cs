@@ -28,7 +28,9 @@ public class LevelTile : MonoBehaviour {
             {
                 if (exitBlock != null)
                     exitBlock.SetActive(true);
-                Instantiate(FindObjectOfType<LevelManager>().boss, transform.position + bossSpawnLocation + Vector3.back * -.6f, Quaternion.identity);
+                LevelManager manager = FindObjectOfType<LevelManager>();
+                Instantiate(manager.boss, transform.position + bossSpawnLocation + Vector3.back * .6f, Quaternion.identity);
+                manager.musicPlayer.ChangeTrack(manager.bossMusic, manager.bossLoop);
             }
         }
         else

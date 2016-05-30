@@ -15,6 +15,7 @@ public class PauseMenu : ButtonHandler {
 
     public void ExitToMenu()
     {
+        Destroy(levelManager.musicPlayer.gameObject);
         SceneManager.LoadScene("MainMenu");
     }
 

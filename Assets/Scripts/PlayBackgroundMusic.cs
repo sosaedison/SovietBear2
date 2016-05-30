@@ -2,13 +2,27 @@
 using System.Collections;
 
 public class PlayBackgroundMusic : MonoBehaviour {
-    public AudioClip music;
-    public AudioSource source;
+    public AudioClip startingMusic;
+    AudioSource source;
     public float loopPoint;
+    InfiniteBackgroundMusic infiniteMusic = new InfiniteBackgroundMusic();
 
-	void OnEnable () {
-        var infiniteMusic = new InfiniteBackgroundMusic();
-        infiniteMusic.ChangeTrack(source, music, loopPoint);
+    void Awake () {
+        DontDestroyOnLoad(gameObject);
+        source = GetComponent<AudioSource>();
+        infiniteMusic.ChangeTrack(source, startingMusic, loopPoint);
     }
 
+    public void ChangeTrack(AudioClip newTrack, float newLoopPoint)
+    {
+        infiniteMusic.ChangeTrack(source, newTrack, newLoopPoint);
+    }
+
+    public void PlaySingleLoop(AudioClip newTrack)
+    {
+        infiniteMusic.Stop();
+        source.clip = newTrack;
+        source.loop = false;
+        source.Play();
+    }
 }

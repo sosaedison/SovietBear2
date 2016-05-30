@@ -997,6 +997,7 @@ MonoBehaviour:
   buttons:
   - {fileID: 116370}
   - {fileID: 150724}
+  menuMusic: {fileID: 0}
 --- !u!114 &11429260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1284,6 +1285,7 @@ MonoBehaviour:
   - {fileID: 120184}
   - {fileID: 169164}
   - {fileID: 161060}
+  menuMusic: {fileID: 8300000, guid: e2a01c58d17730c40bdbaeaf78943cd8, type: 3}
 --- !u!114 &11445922
 MonoBehaviour:
   m_ObjectHideFlags: 1

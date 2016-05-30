@@ -9,16 +9,15 @@ public class GameManager : MonoBehaviour {
     public GameObject[] players;
     public AudioClip[] music;
     public float[] musicLoopPoints;
-    public AudioSource musicPlayer;
+    public PlayBackgroundMusic musicPlayer;
     public GameObject levelManagerPrefab;
     public GameObject marker;
     public GameObject map;
     public GameObject continueText;
 
-    InfiniteBackgroundMusic infiniteMusic = new InfiniteBackgroundMusic();
-
     bool nextSceneLoaded;
     bool nextSceneReady;
+    bool startedMusic;
     Scene nextScene;
     LevelManager currentLevelManager;
     GameObject playerPrefab;
@@ -32,8 +31,6 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
-        int musicIndex = Random.Range(0, 3);
-        infiniteMusic.ChangeTrack(musicPlayer, music[musicIndex], musicLoopPoints[musicIndex]);
         SceneManager.LoadSceneAsync("Level", LoadSceneMode.Additive);
         nextScene = SceneManager.GetSceneByName("Level");
         currentLevelManager = (LevelManager)Instantiate(levelManagerPrefab).GetComponent<LevelManager>();
@@ -41,6 +38,9 @@ public class GameManager : MonoBehaviour {
         currentLevelManager.player = (GameObject)Instantiate(playerPrefab, Vector3.zero + Vector3.back * .3f, Quaternion.identity);
         currentLevelManager.Pause();
         currentLevelManager.boss = bosses[0];
+        musicPlayer = FindObjectOfType<PlayBackgroundMusic>();
+        currentLevelManager.musicPlayer = musicPlayer;
+        
 
         ResetMarker();
         marker.GetComponent<AnimateSprite>().animatedSprites = playerPrefab.GetComponent<AnimateSprite>().animatedSprites;
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour {
             nextLevelName = "Level";
             musicIndex = Random.Range(0, 3);
         }
-        infiniteMusic.ChangeTrack(musicPlayer, music[musicIndex], musicLoopPoints[musicIndex]);
+        musicPlayer.ChangeTrack(music[musicIndex], musicLoopPoints[musicIndex]);
         SceneManager.LoadSceneAsync(nextLevelName, LoadSceneMode.Additive);
         nextScene = SceneManager.GetSceneByName(nextLevelName);
         RefreshPlayer(levelManager.player);
@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
+        
         if (currentLevelManager)
         {
             if (!nextSceneLoaded && nextScene.isLoaded)
@@ -110,6 +111,12 @@ public class GameManager : MonoBehaviour {
                     nextSceneLoaded = true;
                     continueText.SetActive(true);
                     SceneManager.SetActiveScene(nextScene);
+                    if (!startedMusic)
+                    {
+                        int musicIndex = Random.Range(0, 3);
+                        musicPlayer.ChangeTrack(music[musicIndex], musicLoopPoints[musicIndex]);
+                        startedMusic = true;
+                    }
                 }
             }
             if (nextSceneLoaded && Input.anyKeyDown) 

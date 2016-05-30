@@ -44,6 +44,12 @@ MonoBehaviour:
   levelNumber: 0
   currentExp: 0
   boss: {fileID: 0}
+  musicPlayer: {fileID: 0}
+  bossMusic: {fileID: 8300000, guid: e85c239f9a3a1bc4397109e76d30dd0d, type: 3}
+  bossLoop: 21.943
+  gameOverMusic: {fileID: 8300000, guid: 3b75c5b858c519c498fab7fc43808ef1, type: 3}
+  player: {fileID: 0}
+  levelComplete: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
