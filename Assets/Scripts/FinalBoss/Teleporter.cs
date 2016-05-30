@@ -26,7 +26,6 @@ public class Teleporter : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(other.gameObject);
             SceneManager.LoadScene("FinalBossBattle");
-            Scene battleScene = SceneManager.GetSceneByName("FinalBossBattle");
             transform.position = new Vector3(138f, 72.18f);
             other.transform.position = new Vector3(138f, 72.18f);
             FindObjectOfType<FinalBossLevelManager>().Pause();

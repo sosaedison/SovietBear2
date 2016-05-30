@@ -87,6 +87,7 @@ MonoBehaviour:
   animationIndex: 0
   staticIndex: 0
   animating: 0
+  overridePause: 0
 --- !u!114 &11415822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,10 +113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ee7bb5ed0a2ac4faf3a24f87e6cf4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBoss: 0
+  isBoss: 1
   current: 0
   max: 50
   expForKill: 0
+  potentialDrops: []
   dyingPrefab: {fileID: 175140, guid: 611848d62c83ba34e985aa5e3054bf3d, type: 2}
   damageCooldown: 0
 --- !u!114 &11457340
@@ -170,6 +172,8 @@ MonoBehaviour:
   bulletSpeed: 25
   coolDown: 0
   canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
 --- !u!212 &21201004
 SpriteRenderer:
   m_ObjectHideFlags: 1

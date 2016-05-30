@@ -81,7 +81,7 @@ public class LevelManager : MonoBehaviour {
             }
         }
 
-        if (levelComplete && Input.GetButton("Strafe"))
+        if (levelComplete && Input.GetButtonDown("Strafe"))
         {
             Pause();
             Scene worldMap = SceneManager.GetSceneByName("WorldMap");

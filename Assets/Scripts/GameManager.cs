@@ -7,17 +7,21 @@ public class GameManager : MonoBehaviour {
 
     public GameObject[] bosses;
     public GameObject[] players;
+    public AudioClip[] music;
+    public float[] musicLoopPoints;
+    public AudioSource musicPlayer;
     public GameObject levelManagerPrefab;
     public GameObject marker;
     public GameObject map;
     public GameObject continueText;
+
+    InfiniteBackgroundMusic infiniteMusic = new InfiniteBackgroundMusic();
 
     bool nextSceneLoaded;
     bool nextSceneReady;
     Scene nextScene;
     LevelManager currentLevelManager;
     GameObject playerPrefab;
-
     //animate marker
     Vector3 startPos;
     Vector3 endPos;
@@ -28,6 +32,8 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
+        int musicIndex = Random.Range(0, 3);
+        infiniteMusic.ChangeTrack(musicPlayer, music[musicIndex], musicLoopPoints[musicIndex]);
         SceneManager.LoadSceneAsync("Level", LoadSceneMode.Additive);
         nextScene = SceneManager.GetSceneByName("Level");
         currentLevelManager = (LevelManager)Instantiate(levelManagerPrefab).GetComponent<LevelManager>();
@@ -42,36 +48,33 @@ public class GameManager : MonoBehaviour {
 
     public void LoadNextLevel(LevelManager levelManager)
     {
-        if (levelManager.levelNumber == 3)
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("WorldMap"));
+        Camera cam = FindObjectOfType<Camera>();
+        cam.transform.position = Vector3.zero + Vector3.back * 10f;
+        cam.GetComponent<MoveCamera>().endPos = Vector3.zero + Vector3.back * 10f;
+        map.SetActive(true);
+        SceneManager.UnloadScene("Level");
+        string nextLevelName;
+        int musicIndex;
+        if (levelManager.levelNumber == 2)
         {
-            // you win
+            nextLevelName = "LabLevel";
+            musicIndex = 3;
         }
         else
         {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName("WorldMap"));
-            Camera cam = FindObjectOfType<Camera>();
-            cam.transform.position = Vector3.zero + Vector3.back * 10f;
-            cam.GetComponent<MoveCamera>().endPos = Vector3.zero + Vector3.back * 10f;
-            map.SetActive(true);
-            SceneManager.UnloadScene("Level");
-            string nextLevelName;
-            if (levelManager.levelNumber == 2)
-            {
-                nextLevelName = "LabLevel";
-            }
-            else
-            {
-                nextLevelName = "Level";
-            }
-            SceneManager.LoadSceneAsync(nextLevelName, LoadSceneMode.Additive);
-            nextScene = SceneManager.GetSceneByName(nextLevelName);
-            RefreshPlayer(levelManager.player);
-            levelManager.levelNumber++;
-            levelManager.boss = bosses[levelManager.levelNumber];
-            currentLevelManager = levelManager;
-            ResetMarker();
+            nextLevelName = "Level";
+            musicIndex = Random.Range(0, 3);
         }
-        
+        infiniteMusic.ChangeTrack(musicPlayer, music[musicIndex], musicLoopPoints[musicIndex]);
+        SceneManager.LoadSceneAsync(nextLevelName, LoadSceneMode.Additive);
+        nextScene = SceneManager.GetSceneByName(nextLevelName);
+        RefreshPlayer(levelManager.player);
+        levelManager.levelNumber++;
+        levelManager.boss = bosses[levelManager.levelNumber];
+        currentLevelManager = levelManager;
+        ResetMarker();
+
     }
 
     void RefreshPlayer(GameObject player)
@@ -137,10 +140,9 @@ public class GameManager : MonoBehaviour {
 
     void OnFailedGeneration()
     {
-        SceneManager.UnloadScene(nextScene.name);
         string nextLevelName;
         nextSceneLoaded = false;
-        if (currentLevelManager.levelNumber == 2)
+        if (currentLevelManager.levelNumber == 3)
         {
             nextLevelName = "LabLevel";
         }
@@ -148,6 +150,7 @@ public class GameManager : MonoBehaviour {
         {
             nextLevelName = "Level";
         }
+        SceneManager.UnloadScene(nextLevelName);
         SceneManager.LoadSceneAsync(nextLevelName, LoadSceneMode.Additive);
         nextScene = SceneManager.GetSceneByName(nextLevelName);
     }

@@ -268,6 +268,17 @@ MonoBehaviour:
   - {fileID: 114506, guid: ea007d82ea871664f8bcdbf2e278fe31, type: 2}
   - {fileID: 152410, guid: 6801b91d957891c40b5ef8a8bf36827d, type: 2}
   - {fileID: 170988, guid: 2a22e3df957c7b1498cfaa856d49e196, type: 2}
+  music:
+  - {fileID: 8300000, guid: 408c9b121855d9f4a8135ca50f45e23f, type: 3}
+  - {fileID: 8300000, guid: dbbf3b14a0a8f084898f78c22de8cd1d, type: 3}
+  - {fileID: 8300000, guid: 7a7f04ce1b732c3478a1ec4c0fa8db89, type: 3}
+  - {fileID: 8300000, guid: 85b2b7921f400ec46bd76834044fba57, type: 3}
+  musicLoopPoints:
+  - 3
+  - 1.6
+  - 3.608
+  - 0
+  musicPlayer: {fileID: 960145294}
   levelManagerPrefab: {fileID: 143040, guid: 973ee8646ef43c944affb73b9a4ab842, type: 2}
   marker: {fileID: 172012760}
   map: {fileID: 426486328}
@@ -414,6 +425,7 @@ GameObject:
   - 124: {fileID: 960145289}
   - 81: {fileID: 960145288}
   - 114: {fileID: 960145293}
+  - 82: {fileID: 960145294}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -503,3 +515,77 @@ MonoBehaviour:
   endPos: {x: 0, y: 0, z: 0}
   startTime: 0
   speed: 100
+--- !u!82 &960145294
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 960145287}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0

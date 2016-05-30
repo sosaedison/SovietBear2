@@ -26,8 +26,9 @@ public class LevelTile : MonoBehaviour {
             }
             else
             {
-                exitBlock.SetActive(true);
-                Instantiate(FindObjectOfType<LevelManager>().boss, transform.position + bossSpawnLocation, Quaternion.identity);
+                if (exitBlock != null)
+                    exitBlock.SetActive(true);
+                Instantiate(FindObjectOfType<LevelManager>().boss, transform.position + bossSpawnLocation + Vector3.back * -.6f, Quaternion.identity);
             }
         }
         else
