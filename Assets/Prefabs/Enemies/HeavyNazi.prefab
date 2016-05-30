@@ -219,6 +219,8 @@ MonoBehaviour:
   bulletSpeed: 0
   coolDown: 0
   canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
 --- !u!114 &11417232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -287,7 +289,7 @@ MonoBehaviour:
   isBoss: 0
   current: 0
   max: 16
-  expForKill: 0
+  expForKill: 20
   potentialDrops:
   - {fileID: 129092, guid: 916c90bae42978f449b9c8ce6375437f, type: 2}
   - {fileID: 198182, guid: ea5352c33b4c6544b8d751776bab61fb, type: 2}

@@ -66,6 +66,7 @@ public class HUDInteraction : MonoBehaviour {
 		{
 			for(int i=0; i<(playerHealth.current); i++)
 			{
+				PreviousRect = PreviousQuarter.GetComponent<RectTransform>();
 				int index = (LastHeartPlaced + 1) % 4;
 				NewQuarter = (GameObject) Instantiate(Quarters[index], PreviousRect.anchoredPosition + DisplacementVectors[index], Quaternion.identity);
 				NewQuarter.transform.SetParent(HealthUI.transform, false);

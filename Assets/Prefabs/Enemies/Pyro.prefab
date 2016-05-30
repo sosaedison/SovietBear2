@@ -256,7 +256,7 @@ MonoBehaviour:
   isBoss: 0
   current: 0
   max: 13
-  expForKill: 0
+  expForKill: 8
   potentialDrops:
   - {fileID: 198182, guid: ea5352c33b4c6544b8d751776bab61fb, type: 2}
   - {fileID: 140976, guid: 3ef742599e26bf541a52cb1491de1af3, type: 2}
@@ -282,6 +282,8 @@ MonoBehaviour:
   bulletSpeed: 0
   coolDown: 0
   canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
   prefab: {fileID: 191124, guid: 1d5b77e0871ec46898fd37807e155821, type: 2}
   flameFireCooldown: 0
 --- !u!114 &11464640

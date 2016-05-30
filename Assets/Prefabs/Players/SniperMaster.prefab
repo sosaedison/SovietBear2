@@ -296,6 +296,8 @@ MonoBehaviour:
   bulletSpeed: 60
   coolDown: 0.6
   canCollat: 1
+  shouldShoot: 0
+  shouldAutoShoot: 0
 --- !u!114 &11446498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,7 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   current: 0
-  max: 5
+  max: 12
   expForKill: 0
   potentialDrops: []
   dyingPrefab: {fileID: 126540, guid: 1e832c0ee21fe6240940ee62e9799899, type: 2}

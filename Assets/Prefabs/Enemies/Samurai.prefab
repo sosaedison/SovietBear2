@@ -297,6 +297,8 @@ MonoBehaviour:
   bulletSpeed: 0
   coolDown: 0
   canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
   canSwing: 1
 --- !u!114 &11445538
 MonoBehaviour:
@@ -348,7 +350,7 @@ MonoBehaviour:
   isBoss: 0
   current: 0
   max: 13
-  expForKill: 0
+  expForKill: 8
   potentialDrops:
   - {fileID: 198182, guid: ea5352c33b4c6544b8d751776bab61fb, type: 2}
   dyingPrefab: {fileID: 131672, guid: e22aeb99e3855ed489bb0990355330e0, type: 2}

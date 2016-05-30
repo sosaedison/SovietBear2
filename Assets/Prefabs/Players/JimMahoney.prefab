@@ -396,8 +396,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   current: 0
-  max: 5
+  max: 12
   expForKill: 0
+  potentialDrops: []
   dyingPrefab: {fileID: 122508, guid: 438033e0fedd01c4693291fba25308e4, type: 2}
   damageCooldown: 1
 --- !u!114 &11408676
@@ -473,6 +474,8 @@ MonoBehaviour:
   bulletSpeed: 30
   coolDown: 0.4
   canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
 --- !u!114 &11443264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -520,6 +523,8 @@ MonoBehaviour:
   bulletSpeed: 0
   coolDown: 0.2
   canCollat: 1
+  shouldShoot: 0
+  shouldAutoShoot: 0
   canSwing: 1
 --- !u!114 &11477880
 MonoBehaviour:
@@ -541,6 +546,8 @@ MonoBehaviour:
   bulletSpeed: 30
   coolDown: 0.25
   canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
 --- !u!114 &11490214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -580,6 +587,8 @@ MonoBehaviour:
   bulletSpeed: 6
   coolDown: 0
   canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
   prefab: {fileID: 191124, guid: 1d5b77e0871ec46898fd37807e155821, type: 2}
   flameFireCooldown: 0
 --- !u!114 &11493744
@@ -602,6 +611,8 @@ MonoBehaviour:
   bulletSpeed: 54
   coolDown: 0.75
   canCollat: 1
+  shouldShoot: 0
+  shouldAutoShoot: 0
 --- !u!114 &11494444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -622,6 +633,8 @@ MonoBehaviour:
   bulletSpeed: 30
   coolDown: 0.09
   canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
 --- !u!114 &11499844
 MonoBehaviour:
   m_ObjectHideFlags: 1
