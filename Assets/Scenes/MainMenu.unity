@@ -132,7 +132,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430280, guid: 14ad2ec64b8319f44bad0890be4e7069, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11444880, guid: 14ad2ec64b8319f44bad0890be4e7069, type: 2}
       propertyPath: buttons.Array.data[0]
