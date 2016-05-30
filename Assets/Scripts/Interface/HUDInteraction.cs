@@ -20,13 +20,16 @@ public class HUDInteraction : MonoBehaviour {
 	int LastHeartPlaced = 0;
 	public GameObject[] Quarters = new GameObject[4];
 	public GameObject PreviousQuarter;
+	RectTransform PreviousRect;
 	GameObject NewQuarter;
-	Vector3[] DisplacementVectors = {new Vector3(0f,15f,0f), new Vector3(23f,0f,0f), new Vector3(0f,-15f,0f), new Vector3(15f,0f,0f)};
+	//Vector3[] DisplacementVectors = {new Vector3(0f,15f,0f), new Vector3(23f,0f,0f), new Vector3(0f,-15f,0f), new Vector3(15f,0f,0f)};
+	Vector2[] DisplacementVectors = {new Vector2(0f,15f), new Vector2(23f,0f), new Vector2(0f,-15f), new Vector2(15f,0f)};
 	Vector3 PlaceHere;
 	int maxHP = 0;
 	public GameObject Outlineprefab;
 	public GameObject PreviousOutline;
 	GameObject NewOutline;
+	Vector2 OutlineDisplacement = new Vector2 (38f,0f);
 	int MaxExp = 60;
 	int currentExp;
 	int BearLvl = 1;
@@ -41,11 +44,10 @@ public class HUDInteraction : MonoBehaviour {
 		playerHealth = Player.GetComponent<Health>();
 		for(int i=0; i<playerHealth.max; i++)
 		{
+			PreviousRect = PreviousQuarter.GetComponent<RectTransform>();
 			int index = (LastHeartPlaced + 1) % 4;
-			PlaceHere = PreviousQuarter.transform.position + DisplacementVectors[index];
-			//NewQuarter = (GameObject) Instantiate(Quarters[index], (new Vector3(PreviousQuarter.transform.position.x, PreviousQuarter.transform.position.y, 0f)+DisplacementVectors[index]), Quaternion.identity);
-			NewQuarter = (GameObject) Instantiate(Quarters[index], PlaceHere, Quaternion.identity);
-			NewQuarter.transform.SetParent(HealthUI.transform, true);
+			NewQuarter = (GameObject) Instantiate(Quarters[index], PreviousRect.anchoredPosition + DisplacementVectors[index], Quaternion.identity);
+			NewQuarter.transform.SetParent(HealthUI.transform, false);
 			HeartPieces.Add(NewQuarter);
 			PreviousQuarter = NewQuarter;
 			LastHeartPlaced++;
@@ -65,8 +67,8 @@ public class HUDInteraction : MonoBehaviour {
 			for(int i=0; i<(playerHealth.current); i++)
 			{
 				int index = (LastHeartPlaced + 1) % 4;
-				NewQuarter = (GameObject) Instantiate(Quarters[index], (new Vector3(PreviousQuarter.transform.position.x, PreviousQuarter.transform.position.y, 0f))+DisplacementVectors[index], Quaternion.identity);
-				NewQuarter.transform.SetParent(HealthUI.transform, true);
+				NewQuarter = (GameObject) Instantiate(Quarters[index], PreviousRect.anchoredPosition + DisplacementVectors[index], Quaternion.identity);
+				NewQuarter.transform.SetParent(HealthUI.transform, false);
 				HeartPieces.Add(NewQuarter);
 				PreviousQuarter = NewQuarter;
 				LastHeartPlaced++;
@@ -81,12 +83,13 @@ public class HUDInteraction : MonoBehaviour {
 		}
 		if (playerHealth.max > maxHP)
 		{
-			NewOutline = (GameObject) Instantiate(Outlineprefab, new Vector3(PreviousOutline.transform.position.x + 38f, PreviousOutline.transform.position.y, -1f), Quaternion.identity);
-			NewOutline.transform.SetParent(HealthUI.transform, true);
+			NewOutline = (GameObject) Instantiate(Outlineprefab, PreviousOutline.GetComponent<RectTransform>().anchoredPosition + OutlineDisplacement, Quaternion.identity);
+			NewOutline.transform.SetParent(HealthUI.transform, false);
 			NewOutline.transform.SetAsFirstSibling();
 			PreviousOutline = NewOutline;
 			maxHP += 4;
 		}
+
 		// Ammo Display
 		Weapon currentWeapon = Player.GetComponent<Management>().weapons[Player.GetComponent<Management>().WeaponSlot].GetComponent<Weapon>();
 		//HUDAmmo.text = currentWeapon.ammo.ToString()+"/"+currentWeapon.maxAmmo.ToString();
