@@ -116,7 +116,7 @@ MonoBehaviour:
   isBoss: 1
   current: 0
   max: 50
-  expForKill: 0
+  expForKill: 48
   potentialDrops: []
   dyingPrefab: {fileID: 175140, guid: 611848d62c83ba34e985aa5e3054bf3d, type: 2}
   damageCooldown: 0

@@ -130,7 +130,7 @@ MonoBehaviour:
   isBoss: 0
   current: 0
   max: 4
-  expForKill: 0
+  expForKill: 2
   potentialDrops:
   - {fileID: 198182, guid: ea5352c33b4c6544b8d751776bab61fb, type: 2}
   dyingPrefab: {fileID: 170360, guid: 561a6548aa062164c87e4157eb4180ed, type: 2}

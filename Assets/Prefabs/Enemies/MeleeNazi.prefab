@@ -241,7 +241,7 @@ MonoBehaviour:
   potentialDrops:
   - {fileID: 198182, guid: ea5352c33b4c6544b8d751776bab61fb, type: 2}
   dyingPrefab: {fileID: 112256, guid: c17dff42a43b8a54dacd33f67aebbf59, type: 2}
-  damageCooldown: 0
+  damageCooldown: 4
 --- !u!114 &11426990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -327,6 +327,8 @@ MonoBehaviour:
   bulletSpeed: 0
   coolDown: 0
   canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
   canSwing: 1
 --- !u!114 &11483656
 MonoBehaviour:
