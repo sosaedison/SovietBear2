@@ -81,8 +81,8 @@ public class BossHeavyCombat : BossCombat {
             attackFrameCount = 0;
             if (attackIndex == 0) // normal shoot
             {
-                int length = Random.Range(1, 3);
-                attackLength = (int)(lmg.coolDown * 60f) * length * 5;
+                int length = Random.Range(1, 4);
+                attackLength = (int)(lmg.coolDown * 60f) * length * 2;
             }
             else if (attackIndex == 1) // jump and shoot
             {
