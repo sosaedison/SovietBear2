@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour {
 
 	public void GameOver()
     {
+        currentExp = 0;
         FindObjectOfType<HUDInteraction>().ShowGameOver();
         musicPlayer.PlaySingleLoop(gameOverMusic);
     }

@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour {
         {
             tempBulletOffset.x *= -1.0f;
         }
-        GameObject bullet = (GameObject)Instantiate(Bullet, transform.position + (Vector3) tempBulletOffset + Vector3.back * .3f, Quaternion.identity);
+        GameObject bullet = (GameObject)Instantiate(Bullet, transform.position + (Vector3) tempBulletOffset + Vector3.back * .1f, Quaternion.identity);
         BulletMotion bulletMotion = bullet.GetComponent<BulletMotion>();
         bulletMotion.direction = direction;
         bulletMotion.speed = bulletSpeed;
@@ -38,13 +38,16 @@ public class Weapon : MonoBehaviour {
 
     protected void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (equipped)
         {
-            shouldShoot = true;
-        } 
-        if (Input.GetButton("Fire1"))
-        {
-            shouldAutoShoot = true;
+            if (Input.GetButtonDown("Fire1"))
+            {
+                shouldShoot = true;
+            }
+            if (Input.GetButton("Fire1"))
+            {
+                shouldAutoShoot = true;
+            }
         }
     }
 	

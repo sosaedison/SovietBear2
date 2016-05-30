@@ -35,23 +35,26 @@ public class BulletMotion : MonoBehaviour
     }
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		Health health = other.gameObject.GetComponent<Health>();
-		if (health != null)
-		{
-			health.TakeDamage(damage);
-		}
-		if (canCollat) 
-		{
-			collat--;
-			if (collat <= 0)
-			{
-				Destroy(gameObject);
-			}
-		}
-		else 
-		{
-			Destroy(gameObject);
-		}
+        if (!other.isTrigger)
+        {
+            Health health = other.gameObject.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+            }
+            if (canCollat)
+            {
+                collat--;
+                if (collat <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
 	}
     void OnPause()
     {

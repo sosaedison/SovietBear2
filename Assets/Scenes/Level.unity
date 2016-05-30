@@ -393,13 +393,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22483932, guid: 581f8eef3656c49649507b31ec74ce81, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22483932, guid: 581f8eef3656c49649507b31ec74ce81, type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 161426, guid: 581f8eef3656c49649507b31ec74ce81, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 155238, guid: 581f8eef3656c49649507b31ec74ce81, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
