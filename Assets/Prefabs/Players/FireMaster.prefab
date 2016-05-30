@@ -122,7 +122,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 85.43976, y: -2.5170865, z: -1}
+  m_LocalPosition: {x: 16.566666, y: 1.0355089, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 469794}
@@ -239,6 +239,8 @@ MonoBehaviour:
   bulletSpeed: 0
   coolDown: 0
   canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
   prefab: {fileID: 191124, guid: 1d5b77e0871ec46898fd37807e155821, type: 2}
   flameFireCooldown: 0
 --- !u!114 &11429414
@@ -387,7 +389,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5b05a3d1d97459341abbc1cdcb49e1a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50fe52d3bde4c084ab2e2506e09d53b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

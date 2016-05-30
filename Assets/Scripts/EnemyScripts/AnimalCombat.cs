@@ -86,7 +86,7 @@ public class AnimalCombat : EnemyCombat {
         else
         {
             Health health = other.gameObject.GetComponent<Health>();
-            if (health != null)
+            if (health != null && other.gameObject.CompareTag("Player"))
             {
                 if (pouncing)
                 {
