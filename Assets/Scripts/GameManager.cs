@@ -71,7 +71,10 @@ public class GameManager : MonoBehaviour {
         nextScene = SceneManager.GetSceneByName(nextLevelName);
         RefreshPlayer(levelManager.player);
         levelManager.levelNumber++;
-        levelManager.boss = bosses[levelManager.levelNumber];
+        if (levelManager.levelNumber < bosses.Length - 1)
+        {
+            levelManager.boss = bosses[levelManager.levelNumber];
+        }
         currentLevelManager = levelManager;
         ResetMarker();
 
