@@ -11,8 +11,6 @@ public class PlayerSelect : MonoBehaviour {
 
     void Start()
     {
-        PlayerPrefs.SetInt("UnlockedCharacters", 0);
-        PlayerPrefs.Save();
         UnlockPlayers();
     }
 
@@ -30,7 +28,7 @@ public class PlayerSelect : MonoBehaviour {
     public void PlayerSelected(int playerIndex)
     {
         if (playerIndex < 13)
-            PlayerPrefs.SetInt("CurrentPlayer", playerIndex);
+            PlayerPrefs.SetInt("CurrentCharacter", playerIndex);
         SceneManager.LoadScene("WorldMap");
     }
 
@@ -50,9 +48,17 @@ public class PlayerSelect : MonoBehaviour {
 
         if (currentKeyIndex == konamiCode.Length)  // If currentKeyIndex reaches the length of the konamiCode string, 
         {
-            PlayerPrefs.SetInt("UnlockedCharacters", 12);
+            if (PlayerPrefs.GetInt("UnlockedCharacters") == 12)
+            {
+                PlayerPrefs.SetInt("UnlockedCharacters", 0);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("UnlockedCharacters", 12); 
+            }
             PlayerPrefs.Save();
             UnlockPlayers();
+            currentKeyIndex = 0;
         }
     }
 }

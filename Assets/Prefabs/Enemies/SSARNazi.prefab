@@ -118,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.872396, y: -1.9119228, z: -1}
+  m_LocalPosition: {x: 1439.3866, y: -74.55752, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 446468}
@@ -185,14 +185,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ab0bc02af1949cfacb9477caf0cd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 0}
+  Bullet: {fileID: 198738, guid: a17d0a6bdb837427c90bf75a75385af9, type: 2}
   bulletOffset: {x: 3.24, y: 0.4}
   equipped: 1
   ammo: 100
   maxAmmo: 21
-  damage: 0
-  bulletSpeed: 0
-  coolDown: 0
+  damage: 2
+  bulletSpeed: 30
+  coolDown: 0.4
   canCollat: 0
   shouldShoot: 0
   shouldAutoShoot: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   staticSprites:
   - {fileID: 21300000, guid: a43fba27e21b41442b3f8bd560648775, type: 3}
   - {fileID: 21300000, guid: 41aa2d2ba6a9e024382a9aa80e499368, type: 3}
-  spriteGap: 10
+  spriteGap: 0.6
   animationIndex: 0
   staticIndex: 0
   animating: 0

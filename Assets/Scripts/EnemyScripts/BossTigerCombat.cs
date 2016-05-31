@@ -4,13 +4,13 @@ using System.Collections;
 public class BossTigerCombat : AnimalCombat {
     Health health;
 
-    new void Start()
+    override protected void Start()
     {
         base.Start();
         health = GetComponent<Health>();
     }
 	// Update is called once per frame
-	new void Update () {
+	override protected void Update () {
         base.Update();
         if (health.current <= health.max / 2)
         {

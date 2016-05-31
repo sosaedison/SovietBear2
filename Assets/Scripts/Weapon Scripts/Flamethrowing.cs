@@ -9,10 +9,7 @@ public class Flamethrowing : Weapon {
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 	override public void AutoShoot (Vector2 direction)
 	{
 		if (ammo > 0)

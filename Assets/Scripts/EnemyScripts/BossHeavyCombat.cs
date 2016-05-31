@@ -9,7 +9,7 @@ public class BossHeavyCombat : BossCombat {
     int attackLength;
     int attackFrameCount;
 
-    new void Start () {
+    override protected void Start () {
         base.Start();
         lmg = GetComponentInChildren<Weapon>();
         mainAttacks = 3;

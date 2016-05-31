@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Teleporter : MonoBehaviour {
 
     public Sprite activeSprite;
+    public AudioClip bossMusic;
 
     bool canTeleport = false;
 
@@ -21,7 +22,7 @@ public class Teleporter : MonoBehaviour {
             canTeleport = false;
             Health playerHealth = other.gameObject.GetComponent<Health>();
             playerHealth.current = playerHealth.max;
-
+            FindObjectOfType<LevelManager>().musicPlayer.ChangeTrack(bossMusic, 41.143f);
             transform.parent = null;
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(other.gameObject);

@@ -14,7 +14,7 @@ public class AnimalCombat : EnemyCombat {
     public float waitTime;
 
 	// Use this for initialization
-	new void Start () {
+	protected override void Start () {
         base.Start();
         sprite = GetComponent<AnimateSprite>();
         movement = GetComponent<EnemyMovement>();
@@ -43,7 +43,7 @@ public class AnimalCombat : EnemyCombat {
     }
 	
 	// Update is called once per frame
-	new void Update () {
+	override protected void Update () {
         base.Update();
         if (!LevelManager.isPaused())
         {

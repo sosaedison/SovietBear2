@@ -149,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.28948, y: -4.8558936, z: -1}
+  m_LocalPosition: {x: 381.98218, y: -72.46667, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 471040}
@@ -167,7 +167,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2.5
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -264,7 +264,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 762ef20d0ea034b86a52d1f526d6463a, type: 3}
   staticSprites:
   - {fileID: 21300000, guid: 762ef20d0ea034b86a52d1f526d6463a, type: 3}
-  spriteGap: 4
+  spriteGap: 0.067
   animationIndex: 0
   staticIndex: 0
   animating: 1
@@ -283,8 +283,8 @@ MonoBehaviour:
   xVelocityFactor: 32
   canJump: 0
   crouching: 0
-  jumpPower: 800
-  jetpackPower: 16
+  jumpPower: 1200
+  jetpackPower: 24
   jetpackDuration: 3
   handAnchor: {fileID: 194336}
   jetpackFire: {fileID: 162388}

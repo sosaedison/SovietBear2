@@ -15,7 +15,7 @@ public abstract class BossCombat : MonoBehaviour {
     Health health;
     int frameCount;
 
-    protected void Start () {
+    protected virtual void Start () {
         health = GetComponent<Health>();
         player = GameObject.FindGameObjectWithTag("Player");
 	}

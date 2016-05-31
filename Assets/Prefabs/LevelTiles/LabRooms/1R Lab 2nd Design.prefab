@@ -1188,7 +1188,10 @@ MonoBehaviour:
   coordinates: {x: 25, y: 25}
   exitBlock: {fileID: 0}
   teleporter: {fileID: 126614}
-  enemySpawners: []
+  enemySpawners:
+  - {fileID: 109776}
+  - {fileID: 170546}
+  - {fileID: 159334}
   enemiesSpawned: 0
   bossSpawnLocation: {x: 0, y: 0, z: 0}
 --- !u!114 &11424404
@@ -1247,6 +1250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeSprite: {fileID: 21300000, guid: 79a03dbc25220f5418ef50c4ccacd192, type: 3}
+  bossMusic: {fileID: 8300000, guid: af4e0fcf6c304bd4d92880ea87e81d7d, type: 3}
 --- !u!114 &11490436
 MonoBehaviour:
   m_ObjectHideFlags: 1

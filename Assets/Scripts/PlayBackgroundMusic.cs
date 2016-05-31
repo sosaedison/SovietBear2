@@ -10,7 +10,7 @@ public class PlayBackgroundMusic : MonoBehaviour {
     void Awake () {
         DontDestroyOnLoad(gameObject);
         source = GetComponent<AudioSource>();
-        infiniteMusic.ChangeTrack(source, startingMusic, loopPoint);
+        //infiniteMusic.ChangeTrack(source, startingMusic, loopPoint);
     }
 
     public void ChangeTrack(AudioClip newTrack, float newLoopPoint)

@@ -5,7 +5,7 @@ public class EnemyCombat : MonoBehaviour {
     [System.NonSerialized] public PlayerDetectionAI playerDetectionAI;
 
     // Use this for initialization
-    protected void Start () {
+    protected virtual void Start () {
         playerDetectionAI = GetComponent<PlayerDetectionAI>();
     }
 
@@ -17,7 +17,7 @@ public class EnemyCombat : MonoBehaviour {
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
         if (playerDetectionAI.playerVisible && !LevelManager.isPaused())
         {

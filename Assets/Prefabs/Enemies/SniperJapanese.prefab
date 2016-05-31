@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.226532, y: -0.96756583, z: -1}
+  m_LocalPosition: {x: 22.76962, y: -0.75512487, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 427414}
@@ -212,8 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   current: 0
-  max: 12
-  expForKill: 8
+  max: 8
+  expForKill: 6
   potentialDrops:
   - {fileID: 188474, guid: 5f53a0261c430334095cdf591a8350a9, type: 2}
   - {fileID: 198182, guid: ea5352c33b4c6544b8d751776bab61fb, type: 2}
@@ -250,7 +250,7 @@ MonoBehaviour:
   staticSprites:
   - {fileID: 21300000, guid: 05886056b4ccc6f45ac970e6a64b809a, type: 3}
   - {fileID: 21300000, guid: 08376f988c4380747b5389a559eaab9e, type: 3}
-  spriteGap: 10
+  spriteGap: 0.6
   animationIndex: 0
   staticIndex: 0
   animating: 0
@@ -266,15 +266,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81b62e517a21418ab09897bba92293c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 0}
+  Bullet: {fileID: 198738, guid: a17d0a6bdb837427c90bf75a75385af9, type: 2}
   bulletOffset: {x: 2.7, y: 0.4}
   equipped: 1
   ammo: 10
   maxAmmo: 10
-  damage: 0
-  bulletSpeed: 0
-  coolDown: 0
-  canCollat: 0
+  damage: 12
+  bulletSpeed: 54
+  coolDown: 0.75
+  canCollat: 1
   shouldShoot: 0
   shouldAutoShoot: 0
 --- !u!114 &11443508

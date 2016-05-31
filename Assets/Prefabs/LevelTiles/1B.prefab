@@ -2060,7 +2060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  direction: 1
+  direction: 3
 --- !u!114 &11484652
 MonoBehaviour:
   m_ObjectHideFlags: 1

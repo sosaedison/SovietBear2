@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 1
   current: 0
-  max: 50
+  max: 75
   expForKill: 48
   potentialDrops: []
   dyingPrefab: {fileID: 175140, guid: 611848d62c83ba34e985aa5e3054bf3d, type: 2}

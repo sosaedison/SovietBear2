@@ -1403,10 +1403,10 @@ MonoBehaviour:
   isBossRoom: 0
   coordinates: {x: 0, y: 0}
   exitBlock: {fileID: 0}
+  teleporter: {fileID: 0}
   enemySpawners:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 109284}
+  - {fileID: 188192}
   enemiesSpawned: 0
   bossSpawnLocation: {x: 0, y: 0, z: 0}
 --- !u!212 &21204174

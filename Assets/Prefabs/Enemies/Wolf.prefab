@@ -170,8 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a31c8f5828fd4049b2d5d20cdf00e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 4
-  pounceDamage: 6
+  baseDamage: 1
+  pounceDamage: 2
   waitTime: 0.5
 --- !u!114 &11474856
 MonoBehaviour:
@@ -209,7 +209,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d9be6f70cc9524f438d379e7fe96994b, type: 3}
   - {fileID: 21300000, guid: d4bf0c315f0604b42a189d81818a1734, type: 3}
   - {fileID: 21300000, guid: b8981c6b0dc2a5145a236470737a5de6, type: 3}
-  spriteGap: 10
+  spriteGap: 0.6
   animationIndex: 0
   staticIndex: 0
   animating: 0
@@ -227,8 +227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   current: 0
-  max: 5
-  expForKill: 2
+  max: 8
+  expForKill: 3
   potentialDrops:
   - {fileID: 198182, guid: ea5352c33b4c6544b8d751776bab61fb, type: 2}
   dyingPrefab: {fileID: 137364, guid: 6ede7794f39f34f49b86bfb0dad30c08, type: 2}

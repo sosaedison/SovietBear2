@@ -215,7 +215,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 426486328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 4.067361, y: 4.067361, z: 4.067361}
   m_Children:
   - {fileID: 828411682}
@@ -278,6 +278,7 @@ MonoBehaviour:
   - 1.6
   - 3.608
   - 0
+  mahoneyMusic: {fileID: 8300000, guid: 1f335dff8086a4a409c3c2bb27d68d3a, type: 3}
   musicPlayer: {fileID: 0}
   levelManagerPrefab: {fileID: 143040, guid: 973ee8646ef43c944affb73b9a4ab842, type: 2}
   marker: {fileID: 172012760}
@@ -407,8 +408,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 931539873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.35, z: -1.8291959}
-  m_LocalScale: {x: 0.84164786, y: 0.84164786, z: 0.84164786}
+  m_LocalPosition: {x: 0, y: -4.35, z: 0}
+  m_LocalScale: {x: 0.67204726, y: 0.67204726, z: 0.67204726}
   m_Children: []
   m_Father: {fileID: 426486330}
   m_RootOrder: 2
@@ -462,7 +463,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0.16470589, g: 0.1764706, b: 0.20000002, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -473,7 +474,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 24.186125
+  orthographic size: 31.361921
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

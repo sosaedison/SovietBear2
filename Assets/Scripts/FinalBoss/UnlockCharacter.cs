@@ -5,6 +5,7 @@ public class UnlockCharacter : MonoBehaviour {
 
     public Sprite[] characterSprites;
     public Sprite[] victorySprites;
+    public Sprite brokenCageSprite;
     public GameObject newCharacter;
     public GameObject painting;
     public GameObject saveText;
@@ -46,6 +47,7 @@ public class UnlockCharacter : MonoBehaviour {
             saveText.SetActive(false);
             hud.SetActive(false);
             Instantiate(characterSprite, player.transform.position, player.transform.rotation);
+            GetComponent<SpriteRenderer>().sprite = brokenCageSprite;
             characterSprite.GetComponent<SpriteRenderer>().sprite = victorySprites[PlayerPrefs.GetInt("CurrentCharacter")];
             Destroy(player);
             cam.transform.position = new Vector3(-20, 89, -10);

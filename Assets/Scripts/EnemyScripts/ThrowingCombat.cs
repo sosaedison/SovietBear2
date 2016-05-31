@@ -5,7 +5,7 @@ public class ThrowingCombat : EnemyCombat {
 
     EnemyMovement movement;
 
-    new void Start()
+    override protected void Start()
     {
         base.Start();
         movement = GetComponent<EnemyMovement>();

@@ -175,7 +175,7 @@ MonoBehaviour:
   staticSprites:
   - {fileID: 21300000, guid: e906f40f6bf561c4ebccdfe856263916, type: 3}
   - {fileID: 21300000, guid: f0e1a899a5e254c4cbe6e2e900e75f6e, type: 3}
-  spriteGap: 10
+  spriteGap: 0.6
   animationIndex: 0
   staticIndex: 0
   animating: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 1
   current: 0
-  max: 100
+  max: 50
   expForKill: 36
   potentialDrops: []
   dyingPrefab: {fileID: 147404, guid: f651bbcc8e46a32438675255d26a0187, type: 2}
