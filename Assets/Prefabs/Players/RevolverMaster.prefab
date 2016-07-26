@@ -42,6 +42,7 @@ GameObject:
   - 4: {fileID: 450966}
   - 212: {fileID: 21263262}
   - 114: {fileID: 11481674}
+  - 114: {fileID: 11420214}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -146,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 271.9798, y: -128.579, z: -1}
+  m_LocalPosition: {x: -2.1224785, y: -0.24630958, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400680}
@@ -206,6 +207,32 @@ MonoBehaviour:
   staticIndex: 0
   animating: 1
   overridePause: 0
+--- !u!114 &11420214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8442aa700574b4e8d5a49cf9fa3e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 198738, guid: a17d0a6bdb837427c90bf75a75385af9, type: 2}
+  bulletOffset: {x: 1.25, y: 0.34}
+  equipped: 1
+  ammo: 100000
+  maxAmmo: 100000
+  damage: 7
+  bulletSpeed: 30
+  coolDown: 0.2
+  canCollat: 1
+  shouldShoot: 0
+  shouldAutoShoot: 0
+  shotsBeforePause: 7
+  pauseTimeInFrames: 120
+  shotsBeforePauseAlso: 7
+  pauseTimeInFramesAlso: 120
 --- !u!114 &11421472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,7 +342,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118478}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 347483abe38c0407fb74162c2554b133, type: 3}
   m_Name: 

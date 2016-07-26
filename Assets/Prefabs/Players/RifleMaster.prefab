@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 474464}
   - 212: {fileID: 21259724}
   - 114: {fileID: 11470088}
+  - 114: {fileID: 11420588}
   m_Layer: 0
   m_Name: AR
   m_TagString: Untagged
@@ -110,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 193.0892, y: -109.68969, z: -1}
+  m_LocalPosition: {x: -9.597281, y: -2.9065516, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 468298}
@@ -197,6 +198,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeCollider: {fileID: 6158076}
   ignoredColliders: []
+--- !u!114 &11420588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8c77256c28bbe4782efdf3d13dbea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 198738, guid: a17d0a6bdb837427c90bf75a75385af9, type: 2}
+  bulletOffset: {x: 2.65, y: 0.73}
+  equipped: 1
+  ammo: 1000000
+  maxAmmo: 1000000
+  damage: 5
+  bulletSpeed: 30
+  coolDown: 0.5
+  canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
+  shotsBeforePause: 30
+  pauseTimeInFrames: 180
+  shotsBeforePauseAlso: 30
+  pauseTimeInFramesAlso: 180
 --- !u!114 &11430292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,7 +285,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102544}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33ab0bc02af1949cfacb9477caf0cd62, type: 3}
   m_Name: 

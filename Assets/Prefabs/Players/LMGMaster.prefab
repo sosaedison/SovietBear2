@@ -82,6 +82,7 @@ GameObject:
   - 4: {fileID: 421640}
   - 212: {fileID: 21245636}
   - 114: {fileID: 11472348}
+  - 114: {fileID: 11415300}
   m_Layer: 0
   m_Name: LMG
   m_TagString: Untagged
@@ -132,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 359.20392, y: -143.02376, z: -1}
+  m_LocalPosition: {x: -8.982303, y: -4.034014, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 454762}
@@ -222,6 +223,32 @@ MonoBehaviour:
   staticIndex: 0
   animating: 0
   overridePause: 0
+--- !u!114 &11415300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b44bc24cb1cdb545866953d66aad0e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 198738, guid: a17d0a6bdb837427c90bf75a75385af9, type: 2}
+  bulletOffset: {x: 3.24, y: 0.4}
+  equipped: 1
+  ammo: 10000000
+  maxAmmo: 10000000
+  damage: 5
+  bulletSpeed: 30
+  coolDown: 0.12
+  canCollat: 0
+  shouldShoot: 0
+  shouldAutoShoot: 0
+  shotsBeforePause: 30
+  pauseTimeInFrames: 420
+  shotsBeforePauseAlso: 30
+  pauseTimeInFramesAlso: 420
 --- !u!114 &11444346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,7 +277,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182232}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d82d6a0d38194dbc90351720c86ceb4, type: 3}
   m_Name: 
@@ -277,11 +304,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef97e4bdbf87b4385930dab95f90c5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xVelocityFactor: 18
+  xVelocityFactor: 12
   canJump: 0
   crouching: 0
   jumpPower: 1200
-  jetpackPower: 24
+  jetpackPower: 12
   jetpackDuration: 2
   handAnchor: {fileID: 123706}
   jetpackFire: {fileID: 151584}

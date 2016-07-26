@@ -67,6 +67,7 @@ GameObject:
   - 4: {fileID: 409622}
   - 212: {fileID: 21287318}
   - 114: {fileID: 11442356}
+  - 114: {fileID: 11427888}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Untagged
@@ -96,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 343.09247, y: -113.57867, z: -1}
+  m_LocalPosition: {x: -8.879806, y: -3.4531999, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424428}
@@ -276,13 +277,39 @@ MonoBehaviour:
   jetpackDuration: 3
   handAnchor: {fileID: 190024}
   jetpackFire: {fileID: 114698}
---- !u!114 &11442356
+--- !u!114 &11427888
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179934}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0e7ad600778cd47af51a414c4038a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 198738, guid: a17d0a6bdb837427c90bf75a75385af9, type: 2}
+  bulletOffset: {x: 3.55, y: 0.97}
+  equipped: 1
+  ammo: 10000000
+  maxAmmo: 10000000
+  damage: 10
+  bulletSpeed: 60
+  coolDown: 0.6
+  canCollat: 1
+  shouldShoot: 0
+  shouldAutoShoot: 0
+  shotsBeforePause: 10
+  pauseTimeInFrames: 300
+  shotsBeforePauseAlso: 10
+  pauseTimeInFramesAlso: 300
+--- !u!114 &11442356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179934}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b81b62e517a21418ab09897bba92293c, type: 3}
   m_Name: 
